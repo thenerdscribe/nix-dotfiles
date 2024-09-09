@@ -1,0 +1,24 @@
+layout {
+    cwd "/Users/ryanmorton/Sites/registerpic"
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+    }
+    tab name="editor" focus=true {
+            pane size="20%"
+            pane size="80%" focus=true command="nvim" {
+            args  "."
+        }
+    }
+    tab name="watchers" {
+            pane command="npm" {
+            args "run" "dev"
+        }
+        pane
+    }
+    tab name="scratch" cwd="/Users/ryanmorton" {
+            pane
+    }
+}

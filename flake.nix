@@ -1,0 +1,81 @@
+{
+  description = "ryanmorton system management";
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    darwin.url = "github:lnl7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs =
+    {
+      self,
+      nixpkgs,
+      darwin,
+      home-manager,
+      ...
+    }:
+    {
+      # packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
+      # packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
+
+      darwinConfigurations."Ryans-Mac-Mini" = darwin.lib.darwinSystem {
+        system = "x86_64-darwin";
+        pkgs = import nixpkgs {
+          system = "x86_64-darwin";
+          config = {
+            allowUnfree = true;
+            allowUnfreePredicate = _: true;
+          };
+        };
+        modules = [
+          (
+            { pkgs, ... }:
+            {
+              users.users.ryanmorton = {
+                name = "ryanmorton";
+                home = "/Users/ryanmorton";
+              };
+              programs.zsh.enable = true;
+              # homebrew.enable = true;
+              # homebrew.brews = [ ];
+              environment = {
+                shells = [
+                  pkgs.bash
+                  pkgs.zsh
+                ];
+                loginShell = pkgs.zsh;
+                systemPackages = [
+                  pkgs.coreutils
+                  pkgs.git
+                  pkgs.curl
+                  pkgs.wget
+                  pkgs.zellij
+                  pkgs.jankyborders
+                ];
+              };
+              nix.extraOptions = ''
+                experimental-features = nix-command flakes
+              '';
+              services.nix-daemon.enable = true;
+              system.stateVersion = 4;
+            }
+          )
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.ryanmorton.imports = [
+                ./modules/home-manager
+              ];
+            };
+          }
+        ];
+      };
+    };
+}

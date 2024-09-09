@@ -1,0 +1,28 @@
+layout {
+    cwd "/Users/ryanmorton/Sites/ospos-web"
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+    }
+    tab name="web" focus=true {
+            pane size="10%"
+            pane size="90%" focus=true name="Editor" command="nvim" {
+            args  "."
+        }
+    }
+    tab name="api" cwd="/Users/ryanmorton/Sites/api-ospos" {
+            pane size="10%"
+            pane size="90%" name="Editor" command="nvim" {
+            args  "."
+        }
+    }
+    tab name="watchers" {
+        pane name="Server" command="/usr/local/bin/start_ospos_server"  
+        pane
+    }
+    tab name="scratch" cwd="/Users/ryanmorton/" {
+            pane
+    }
+}

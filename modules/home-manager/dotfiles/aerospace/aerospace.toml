@@ -1,0 +1,126 @@
+# Reference: https://github.com/i3/i3/blob/next/etc/config
+
+enable-normalization-flatten-containers = false
+enable-normalization-opposite-orientation-for-nested-containers = true
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+start-at-login = true
+
+after-startup-command = [
+     'exec-and-forget ~/.config/aerospace/make_borders.sh 8839ef 4c4f69 10'
+]
+
+# Mouse follows focus when focused monitor changes
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+[gaps]
+inner.horizontal = 15
+inner.vertical =   15
+outer.left =       15
+outer.bottom =     15
+outer.top =        15
+outer.right =      15
+
+
+[mode.main.binding]
+cmd-ctrl-h = 'focus left'
+cmd-ctrl-j = 'focus down'
+cmd-ctrl-k = 'focus up'
+cmd-ctrl-l = 'focus right'
+
+
+
+alt-tab = 'workspace-back-and-forth'
+cmd-ctrl-f = 'fullscreen'
+cmd-ctrl-space = 'layout floating tiling' # 'floating toggle' in i3
+
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+
+cmd-ctrl-1 = 'move-node-to-workspace 1'
+cmd-ctrl-2 = 'move-node-to-workspace 2'
+cmd-ctrl-3 = 'move-node-to-workspace 3'
+cmd-ctrl-4 = 'move-node-to-workspace 4'
+cmd-ctrl-5 = 'move-node-to-workspace 5'
+cmd-ctrl-6 = 'move-node-to-workspace 6'
+
+
+cmd-ctrl-r = [
+    'exec-and-forget ~/.config/aerospace/make_borders.sh ea76cb 4c4f69 10',
+    'mode resize'
+]
+cmd-ctrl-m = [
+     'exec-and-forget ~/.config/aerospace/make_borders.sh 04a5e5 4c4f69 10',
+    'mode move'
+]
+cmd-ctrl-e = [
+     'exec-and-forget ~/.config/aerospace/make_borders.sh d20f39 4c4f69 10',
+    'mode tile'
+]
+
+[mode.resize.binding]
+minus = 'resize smart -50'
+equal = 'resize smart +50'
+ctrl-cmd-m = [
+     'exec-and-forget $HOME/.config/aerospace/make_borders.sh 04a5e5 4c4f69 10',
+    'mode move'
+]
+ctrl-cmd-r = [
+     'exec-and-forget ~/.config/aerospace/make_borders.sh 8839ef 4c4f69 10',
+    'mode main'
+]
+cmd-ctrl-e = [
+     'exec-and-forget ~/.config/aerospace/make_borders.sh d20f39 4c4f69 10',
+    'mode tile'
+]
+
+[mode.move.binding]
+h = 'move left'
+j = 'move down'
+k = 'move up'
+l = 'move right'
+ctrl-cmd-r = [
+     'exec-and-forget ~/.config/aerospace/make_borders.sh ea76cb 4c4f69 10',
+    'mode resize'
+]
+ctrl-cmd-m = [
+     'exec-and-forget ~/.config/aerospace/make_borders.sh 8839ef 4c4f69 10',
+    'mode main'
+]
+cmd-ctrl-e = [
+     'exec-and-forget ~/.config/aerospace/make_borders.sh d20f39 4c4f69 10',
+    'mode tile'
+]
+
+[mode.tile.binding]
+r = ['reload-config', 'exec-and-forget echo "Aerospace config reloaded..." | terminal-notifier']
+v = 'layout v_accordion' # 'layout stacking' in i3
+h = 'layout h_accordion' # 'layout tabbed' in i3
+t = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+minus = 'split vertical'
+backslash = 'split horizontal'
+0 = ['flatten-workspace-tree']
+cmd-ctrl-e = [
+     'exec-and-forget ~/.config/aerospace/make_borders.sh 8839ef 4c4f69 10',
+    'mode main'
+]
+cmd-ctrl-r = [
+    'exec-and-forget ~/.config/aerospace/make_borders.sh ea76cb 4c4f69 10',
+    'mode resize'
+]
+cmd-ctrl-m = [
+     'exec-and-forget ~/.config/aerospace/make_borders.sh 04a5e5 4c4f69 10',
+    'mode move'
+]
+
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'secondary'
+4 = 'secondary'
+5 = 'secondary'
+6 = 'secondary'
