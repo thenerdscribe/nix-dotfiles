@@ -13,19 +13,20 @@
     ".config/zellij/" = {
       source = ./dotfiles/zellij;
     };
-  };
-  home.packages = with pkgs; [
-    ripgrep
-    fd
-    curl
-    less
-  ];
-  xdg = {
-    enable = true;
-    configFile = {
-      "aerospace/".source = ./dotfiles/aerospace;
+    ".config/aerospace/" = {
+      source = ./dotfiles/aerospace;
     };
   };
+  home.packages = with pkgs; [
+    curl
+    less
+    ffmpeg_7-full
+    nb
+    poppler
+    prettyping
+    redis
+    tailscale
+  ];
   home.sessionVariables = {
     EDITOR = "nvim";
     FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git";
@@ -58,11 +59,17 @@
 
   };
   programs = {
+    zellij.enable = true;
     zoxide.enable = true;
+    ripgrep.enable = true;
+    fd.enable = true;
+    btop.enable = true;
+    jq.enable = true;
+    lazygit.enable = true;
     bat = {
       enable = true;
       config = {
-        theme = "Catppuccin";
+        theme = "Catppuccin"; # Fix this for bat
       };
     };
     neovim = {

@@ -63,6 +63,8 @@
               '';
               services.nix-daemon.enable = true;
               system.stateVersion = 4;
+              system.defaults.NSGlobalDomain._HIHideMenuBar = true;
+              system.defaults.dock.autohide = true;
             }
           )
           home-manager.darwinModules.home-manager
