@@ -37,8 +37,10 @@
             { pkgs, ... }:
             {
               users.users.ryanmorton = {
+                uid = 501;
                 name = "ryanmorton";
                 home = "/Users/ryanmorton";
+                shell = pkgs.zsh;
               };
               programs.zsh.enable = true;
               # homebrew.enable = true;

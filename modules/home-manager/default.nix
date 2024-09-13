@@ -26,6 +26,9 @@
     prettyping
     redis
     tailscale
+    gh
+    tree
+    delta
   ];
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -216,6 +219,9 @@
     starship = {
       enable = true;
       enableZshIntegration = true;
+      settings = {
+        add_newline = false;
+      };
     };
     wezterm = {
       enable = true;
