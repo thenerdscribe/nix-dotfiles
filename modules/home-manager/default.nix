@@ -29,6 +29,7 @@
     gh
     tree
     delta
+    nix-prefetch-git
   ];
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -104,6 +105,12 @@
       ];
 
       plugins = with pkgs.vimPlugins; [
+        (pkgs.fetchFromGitHub {
+          owner = "ricardoramirezr";
+          repo = "blade-nav.nvim";
+          rev = "a1a715f";
+          sha256 = "11yywwi9qfgkp90jf3vhssz7bsdxw1jvjkrc5zw36h36bh4qsf61";
+        })
         ReplaceWithRegister
         render-markdown
         bufferline-nvim
