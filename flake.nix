@@ -20,10 +20,7 @@
       ...
     }:
     {
-      # packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
-      # packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
-
-      darwinConfigurations."Ryans-MacBook-Air" = darwin.lib.darwinSystem {
+      darwinConfigurations.Ryans-MacBook-Air = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         pkgs = import nixpkgs {
           system = "aarch64-darwin";
@@ -82,7 +79,7 @@
         ];
       };
 
-      darwinConfigurations."Ryans-Mac-Mini" = darwin.lib.darwinSystem {
+      darwinConfigurations.Ryans-Mac-Mini = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         pkgs = import nixpkgs {
           system = "x86_64-darwin";

@@ -30,6 +30,9 @@
     tree
     delta
     nix-prefetch-git
+    cachix
+    magic-wormhole
+    fnm
   ];
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -213,6 +216,10 @@
         gss = "git status -s";
         gd = "git diff";
         gp = "git push";
+        gl = "git pull";
+        gco = "git checkout";
+        php = "herd php";
+        composer = "herd composer";
       };
       initExtra = ''
         bindkey -v
@@ -221,6 +228,7 @@
         bindkey '^N' history-substring-search-down
         bindkey -M vicmd 'k' history-substring-search-up
         bindkey -M vicmd 'j' history-substring-search-down
+        eval "$(fnm env --use-on-cd --shell zsh)"
       '';
     };
     starship = {
