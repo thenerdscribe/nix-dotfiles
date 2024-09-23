@@ -235,6 +235,12 @@ for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup(setup)
 end
 
+nvim_lsp["html"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "html", "blade" },
+})
+
 require("notify").setup({
 	animate = false,
 	stages = "static",
@@ -309,7 +315,12 @@ cmp.setup.cmdline(":", {
 })
 
 require("luasnip.loaders.from_vscode").lazy_load()
-require("lualine").setup({})
+require("lualine").setup({
+	options = {
+		section_separators = { left = "", right = "" },
+		component_separators = { left = "", right = "" },
+	},
+})
 require("oil").setup({})
 vim.g.blamer_enabled = true
 
@@ -320,6 +331,8 @@ vim.filetype.add({
 })
 
 require("nvim-treesitter.configs").setup({
+	autotag = true,
+
 	highlight = {
 		enable = true,
 	},
@@ -346,3 +359,4 @@ end)
 vim.keymap.set("n", "<leader>To", function()
 	require("neotest").output_panel.toggle()
 end)
+require("colorizer").setup()

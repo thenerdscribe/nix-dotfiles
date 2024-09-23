@@ -32,7 +32,6 @@
     nix-prefetch-git
     cachix
     magic-wormhole
-    fnm
   ];
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -172,7 +171,9 @@
         vim-repeat
         vim-abolish
         luasnip
+        matchit-zip
         catppuccin-nvim
+        nvim-colorizer-lua
         (pkgs.fetchFromGitHub {
           owner = "V13Axel";
           repo = "neotest-pest";
@@ -218,6 +219,9 @@
         gp = "git push";
         gl = "git pull";
         gco = "git checkout";
+        gsta = "git stash";
+        gstaa = "git stash apply";
+        gcm = "git checkout master";
         php = "herd php";
         composer = "herd composer";
       };
@@ -228,14 +232,85 @@
         bindkey '^N' history-substring-search-down
         bindkey -M vicmd 'k' history-substring-search-up
         bindkey -M vicmd 'j' history-substring-search-down
-        eval "$(fnm env --use-on-cd --shell zsh)"
       '';
+    };
+    alacritty = {
+      enable = true;
+      settings = {
+        import = [
+          "~/.config/nix/modules/home-manager/dotfiles/catppuccin-mocha.toml"
+        ];
+        env = {
+          TERM = "xterm-256color";
+        };
+        font = {
+          size = 16;
+          normal = {
+            family = "NotoMono Nerd Font";
+          };
+        };
+      };
     };
     starship = {
       enable = true;
       enableZshIntegration = true;
       settings = {
-        add_newline = false;
+        add_newline = true;
+        format = ''
+          [](#cba6f7)$username[](bg:#f38ba8 fg:#cba6f7)$directory[](bg:#fab387 fg:#f38ba8)$git_branch$git_status[](bg:#f9e2af fg:#fab387)$nix_shell[](bg:#74c7ec fg:#f9e2af)$time[ ](fg:#74c7ec)
+          $character 
+        '';
+        directory = {
+          style = "bg:#f38ba8 fg:#11111b";
+          format = "[ $path ]($style)";
+          truncation_length = 3;
+          truncation_symbol = "…/";
+          substitutions = {
+            Documents = "󰈙 ";
+            Downloads = " ";
+            Music = " ";
+            Pictures = " ";
+          };
+        };
+        username = {
+          show_always = true;
+          style_user = "bg:#cba6f7 fg:#11111b";
+          style_root = "bg:#cba6f7 fg:#11111b";
+          format = "[ 󰿘 ]($style)";
+        };
+        git_branch = {
+          symbol = "";
+          style = "bg:#fab387 fg:#11111b";
+          format = "[ $symbol $branch ]($style)";
+        };
+        git_status = {
+          style = "bg:#fab387 fg:#11111b";
+          format = "[$all_status$ahead_behind ]($style)";
+        };
+        character = {
+          format = "[ $symbol ](bg: #45475a)";
+          vimcmd_symbol = "[ ](fg:#f9e2af)";
+          success_symbol = "[ ](fg:#a6e3a1)";
+          error_symbol = "[ ](fg:#f38ba8)";
+          vimcmd_replace_symbol = "[R](fg:#f9e2af)";
+          vimcmd_replace_one_symbol = "[RO](fg:#f9e2af)";
+          vimcmd_visual_symbol = "[V](fg:#f9e2af)";
+        };
+        nix_shell = {
+          symbol = " ";
+          format = "[ via $symbol$state( \($name\)) ]($style)";
+          style = "bg:#f9e2af fg:#11111b";
+          impure_msg = "(I)";
+          pure_msg = "(P)";
+          unknown_msg = "";
+          heuristic = false;
+        };
+        time = {
+          disabled = true;
+          time_format = "%r"; # Hour:Minute Format
+          style = "bg:#74c7ec";
+          format = "[ ♥ $time ]($style)";
+        };
       };
     };
     wezterm = {
