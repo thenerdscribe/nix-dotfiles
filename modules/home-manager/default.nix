@@ -199,6 +199,13 @@
       autocd = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+      plugins = [
+        {
+          name = "vi-mode";
+          src = pkgs.zsh-vi-mode;
+          file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+        }
+      ];
       shellAliases = {
         vim = "nvim";
         pbc = "pbcopy";
@@ -226,12 +233,13 @@
         composer = "herd composer";
       };
       initExtra = ''
-        bindkey -v
-        bindkey '^ ' autosuggest-accept
-        bindkey '^P' history-substring-search-up
-        bindkey '^N' history-substring-search-down
-        bindkey -M vicmd 'k' history-substring-search-up
-        bindkey -M vicmd 'j' history-substring-search-down
+                setopt autopushd
+                # Define an init function and append to zvm_after_init_commands
+        function my_init() {
+                bindkey '^ ' autosuggest-accept
+          [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+        }
+        zvm_after_init_commands+=(my_init)
       '';
     };
     alacritty = {
