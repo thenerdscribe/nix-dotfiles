@@ -33,6 +33,7 @@
     cachix
     magic-wormhole
     ice-bar
+    yazi-unwrapped
   ];
   home.sessionVariables = {
     EDITOR = "nvim";
