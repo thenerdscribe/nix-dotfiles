@@ -18,6 +18,7 @@
     };
   };
   home.packages = with pkgs; [
+    sqlite
     curl
     less
     ffmpeg_7-full
@@ -37,6 +38,7 @@
   ];
   home.sessionVariables = {
     EDITOR = "nvim";
+    LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.dylib";
     FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git";
     FZF_DEFAULT_OPTS = ''
         --height=40% \
@@ -116,6 +118,23 @@
           rev = "a1a715f";
           sha256 = "11yywwi9qfgkp90jf3vhssz7bsdxw1jvjkrc5zw36h36bh4qsf61";
         })
+        {
+          plugin = sqlite-lua;
+          type = "lua";
+          config = ''
+            vim.g.sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.dylib'
+          '';
+        }
+        {
+          plugin = nvim-neoclip-lua;
+          type = "lua";
+          config = ''
+            require("neoclip").setup({
+                enable_persistent_history = true
+            })
+            vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<cr>")
+          '';
+        }
         ReplaceWithRegister
         render-markdown
         bufferline-nvim
