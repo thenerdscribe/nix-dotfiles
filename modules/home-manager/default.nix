@@ -6,6 +6,7 @@
 }:
 {
   home.stateVersion = "24.11";
+
   home.file = {
     ".config/nvim/after/" = {
       source = ./dotfiles/nvim/after;
@@ -38,10 +39,10 @@
   ];
   home.sessionVariables = {
     EDITOR = "nvim";
-    LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.dylib";
+    # LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.dylib";
     FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git";
     FZF_DEFAULT_OPTS = ''
-        --height=40% \
+        --height=20% \
       --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
       --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
       --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8'';
@@ -112,29 +113,6 @@
       ];
 
       plugins = with pkgs.vimPlugins; [
-        (pkgs.fetchFromGitHub {
-          owner = "ricardoramirezr";
-          repo = "blade-nav.nvim";
-          rev = "a1a715f";
-          sha256 = "11yywwi9qfgkp90jf3vhssz7bsdxw1jvjkrc5zw36h36bh4qsf61";
-        })
-        {
-          plugin = sqlite-lua;
-          type = "lua";
-          config = ''
-            vim.g.sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.dylib'
-          '';
-        }
-        {
-          plugin = nvim-neoclip-lua;
-          type = "lua";
-          config = ''
-            require("neoclip").setup({
-                enable_persistent_history = true
-            })
-            vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<cr>")
-          '';
-        }
         ReplaceWithRegister
         render-markdown
         bufferline-nvim
@@ -162,6 +140,7 @@
         plenary-nvim
         telescope-fzf-native-nvim
         telescope-nvim
+        transparent-nvim
         (nvim-treesitter.withPlugins (
           _:
           nvim-treesitter.allGrammars
@@ -196,6 +175,23 @@
         matchit-zip
         catppuccin-nvim
         nvim-colorizer-lua
+        {
+          plugin = sqlite-lua;
+          type = "lua";
+          config = ''
+            vim.g.sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.dylib'
+          '';
+        }
+        {
+          plugin = nvim-neoclip-lua;
+          type = "lua";
+          config = ''
+            require("neoclip").setup({
+                enable_persistent_history = true
+            })
+            vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<cr>")
+          '';
+        }
         (pkgs.fetchFromGitHub {
           owner = "V13Axel";
           repo = "neotest-pest";
@@ -251,6 +247,7 @@
         gsta = "git stash";
         gstaa = "git stash apply";
         gcm = "git checkout master";
+        grb = "git rebase";
         php = "herd php";
         composer = "herd composer";
         za = "zellij attach $(zellij list-sessions --no-formatting --short | fzf)";

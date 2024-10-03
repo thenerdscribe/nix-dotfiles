@@ -1,6 +1,8 @@
 local wezterm = require("wezterm")
 
 return {
+	window_background_opacity = 0.6,
+	macos_window_background_blur = 80,
 	font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Light", stretch = "Normal", style = "Normal" }),
 	window_close_confirmation = "NeverPrompt",
 	freetype_load_flags = "NO_HINTING",

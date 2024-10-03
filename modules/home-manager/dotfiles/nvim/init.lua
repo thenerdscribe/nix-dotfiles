@@ -83,6 +83,7 @@ vim.cmd("autocmd filetype markdown,norg,org setlocal spell")
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = "nc"
 vim.opt.termguicolors = true
+vim.opt.termsync = true
 vim.api.nvim_set_hl(0, "SpellBad", { fg = "#ff0000", undercurl = true })
 
 vim.opt.fillchars = {
@@ -127,7 +128,9 @@ require("telescope").setup({
 require("telescope").load_extension("fzf")
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>p", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fh", builtin.oldfiles)
+vim.keymap.set("n", "<leader>fh", function()
+	builtin.oldfiles({ cwd_only = true })
+end, {})
 vim.keymap.set("n", "<leader>e", builtin.buffers, {})
 vim.keymap.set("n", "<leader>G", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>gs", builtin.git_status, {})
