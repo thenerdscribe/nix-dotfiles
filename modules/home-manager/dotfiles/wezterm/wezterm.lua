@@ -14,4 +14,5 @@ return {
 	font_size = 16.0,
 	line_height = 1.8,
 	color_scheme = "Catppuccin Mocha",
+	max_fps = 120,
 }

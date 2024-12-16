@@ -47,7 +47,6 @@
                   pkgs.bash
                   pkgs.zsh
                 ];
-                loginShell = pkgs.zsh;
                 systemPackages = [
                   pkgs.coreutils
                   pkgs.git
@@ -106,7 +105,6 @@
                   pkgs.bash
                   pkgs.zsh
                 ];
-                loginShell = pkgs.zsh;
                 systemPackages = [
                   pkgs.coreutils
                   pkgs.git
@@ -114,6 +112,9 @@
                   pkgs.wget
                   pkgs.zellij
                   pkgs.jankyborders
+                ];
+                systemPath = [
+                  "~/.config/composer/vendor/bin"
                 ];
               };
               nix.extraOptions = ''

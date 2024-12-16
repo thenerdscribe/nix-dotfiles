@@ -62,13 +62,6 @@
     HISTFILE = "~/.zsh_history";
     HISTSIZE = "100000";
     SAVEHIST = "100000";
-    HERD_PHP_82_INI_SCAN_DIR = "/Users/ryanmorton/Library/Application Support/Herd/config/php/82/";
-    HERD_PHP_74_INI_SCAN_DIR = "/Users/ryanmorton/Library/Application Support/Herd/config/php/74/";
-    HERD_PHP_81_INI_SCAN_DIR = "/Users/ryanmorton/Library/Application Support/Herd/config/php/81/";
-    HERD_PHP_80_INI_SCAN_DIR = "/Users/ryanmorton/Library/Application Support/Herd/config/php/80/";
-    HERD_PHP_83_INI_SCAN_DIR = "/Users/ryanmorton/Library/Application Support/Herd/config/php/83/";
-    PATH = "/Users/ryanmorton/Library/Application Support/Herd/bin/:$PATH";
-
   };
   programs = {
     zellij.enable = true;
@@ -114,7 +107,7 @@
 
       plugins = with pkgs.vimPlugins; [
         ReplaceWithRegister
-        render-markdown
+        render-markdown-nvim
         bufferline-nvim
         blamer-nvim
         cmp-buffer
@@ -248,9 +241,10 @@
         gstaa = "git stash apply";
         gcm = "git checkout master";
         grb = "git rebase";
-        php = "herd php";
-        composer = "herd composer";
+        gb = "git branch";
         za = "zellij attach $(zellij list-sessions --no-formatting --short | fzf)";
+        zlss = "zellij list-sessions --no-formatting --short";
+        zls = "zellij list-sessions";
       };
       initExtra = ''
                 setopt autopushd
