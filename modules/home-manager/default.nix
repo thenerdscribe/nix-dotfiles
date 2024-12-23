@@ -103,6 +103,7 @@
         ripgrep
         nodePackages.intelephense
         nodejs_22
+        sql-formatter
       ];
 
       plugins = with pkgs.vimPlugins; [
@@ -191,6 +192,13 @@
           rev = "b665a48";
           sha256 = "uSPrvZPCjBhoAYTnAUQdMZ/CSosyRkj4itSQDZgthZ4=";
         })
+        (pkgs.fetchFromGitHub {
+          owner = "joe-re";
+          repo = "sql-language-server";
+          rev = "61f09a930527c3b756c9d753068041856c5f98c9";
+          sha256 = "uSPrvZPCjBhoAYTnAUQdMZ/CSosyRkj4itSQDZgthZ4=";
+        })
+
       ];
       extraLuaConfig = builtins.readFile ./dotfiles/nvim/init.lua;
     };

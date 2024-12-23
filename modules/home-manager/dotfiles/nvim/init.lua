@@ -146,6 +146,7 @@ require("conform").setup({
 		php = { "prettier", "php_cs_fixer" },
 		blade = { "blade-formatter", "php_cs_fixer" },
 		nix = { "nixfmt" },
+		sql = { "sql-formatter" },
 	},
 
 	format_on_save = function(bufnr)

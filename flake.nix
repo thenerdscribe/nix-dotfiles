@@ -84,7 +84,7 @@
           system = "x86_64-darwin";
           config = {
             allowUnfree = true;
-            allowUnfreePredicate = _: true;
+            allowUnfreePredicate = true;
           };
         };
         modules = [
