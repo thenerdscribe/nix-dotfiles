@@ -17,6 +17,9 @@
     ".config/aerospace/" = {
       source = ./dotfiles/aerospace;
     };
+    ".config/ghostty/" = {
+      source = ./dotfiles/ghostty;
+    };
   };
   home.packages = with pkgs; [
     sqlite
@@ -187,15 +190,15 @@
           '';
         }
         (pkgs.fetchFromGitHub {
+          owner = "joe-re";
+          repo = "sql-language-server";
+          rev = "61f09a9";
+          sha256 = "A73coX1zS5PPXGwEgbLcBsg3lvJD1IXiEiyKX68620w=";
+        })
+        (pkgs.fetchFromGitHub {
           owner = "V13Axel";
           repo = "neotest-pest";
           rev = "b665a48";
-          sha256 = "uSPrvZPCjBhoAYTnAUQdMZ/CSosyRkj4itSQDZgthZ4=";
-        })
-        (pkgs.fetchFromGitHub {
-          owner = "joe-re";
-          repo = "sql-language-server";
-          rev = "61f09a930527c3b756c9d753068041856c5f98c9";
           sha256 = "uSPrvZPCjBhoAYTnAUQdMZ/CSosyRkj4itSQDZgthZ4=";
         })
 

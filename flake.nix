@@ -9,6 +9,9 @@
     };
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
   };
 
   outputs =
@@ -17,6 +20,7 @@
       nixpkgs,
       darwin,
       home-manager,
+      ghostty,
       ...
     }:
     {
@@ -54,6 +58,7 @@
                   pkgs.wget
                   pkgs.zellij
                   pkgs.jankyborders
+                  ghostty.packages.x86_64-darwin
                 ];
               };
               nix.extraOptions = ''

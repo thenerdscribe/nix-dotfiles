@@ -146,7 +146,7 @@ require("conform").setup({
 		php = { "prettier", "php_cs_fixer" },
 		blade = { "blade-formatter", "php_cs_fixer" },
 		nix = { "nixfmt" },
-		sql = { "sql-formatter" },
+		sql = { "sql_formatter" },
 	},
 
 	format_on_save = function(bufnr)
@@ -180,7 +180,7 @@ local nvim_lsp = require("lspconfig")
 local navic = require("nvim-navic")
 local servers = {
 	"intelephense",
-	"tsserver",
+	"ts_ls",
 	"pyright",
 	"jsonls",
 	"lua_ls",
