@@ -267,23 +267,6 @@
         zvm_after_init_commands+=(my_init)
       '';
     };
-    alacritty = {
-      enable = true;
-      settings = {
-        import = [
-          "~/.config/nix/modules/home-manager/dotfiles/catppuccin-mocha.toml"
-        ];
-        env = {
-          TERM = "xterm-256color";
-        };
-        font = {
-          size = 16;
-          normal = {
-            family = "NotoMono Nerd Font";
-          };
-        };
-      };
-    };
     starship = {
       enable = true;
       enableZshIntegration = true;
@@ -345,11 +328,6 @@
           format = "[ ♥ $time ]($style)";
         };
       };
-    };
-    wezterm = {
-      enable = true;
-      enableZshIntegration = true;
-      extraConfig = builtins.readFile ./dotfiles/wezterm/wezterm.lua;
     };
   };
 }

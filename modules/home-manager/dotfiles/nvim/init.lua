@@ -250,7 +250,7 @@ require("notify").setup({
 	stages = "static",
 	max_width = 40,
 	timeout = 2000,
-	render = "wrapped-compact",
+	-- render = "wrapped-compact",
 })
 require("noice").setup({})
 
