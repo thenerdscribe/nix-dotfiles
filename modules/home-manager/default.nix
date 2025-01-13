@@ -20,6 +20,9 @@
     ".config/ghostty/" = {
       source = ./dotfiles/ghostty;
     };
+    ".config/fzf/" = {
+      source = ./dotfiles/fzf;
+    };
   };
   home.packages = with pkgs; [
     sqlite
@@ -258,11 +261,13 @@
         zls = "zellij list-sessions";
       };
       initExtra = ''
-                setopt autopushd
-                # Define an init function and append to zvm_after_init_commands
+        setopt autopushd
         function my_init() {
-                bindkey '^ ' autosuggest-accept
+          bindkey '^ ' autosuggest-accept
           [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+          export KEYTIMEOUT=2
+          bindkey -r '^G'
+          [ -f ~/.config/fzf/fzf-git.sh ] && source ~/.config/fzf/fzf-git.sh
         }
         zvm_after_init_commands+=(my_init)
       '';
