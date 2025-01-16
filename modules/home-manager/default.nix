@@ -92,7 +92,7 @@
       enable = true;
       extraPackages = with pkgs; [
         lua-language-server
-        intelephense
+        phpactor
         typescript-language-server
         vscode-langservers-extracted
         tailwindcss-language-server
@@ -101,7 +101,6 @@
         typos-lsp
         stylua
         ripgrep
-        nodePackages.intelephense
         nodejs_22
         sql-formatter
       ];
@@ -236,7 +235,6 @@
         ll = "ls -al";
         cat = "bat";
         ql = "qlmanage -p";
-        art = "php artisan";
         pu = "pushd";
         gcam = "git commit -am";
         gaa = "git add --all";
@@ -250,6 +248,9 @@
         gcm = "git checkout master";
         grb = "git rebase";
         gb = "git branch";
+        composer = "valet composer";
+        php = "valet php";
+        art = "php artisan";
         za = "zellij attach $(zellij list-sessions --no-formatting --short | fzf)";
         zlss = "zellij list-sessions --no-formatting --short";
         zls = "zellij list-sessions";

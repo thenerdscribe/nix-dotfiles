@@ -179,7 +179,7 @@ end, {
 local nvim_lsp = require("lspconfig")
 local navic = require("nvim-navic")
 local servers = {
-	"intelephense",
+	"phpactor",
 	"ts_ls",
 	"pyright",
 	"jsonls",
@@ -231,11 +231,8 @@ for _, lsp in ipairs(servers) do
 		capabilities = capabilities,
 		on_attach = on_attach,
 		filetypes = { "php", "blade" },
-		init_options = {
-			licenceKey = vim.fn.expand("$HOME/Developer/php-stuff/intelephense/licence.txt"),
-		},
 	}
-	local setup = lsp == "intelephense" and intelephense or standard
+	local setup = (lsp == "intelephense" or lsp == "phpactor") and intelephense or standard
 	nvim_lsp[lsp].setup(setup)
 end
 
@@ -323,6 +320,10 @@ require("lualine").setup({
 	options = {
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },
+	},
+	inactive_sections = {
+		lualine_b = { "branch" },
+		lualine_x = { "location" },
 	},
 })
 require("oil").setup({})
