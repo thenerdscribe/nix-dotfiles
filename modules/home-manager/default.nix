@@ -28,7 +28,7 @@
     sqlite
     curl
     less
-    ffmpeg_7-full
+    # ffmpeg_7-full
     nb
     poppler
     prettyping
@@ -37,8 +37,6 @@
     gh
     tree
     delta
-    nix-prefetch-git
-    cachix
     magic-wormhole
     ice-bar
     yazi-unwrapped

@@ -365,6 +365,7 @@ vim.keymap.set("n", "<leader>To", function()
 	require("neotest").output_panel.toggle()
 end)
 require("colorizer").setup()
+require("trouble").setup()
 
 vim.cmd("nnoremap <silent> <C-h> <C-w>h")
 vim.cmd("nnoremap <silent> <C-j> <C-w>j")
