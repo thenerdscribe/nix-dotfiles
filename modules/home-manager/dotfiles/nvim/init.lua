@@ -344,7 +344,9 @@ vim.filetype.add({
 
 require("nvim-treesitter.configs").setup({
 	autotag = true,
-
+	indent = {
+		enable = true,
+	},
 	highlight = {
 		enable = true,
 	},
@@ -374,6 +376,9 @@ end)
 
 require("colorizer").setup()
 require("trouble").setup()
+
+vim.keymap.set("n", "<leader>XX", "<cmd>Trouble diagnostics toggle<cr>")
+vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>")
 
 vim.cmd("nnoremap <silent> <C-h> <C-w>h")
 vim.cmd("nnoremap <silent> <C-j> <C-w>j")

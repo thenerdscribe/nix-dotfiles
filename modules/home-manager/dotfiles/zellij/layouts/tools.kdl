@@ -7,18 +7,15 @@ layout {
         children
     }
     tab name="editor" focus=true {
-            pane size="20%"
-            pane size="80%" focus=true command="nvim" {
+            pane focus=true command="nvim" {
             args  "."
         }
     }
     tab name="watchers" {
-            pane command="npm" {
-            args "run" "dev"
-        }
+        pane 
         pane
     }
     tab name="scratch" cwd="/Users/ryanmorton" {
-            pane
+        pane
     }
 }
