@@ -42,6 +42,7 @@
     yazi-unwrapped
   ];
   home.sessionVariables = {
+    PHP_CS_FIXER_IGNORE_ENV = 1;
     EDITOR = "nvim";
     FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git";
     FZF_CTRL_T_OPTS = ''
@@ -96,11 +97,12 @@
         tailwindcss-language-server
         nixd
         marksman
-        typos-lsp
+        prettierd
         stylua
         ripgrep
         nodejs_22
         sql-formatter
+        php84Packages.php-cs-fixer
       ];
 
       plugins = with pkgs.vimPlugins; [

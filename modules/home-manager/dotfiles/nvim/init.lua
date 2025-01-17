@@ -1,5 +1,5 @@
 vim.opt.spelllang = "en_us"
-vim.opt.spell = true
+-- vim.opt.spell = true
 vim.cmd("set dir=~/.swp/")
 vim.cmd("set tabstop=4")
 vim.cmd("set shiftwidth=4")
@@ -84,7 +84,6 @@ vim.opt.conceallevel = 2
 vim.opt.concealcursor = "nc"
 vim.opt.termguicolors = true
 vim.opt.termsync = true
-vim.api.nvim_set_hl(0, "SpellBad", { fg = "#ff0000", undercurl = true })
 
 vim.opt.fillchars = {
 	horiz = "━",
@@ -143,18 +142,28 @@ require("conform").setup({
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		javascript = { "prettierd", "prettier" },
-		php = { "prettier", "php_cs_fixer" },
-		blade = { "blade-formatter", "php_cs_fixer" },
+		php = { "prettier", "php-cs-fixer" },
+		blade = { "blade-formatter", "php-cs-fixer" },
 		nix = { "nixfmt" },
 		sql = { "sql_formatter" },
 	},
-
+	formatters = {
+		["php-cs-fixer"] = {
+			command = "php-cs-fixer",
+			args = {
+				"fix",
+				"$FILENAME",
+			},
+			stdin = false,
+		},
+	},
+	notify_on_error = true,
 	format_on_save = function(bufnr)
 		-- Disable with a global or buffer-local variable
 		if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
 			return
 		end
-		return { timeout_ms = 2000, lsp_fallback = true }
+		return { timeout_ms = 10000, lsp_fallback = true }
 	end,
 })
 
@@ -189,16 +198,10 @@ local servers = {
 	"marksman",
 	"nixd",
 }
-nvim_lsp.typos_lsp.setup({})
 nvim_lsp.markdown_oxide.setup({})
 nvim_lsp.marksman.setup({})
 
 local on_attach = function(client, bufnr, lsp)
-	-- Enable completion triggered by <c-x><c-o>
-	-- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-	-- Mappings.
-	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true }
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -209,31 +212,21 @@ local on_attach = function(client, bufnr, lsp)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, bufopts)
-	-- vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
 	if client.server_capabilities.documentSymbolProvider then
 		navic.attach(client, bufnr)
 	end
 end
 
---
--- Setup lspconfig.
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 for _, lsp in ipairs(servers) do
-	local standard = {
+	nvim_lsp[lsp].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
 		settings = {
 			Lua = { diagnostics = { globals = { "vim" } } },
 		},
-	}
-	local intelephense = {
-		capabilities = capabilities,
-		on_attach = on_attach,
-		filetypes = { "php", "blade" },
-	}
-	local setup = (lsp == "intelephense" or lsp == "phpactor") and intelephense or standard
-	nvim_lsp[lsp].setup(setup)
+	})
 end
 
 nvim_lsp["html"].setup({
@@ -321,9 +314,23 @@ require("lualine").setup({
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },
 	},
-	inactive_sections = {
-		lualine_b = { "branch" },
-		lualine_x = { "location" },
+	sections = {
+		lualine_a = { "mode" },
+		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_c = {},
+		lualine_x = { "filetype" },
+		lualine_y = {},
+		lualine_z = { "location" },
+	},
+	winbar = {
+		lualine_a = { "filename" },
+		lualine_c = {
+			{
+				"navic",
+				color_correction = nil,
+				navic_opts = nil,
+			},
+		},
 	},
 })
 require("oil").setup({})
@@ -364,6 +371,7 @@ end)
 vim.keymap.set("n", "<leader>To", function()
 	require("neotest").output_panel.toggle()
 end)
+
 require("colorizer").setup()
 require("trouble").setup()
 
