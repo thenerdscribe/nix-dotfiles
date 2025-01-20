@@ -92,6 +92,7 @@
       extraPackages = with pkgs; [
         lua-language-server
         phpactor
+        intelephense
         typescript-language-server
         vscode-langservers-extracted
         tailwindcss-language-server
@@ -102,6 +103,7 @@
         ripgrep
         nodejs_22
         sql-formatter
+        blade-formatter
         php84Packages.php-cs-fixer
       ];
 
@@ -140,12 +142,12 @@
           ++ [
             (pkgs.tree-sitter.buildGrammar {
               language = "blade";
-              version = "8af0aab";
+              version = "v0.11.0";
               src = pkgs.fetchFromGitHub {
                 owner = "EmranMR";
                 repo = "tree-sitter-blade";
-                rev = "5eae5e1";
-                sha256 = "ABbId48TDHwIRFtM3WpHoQR07BpXimdZbUCzRXyicYM=";
+                rev = "47baa7ba1f9d5f436c7a72b052d2dac2166abf92";
+                sha256 = "sha256-ABbId48TDHwIRFtM3WpHoQR07BpXimdZbUCzRXyicYM=";
               };
             })
           ]
@@ -165,7 +167,7 @@
         vim-repeat
         vim-abolish
         luasnip
-        matchit-zip
+        # vim-matchup
         catppuccin-nvim
         nvim-colorizer-lua
         {

@@ -137,6 +137,7 @@ vim.keymap.set("n", "<leader>ts", builtin.treesitter, {})
 
 -- If you want the formatexpr, here is the place to set it
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
@@ -336,12 +337,6 @@ require("lualine").setup({
 require("oil").setup({})
 vim.g.blamer_enabled = true
 
-vim.filetype.add({
-	pattern = {
-		[".*%.blade%.php"] = "blade",
-	},
-})
-
 require("nvim-treesitter.configs").setup({
 	autotag = true,
 	indent = {
@@ -350,7 +345,13 @@ require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
 	},
-	ensure_installed = {},
+	config = function()
+		vim.filetype.add({
+			pattern = {
+				[".*%.blade%.php"] = "blade",
+			},
+		})
+	end,
 })
 
 require("neotest").setup({
