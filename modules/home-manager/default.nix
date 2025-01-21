@@ -123,6 +123,7 @@
         targets-vim
         bclose-vim
         gitsigns-nvim
+        vim-matchup
         lsp-colors-nvim
         lsp_signature-nvim
         lualine-nvim
@@ -167,7 +168,7 @@
         vim-repeat
         vim-abolish
         luasnip
-        # vim-matchup
+        vim-matchup
         catppuccin-nvim
         nvim-colorizer-lua
         {

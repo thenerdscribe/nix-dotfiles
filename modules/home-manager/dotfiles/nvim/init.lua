@@ -234,6 +234,14 @@ nvim_lsp["html"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { "html", "blade" },
+	init_options = {
+		configurationSection = { "html", "css", "javascript" },
+		embeddedLanguages = {
+			css = true,
+			javascript = true,
+		},
+		provideFormatter = true,
+	},
 })
 
 require("notify").setup({
@@ -339,6 +347,9 @@ vim.g.blamer_enabled = true
 
 require("nvim-treesitter.configs").setup({
 	autotag = true,
+	matchup = {
+		enable = true,
+	},
 	indent = {
 		enable = true,
 	},
@@ -368,15 +379,20 @@ require("neotest").setup({
 vim.keymap.set("n", "<leader>Tf", function()
 	require("neotest").run.run(vim.fn.expand("%"))
 end)
+
 vim.keymap.set("n", "<leader>Tn", function()
 	require("neotest").run.run()
 end)
+
 vim.keymap.set("n", "<leader>To", function()
 	require("neotest").output_panel.toggle()
 end)
 
 require("colorizer").setup()
 require("trouble").setup()
+
+vim.g.matchup_matchparen_offscreen = { method = "popup" }
+vim.g.matchup_transmute_enabled = true
 
 vim.keymap.set("n", "<leader>XX", "<cmd>Trouble diagnostics toggle<cr>")
 vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>")
