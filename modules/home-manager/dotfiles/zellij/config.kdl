@@ -1,4 +1,5 @@
 simplified_ui true
+use_kitty_protocol true
 ui {
     pane_frames {
         hide_session_name false

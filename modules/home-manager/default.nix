@@ -40,6 +40,7 @@
     magic-wormhole
     ice-bar
     yazi-unwrapped
+    imagemagick
   ];
   home.sessionVariables = {
     PHP_CS_FIXER_IGNORE_ENV = 1;
@@ -107,101 +108,108 @@
         php84Packages.php-cs-fixer
       ];
 
-      plugins = with pkgs.vimPlugins; [
-        ReplaceWithRegister
-        render-markdown-nvim
-        bufferline-nvim
-        blamer-nvim
-        cmp-buffer
-        cmp-cmdline
-        cmp-nvim-lsp
-        cmp-path
-        cmp_luasnip
-        conform-nvim
-        comment-nvim
-        delimitMate
-        targets-vim
-        bclose-vim
-        gitsigns-nvim
-        vim-matchup
-        lsp-colors-nvim
-        lsp_signature-nvim
-        lualine-nvim
-        noice-nvim
-        nui-nvim
-        nvim-cmp
-        nvim-lspconfig
-        nvim-notify
-        nvim-web-devicons
-        plenary-nvim
-        telescope-fzf-native-nvim
-        telescope-nvim
-        transparent-nvim
-        (nvim-treesitter.withPlugins (
-          _:
-          nvim-treesitter.allGrammars
-          ++ [
-            (pkgs.tree-sitter.buildGrammar {
-              language = "blade";
-              version = "v0.11.0";
-              src = pkgs.fetchFromGitHub {
-                owner = "EmranMR";
-                repo = "tree-sitter-blade";
-                rev = "47baa7ba1f9d5f436c7a72b052d2dac2166abf92";
-                sha256 = "sha256-ABbId48TDHwIRFtM3WpHoQR07BpXimdZbUCzRXyicYM=";
-              };
-            })
-          ]
-        ))
-        lspkind-nvim
-        todo-comments-nvim
-        trouble-nvim
-        which-key-nvim
-        neotest
-        FixCursorHold-nvim
-        nvim-nio
-        neotest-phpunit
-        nvim-navic
-        nvim-spider
-        oil-nvim
-        vim-surround
-        vim-repeat
-        vim-abolish
-        luasnip
-        vim-matchup
-        catppuccin-nvim
-        nvim-colorizer-lua
-        {
-          plugin = sqlite-lua;
-          type = "lua";
-          config = ''
-            vim.g.sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.dylib'
-          '';
-        }
-        {
-          plugin = nvim-neoclip-lua;
-          type = "lua";
-          config = ''
-            require("neoclip").setup({
-                enable_persistent_history = true
-            })
-            vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<cr>")
-          '';
-        }
-        (pkgs.fetchFromGitHub {
-          owner = "joe-re";
-          repo = "sql-language-server";
-          rev = "61f09a9";
-          sha256 = "A73coX1zS5PPXGwEgbLcBsg3lvJD1IXiEiyKX68620w=";
-        })
-        (pkgs.fetchFromGitHub {
-          owner = "V13Axel";
-          repo = "neotest-pest";
-          rev = "b665a48";
-          sha256 = "uSPrvZPCjBhoAYTnAUQdMZ/CSosyRkj4itSQDZgthZ4=";
-        })
+      plugins =
+        with pkgs.vimPlugins;
+        with pkgs.tree-sitter-grammars;
+        [
+          ReplaceWithRegister
+          render-markdown-nvim
+          bufferline-nvim
+          blamer-nvim
+          cmp-buffer
+          cmp-cmdline
+          cmp-nvim-lsp
+          neorg
+          cmp-path
+          cmp_luasnip
+          conform-nvim
+          comment-nvim
+          delimitMate
+          targets-vim
+          bclose-vim
+          gitsigns-nvim
+          vim-matchup
+          lsp-colors-nvim
+          lsp_signature-nvim
+          lualine-nvim
+          noice-nvim
+          nui-nvim
+          nvim-cmp
+          nvim-lspconfig
+          nvim-notify
+          nvim-web-devicons
+          plenary-nvim
+          telescope-fzf-native-nvim
+          telescope-nvim
+          transparent-nvim
+          (nvim-treesitter.withPlugins (
+            _:
+            nvim-treesitter.allGrammars
+            ++ [
+              (pkgs.tree-sitter.buildGrammar {
+                language = "blade";
+                version = "v0.11.0";
+                src = pkgs.fetchFromGitHub {
+                  owner = "EmranMR";
+                  repo = "tree-sitter-blade";
+                  rev = "47baa7ba1f9d5f436c7a72b052d2dac2166abf92";
+                  sha256 = "sha256-ABbId48TDHwIRFtM3WpHoQR07BpXimdZbUCzRXyicYM=";
+                };
+              })
+              tree-sitter-norg
+              tree-sitter-norg-meta
+            ]
+          ))
+          image-nvim
+          lspkind-nvim
+          todo-comments-nvim
+          trouble-nvim
+          which-key-nvim
+          neotest
+          FixCursorHold-nvim
+          nvim-nio
+          neotest-phpunit
+          nvim-navic
+          nvim-spider
+          oil-nvim
+          vim-surround
+          vim-repeat
+          vim-abolish
+          luasnip
+          vim-matchup
+          catppuccin-nvim
+          nvim-colorizer-lua
+          {
+            plugin = sqlite-lua;
+            type = "lua";
+            config = ''
+              vim.g.sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.dylib'
+            '';
+          }
+          {
+            plugin = nvim-neoclip-lua;
+            type = "lua";
+            config = ''
+              require("neoclip").setup({
+                  enable_persistent_history = true
+              })
+              vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<cr>")
+            '';
+          }
+          (pkgs.fetchFromGitHub {
+            owner = "joe-re";
+            repo = "sql-language-server";
+            rev = "61f09a9";
+            sha256 = "A73coX1zS5PPXGwEgbLcBsg3lvJD1IXiEiyKX68620w=";
+          })
+          (pkgs.fetchFromGitHub {
+            owner = "V13Axel";
+            repo = "neotest-pest";
+            rev = "b665a48";
+            sha256 = "uSPrvZPCjBhoAYTnAUQdMZ/CSosyRkj4itSQDZgthZ4=";
+          })
 
-      ];
+        ];
       extraLuaConfig = builtins.readFile ./dotfiles/nvim/init.lua;
     };
     eza = {

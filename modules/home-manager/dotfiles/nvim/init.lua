@@ -287,6 +287,7 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = "luasnip" }, -- For luasnip users.
 		{ name = "nvim_lsp" },
+		{ name = "neorg" },
 		{
 			name = "buffer",
 			option = {
@@ -390,6 +391,24 @@ end)
 
 require("colorizer").setup()
 require("trouble").setup()
+require("neorg").setup({
+	load = {
+		["core.defaults"] = {},
+		["core.concealer"] = {},
+		["core.summary"] = {},
+		["core.completion"] = { config = { engine = "nvim-cmp" } },
+		["core.dirman"] = {
+			config = {
+				workspaces = {
+					notes = "~/Documents/neorg-test/",
+				},
+				default_workspace = "notes",
+			},
+		},
+	},
+})
+vim.wo.foldlevel = 99
+vim.wo.conceallevel = 2
 
 vim.g.matchup_matchparen_offscreen = { method = "popup" }
 vim.g.matchup_transmute_enabled = true
@@ -402,3 +421,7 @@ vim.cmd("nnoremap <silent> <C-j> <C-w>j")
 vim.cmd("nnoremap <silent> <C-k> <C-w>k")
 vim.cmd("nnoremap <silent> <C-l> <C-w>l")
 vim.cmd("nnoremap <silent> <leader>w :update<CR>")
+
+require("image").setup({
+	processor = "magick_cli",
+})
