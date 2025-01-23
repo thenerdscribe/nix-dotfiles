@@ -154,7 +154,7 @@
                   owner = "EmranMR";
                   repo = "tree-sitter-blade";
                   rev = "47baa7ba1f9d5f436c7a72b052d2dac2166abf92";
-                  sha256 = "sha256-ABbId48TDHwIRFtM3WpHoQR07BpXimdZbUCzRXyicYM=";
+                  sha256 = "sha256-N3QUylMqhX5aZGyIx1zfMe4xZRAwwE7e4MyhOiawCXw=";
                 };
               })
               tree-sitter-norg
