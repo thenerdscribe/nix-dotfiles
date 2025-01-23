@@ -28,7 +28,8 @@
     sqlite
     curl
     less
-    # ffmpeg_7-full
+    nh
+    ffmpeg_7-full
     nb
     poppler
     prettyping
