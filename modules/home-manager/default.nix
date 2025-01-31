@@ -26,6 +26,8 @@
   };
   home.packages = with pkgs; [
     sqlite
+    go
+    spicetify-cli
     curl
     less
     nh
@@ -209,7 +211,6 @@
             rev = "b665a48";
             sha256 = "uSPrvZPCjBhoAYTnAUQdMZ/CSosyRkj4itSQDZgthZ4=";
           })
-
         ];
       extraLuaConfig = builtins.readFile ./dotfiles/nvim/init.lua;
     };

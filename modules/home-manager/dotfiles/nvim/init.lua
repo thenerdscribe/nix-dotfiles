@@ -244,6 +244,17 @@ nvim_lsp["html"].setup({
 	},
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "php", "blade" },
+	callback = function()
+		vim.lsp.start({
+			name = "laravel-ls",
+			cmd = { "/Users/ryanmorton/Developer/laravel-ls/start.sh" },
+			root_dir = vim.fn.getcwd(),
+		})
+	end,
+})
+
 require("notify").setup({
 	animate = false,
 	stages = "static",
