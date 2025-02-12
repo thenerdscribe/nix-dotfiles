@@ -124,7 +124,6 @@
               nix.extraOptions = ''
                 experimental-features = nix-command flakes
               '';
-              services.nix-daemon.enable = true;
               system.stateVersion = 4;
               system.defaults.NSGlobalDomain._HIHideMenuBar = false;
               system.defaults.dock.autohide = true;

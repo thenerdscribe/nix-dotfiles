@@ -44,6 +44,8 @@
     ice-bar
     yazi-unwrapped
     imagemagick
+    python313
+    python313Packages.beautifulsoup4
   ];
   home.sessionVariables = {
     PHP_CS_FIXER_IGNORE_ENV = 1;
@@ -105,7 +107,7 @@
         prettierd
         stylua
         ripgrep
-        nodejs_22
+        nodejs_23
         sql-formatter
         blade-formatter
         php84Packages.php-cs-fixer
