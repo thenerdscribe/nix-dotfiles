@@ -27,7 +27,6 @@
   home.packages = with pkgs; [
     sqlite
     go
-    spicetify-cli
     curl
     less
     nh
@@ -44,8 +43,6 @@
     ice-bar
     yazi-unwrapped
     imagemagick
-    python313
-    python313Packages.beautifulsoup4
   ];
   home.sessionVariables = {
     PHP_CS_FIXER_IGNORE_ENV = 1;

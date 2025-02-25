@@ -101,6 +101,44 @@
                 home = "/Users/ryanmorton";
                 shell = pkgs.zsh;
               };
+              networking.hosts = {
+                "127.0.0.1" = [
+                  "localhost"
+                  "ordermanager.dev.walts.com"
+                  "api-ospos.dev.walts.com"
+                  "inventory-api.dev.walts.com"
+                  "listing-manager.dev.walts.com"
+                  "neo-tools.dev.walts.com"
+                  "neo-pos1.dev.walts.com"
+                  "awesome-ecomm.dev.walts.com"
+                  ".dev.walts.com"
+                ];
+                "54.71.90.183" = [
+                  "inventory-api.walts.com"
+                  "phpadmin.walts.com"
+                  "phpadmin-production.walts.com"
+                ];
+                "34.216.166.84" = [
+                  "phpadmin.walts.com"
+                  "test-retail-inventory-api.walts.com"
+                  "test-retail-api-ospos.walts.com"
+                  "test-retail-ordermanager.walts.com"
+                  "test-ordermanager.walts.com"
+                  "test-inventory-api.walts.com"
+                  "test-api-ospos.walts.com"
+                  "test-listingmanager.walts.com"
+                ];
+                "50.112.66.233" = [ "test-www.walts.com" ];
+                "35.160.43.43" = [
+                  "test-neo-pos1.walts.com"
+                  "test-retail-neo-pos1.walts.com"
+                ];
+                "35.87.153.218" = [
+                  "test-neo-wpos2.walts.com"
+                  "test-retail-neo-wpos2.walts.com"
+                ];
+                "35.90.134.222" = [ "ae-staging.walts.com" ];
+              };
               programs.zsh.enable = true;
               # homebrew.enable = true;
               # homebrew.brews = [ ];
