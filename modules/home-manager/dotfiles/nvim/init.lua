@@ -218,7 +218,49 @@ local on_attach = function(client, bufnr, lsp)
 	end
 end
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+require("blink.cmp").setup({
+	keymap = {
+		preset = "default",
+		["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+		["<C-e>"] = { "hide", "fallback" },
+		["<CR>"] = { "accept", "fallback" },
+		--
+		-- ["<Tab>"] = { "snippet_forward", "fallback" },
+		-- ["<S-Tab>"] = { "snippet_backward", "fallback" },
+		--
+		-- ["<Up>"] = { "select_prev", "fallback" },
+		-- ["<Down>"] = { "select_next", "fallback" },
+		-- ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
+		-- ["<C-n>"] = { "select_next", "fallback_to_mappings" },
+		--
+		-- ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+		-- ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+		--
+		-- ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+	},
+	completion = {
+		list = { selection = { preselect = false } },
+		menu = {
+			draw = {
+				-- We don't need label_description now because label and label_description are already
+				-- combined together in label by colorful-menu.nvim.
+				columns = { { "kind_icon" }, { "label", gap = 1 } },
+				components = {
+					label = {
+						text = function(ctx)
+							return require("colorful-menu").blink_components_text(ctx)
+						end,
+						highlight = function(ctx)
+							return require("colorful-menu").blink_components_highlight(ctx)
+						end,
+					},
+				},
+			},
+		},
+	},
+})
+
+local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
@@ -267,67 +309,8 @@ require("noice").setup({})
 vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
 vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-local cmp = require("cmp")
-local lspkind = require("lspkind")
-cmp.setup({
-	formatting = {
-		format = lspkind.cmp_format({
-			mode = "symbol", -- show only symbol annotations
-			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
-			-- The function below will be called before any actual modifications from lspkind
-			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-			before = function(entry, vim_item)
-				return vim_item
-			end,
-		}),
-	},
-	snippet = {
-		-- REQUIRED - you must specify a snippet engine
-		expand = function(args)
-			require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-		end,
-	},
-	mapping = cmp.mapping.preset.insert({
-		["<C-b>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-	}),
-	sources = cmp.config.sources({
-		{ name = "luasnip" }, -- For luasnip users.
-		{ name = "nvim_lsp" },
-		{ name = "neorg" },
-		{
-			name = "buffer",
-			option = {
-				get_bufnrs = function()
-					return vim.api.nvim_list_bufs()
-				end,
-			},
-		},
-	}),
-})
-
--- Set configuration for specific filetype.
-cmp.setup.filetype("gitcommit", {
-	sources = cmp.config.sources({
-		{ name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
-	}, { { name = "buffer" } }),
-})
-
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline("/", {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = { { name = "buffer" } },
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(":", {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
-})
+require("lspkind").setup()
 
 require("luasnip.loaders.from_vscode").lazy_load()
 require("lualine").setup({
@@ -402,24 +385,6 @@ end)
 
 require("colorizer").setup()
 require("trouble").setup()
-require("neorg").setup({
-	load = {
-		["core.defaults"] = {},
-		["core.concealer"] = {},
-		["core.summary"] = {},
-		["core.completion"] = { config = { engine = "nvim-cmp" } },
-		["core.dirman"] = {
-			config = {
-				workspaces = {
-					notes = "~/Documents/neorg-test/",
-				},
-				default_workspace = "notes",
-			},
-		},
-	},
-})
-vim.wo.foldlevel = 99
-vim.wo.conceallevel = 2
 
 vim.g.matchup_matchparen_offscreen = { method = "popup" }
 vim.g.matchup_transmute_enabled = true

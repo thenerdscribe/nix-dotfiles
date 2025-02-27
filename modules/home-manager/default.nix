@@ -118,12 +118,7 @@
           render-markdown-nvim
           bufferline-nvim
           blamer-nvim
-          cmp-buffer
-          cmp-cmdline
-          cmp-nvim-lsp
           neorg
-          cmp-path
-          cmp_luasnip
           conform-nvim
           comment-nvim
           delimitMate
@@ -136,8 +131,13 @@
           lualine-nvim
           noice-nvim
           nui-nvim
-          nvim-cmp
+          blink-cmp-spell
+          blink-cmp-dictionary
+          blink-cmp-git
+          blink-cmp
           nvim-lspconfig
+          colorful-menu-nvim
+          friendly-snippets
           nvim-notify
           nvim-web-devicons
           plenary-nvim
