@@ -189,7 +189,6 @@ end, {
 local nvim_lsp = require("lspconfig")
 local navic = require("nvim-navic")
 local servers = {
-	"phpactor",
 	"ts_ls",
 	"pyright",
 	"jsonls",
@@ -284,6 +283,15 @@ nvim_lsp["html"].setup({
 		},
 		provideFormatter = true,
 	},
+})
+
+nvim_lsp.intelephense.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "php", "blade" },
+	root_dir = function()
+		return vim.loop.cwd()
+	end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -401,3 +409,4 @@ vim.cmd("nnoremap <silent> <leader>w :update<CR>")
 require("image").setup({
 	processor = "magick_cli",
 })
+require("mini.align").setup()

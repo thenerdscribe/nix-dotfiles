@@ -66,7 +66,6 @@
     SAVEHIST = "100000";
   };
   programs = {
-    zellij.enable = true;
     zoxide.enable = true;
     ripgrep.enable = true;
     fd.enable = true;
@@ -114,6 +113,7 @@
         with pkgs.vimPlugins;
         with pkgs.tree-sitter-grammars;
         [
+          mini-nvim
           ReplaceWithRegister
           render-markdown-nvim
           bufferline-nvim
@@ -237,6 +237,7 @@
         }
       ];
       shellAliases = {
+        ssh = "TERM='xterm' ssh";
         vim = "nvim";
         pbc = "pbcopy";
         pbp = "pbpaste";
@@ -263,11 +264,13 @@
         composer = "valet composer";
         php = "valet php";
         art = "php artisan";
-        za = "zellij attach $(zellij list-sessions --no-formatting --short | fzf)";
         zlss = "zellij list-sessions --no-formatting --short";
         zls = "zellij list-sessions";
       };
       initExtra = ''
+        function za () {
+            zellij attach "$(zellij list-sessions --no-formatting --short | fzf --select-1 -q $1)";
+        };
         setopt autopushd
         function my_init() {
           bindkey '^ ' autosuggest-accept
