@@ -285,6 +285,15 @@ nvim_lsp["html"].setup({
 	},
 })
 
+nvim_lsp.phpactor.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "php", "blade" },
+	root_dir = function()
+		return vim.loop.cwd()
+	end,
+})
+
 nvim_lsp.intelephense.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
