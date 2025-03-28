@@ -43,6 +43,7 @@
     ice-bar
     yazi-unwrapped
     imagemagick
+    pup
   ];
   home.sessionVariables = {
     PHP_CS_FIXER_IGNORE_ENV = 1;
