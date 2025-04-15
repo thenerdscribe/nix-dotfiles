@@ -82,6 +82,31 @@
         ];
       };
 
+	nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+	system = "x86_64-linux";
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config = {
+            allowUnfree = true;
+            allowUnfreePredicate = true;
+            allowBroken = true;
+          };
+        };
+	modules = [
+		./modules/nixos-config
+          home-manager.nixosModules.home-manager
+            {home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+	            backupFileExtension = "bak";
+              users.ryanm.imports = [
+                ./modules/home-manager
+              ];
+            };
+	    }
+	];
+	};
+
       darwinConfigurations.Ryans-Mac-Mini = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         pkgs = import nixpkgs {
@@ -89,6 +114,7 @@
           config = {
             allowUnfree = true;
             allowUnfreePredicate = true;
+            allowBroken = true;
           };
         };
         modules = [
