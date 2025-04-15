@@ -419,3 +419,16 @@ require("image").setup({
 	processor = "magick_cli",
 })
 require("mini.align").setup()
+
+vim.api.nvim_create_user_command("Sqlify", function()
+	vim.cmd('%norm yss"')
+	vim.cmd("%norm A,")
+	vim.cmd("norm G$xA)")
+	vim.cmd("norm gg")
+	vim.cmd("norm I(")
+	vim.cmd("norm lxh")
+end, {
+	nargs = 0,
+	desc = "Make a list SQLy",
+	bang = false,
+})

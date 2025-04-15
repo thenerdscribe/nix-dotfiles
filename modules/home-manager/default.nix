@@ -25,6 +25,11 @@
     };
   };
   home.packages = with pkgs; [
+    (python313.withPackages (
+      p: with p; [
+        pandas
+      ]
+    ))
     sqlite
     go
     curl
@@ -107,7 +112,7 @@
         nodejs_23
         sql-formatter
         blade-formatter
-        php84Packages.php-cs-fixer
+        # php84Packages.php-cs-fixer
       ];
 
       plugins =
@@ -145,24 +150,48 @@
           telescope-fzf-native-nvim
           telescope-nvim
           transparent-nvim
-          (nvim-treesitter.withPlugins (
-            _:
-            nvim-treesitter.allGrammars
-            ++ [
-              (pkgs.tree-sitter.buildGrammar {
-                language = "blade";
-                version = "v0.11.0";
-                src = pkgs.fetchFromGitHub {
-                  owner = "EmranMR";
-                  repo = "tree-sitter-blade";
-                  rev = "47baa7ba1f9d5f436c7a72b052d2dac2166abf92";
-                  sha256 = "sha256-N3QUylMqhX5aZGyIx1zfMe4xZRAwwE7e4MyhOiawCXw=";
-                };
-              })
-              tree-sitter-norg
-              tree-sitter-norg-meta
-            ]
-          ))
+          (nvim-treesitter.withPlugins (p: [
+            p.javascript
+            p.php
+            p.html
+            p.css
+            p.markdown
+            p.dockerfile
+            p.bash
+            p.blade
+            p.csv
+            p.diff
+            p.git_config
+            p.git_rebase
+            p.gitcommit
+            p.gitignore
+            p.json
+            p.json5
+            p.lua
+            p.luadoc
+            p.tree-sitter-luap
+            p.markdown_inline
+            p.nix
+            p.nginx
+            p.passwd
+            p.phpdoc
+            p.php_only
+            p.python
+            p.tree-sitter-query
+            p.rust
+            p.robot
+            p.sql
+            p.ssh_config
+            p.tmux
+            p.typescript
+            p.vim
+            p.vimdoc
+            p.vue
+            p.xml
+            p.yaml
+            tree-sitter-norg
+            tree-sitter-norg-meta
+          ]))
           image-nvim
           lspkind-nvim
           todo-comments-nvim
@@ -193,6 +222,7 @@
             plugin = nvim-neoclip-lua;
             type = "lua";
             config = ''
+              vim.diagnostic.config { virtual_lines = { current_line = true } }
               require("neoclip").setup({
                   enable_persistent_history = true
               })
@@ -270,7 +300,17 @@
       };
       initExtra = ''
         function za () {
-            zellij attach "$(zellij list-sessions --no-formatting --short | fzf --select-1 -q $1)";
+            local sessions="$(zellij list-sessions --no-formatting --short)"
+            if [ -z $sessions ]
+            then
+                return;
+            fi
+            if [ -z $1 ]; then
+                local session="$(echo $sessions | fzf)";
+            else 
+                local session="$(echo $sessions | fzf --select-1 -q $1)";
+            fi
+            zellij attach $session
         };
         setopt autopushd
         function my_init() {

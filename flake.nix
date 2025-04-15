@@ -89,6 +89,7 @@
           config = {
             allowUnfree = true;
             allowUnfreePredicate = true;
+            allowBroken = true;
           };
         };
         modules = [
