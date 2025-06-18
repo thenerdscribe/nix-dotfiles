@@ -73,6 +73,8 @@ inputs,
         sqlite
         playerctl
         obsidian
+        signal-desktop
+        mako
     ];
     programs.zen-browser = {
         enable = true;
