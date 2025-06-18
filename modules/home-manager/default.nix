@@ -2,10 +2,15 @@
   pkgs,
   lib,
   config,
+inputs,
   ...
 }:
 {
   home.stateVersion = "24.11";
+
+      imports = [
+    inputs.zen-browser.homeModules.twilight
+  ];
 
   home.file = {
     ".config/nvim/after/" = {
@@ -49,7 +54,18 @@
     yazi-unwrapped
     imagemagick
     pup
+        slack
+        discord
+            _1password-gui
   ];
+    programs.zen-browser = {
+    enable = true;
+    policies = {
+      DisableAppUpdate = true;
+      DisableTelemetry = true;
+      # find more options here: https://mozilla.github.io/policy-templates/
+    };
+  };
   home.sessionVariables = {
     PHP_CS_FIXER_IGNORE_ENV = 1;
     EDITOR = "nvim";
@@ -109,7 +125,7 @@
         prettierd
         stylua
         ripgrep
-        nodejs_23
+        nodejs_24
         sql-formatter
         blade-formatter
         # php84Packages.php-cs-fixer
