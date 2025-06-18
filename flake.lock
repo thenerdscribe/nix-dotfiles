@@ -118,6 +118,27 @@
         "type": "github"
       }
     },
+    "hyprshell": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1750267659,
+        "narHash": "sha256-pecWTDyAIFnmBBrxMGbZom6u1VtyUQs/SQbcarehdGk=",
+        "owner": "H3rmt",
+        "repo": "hyprswitch",
+        "rev": "d365b1ceacc3737e69fec66ff40e9a54b58bc6e1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "H3rmt",
+        "ref": "hyprshell",
+        "repo": "hyprswitch",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1748189127,
@@ -152,6 +173,7 @@
         "darwin": "darwin",
         "ghostty": "ghostty",
         "home-manager": "home-manager",
+        "hyprshell": "hyprshell",
         "nixpkgs": "nixpkgs_2",
         "zen-browser": "zen-browser"
       }

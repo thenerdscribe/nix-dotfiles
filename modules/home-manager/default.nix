@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+stdenv,
 inputs,
   ...
 }:
@@ -10,7 +11,17 @@ inputs,
 
       imports = [
     inputs.zen-browser.homeModules.twilight
+        inputs.hyprshell.homeModules.hyprshell
   ];
+    programs.hyprshell = {
+    enable = true;
+    systemd.args = "-v";
+    settings = {
+      launcher = {
+        max_items = 6;
+        };
+      };
+    };
 
   home.file = {
     ".config/nvim/after/" = {
@@ -54,9 +65,12 @@ inputs,
     yazi-unwrapped
     imagemagick
     pup
+        font-awesome
         slack
+        spotify-unwrapped
         discord
             _1password-gui
+        sqlite
   ];
     programs.zen-browser = {
     enable = true;
@@ -227,24 +241,21 @@ inputs,
           vim-matchup
           catppuccin-nvim
           nvim-colorizer-lua
-          {
-            plugin = sqlite-lua;
-            type = "lua";
-            config = ''
-              vim.g.sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.dylib'
-            '';
-          }
-          {
-            plugin = nvim-neoclip-lua;
-            type = "lua";
-            config = ''
-              vim.diagnostic.config { virtual_lines = { current_line = true } }
-              require("neoclip").setup({
-                  enable_persistent_history = true
-              })
-              vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<cr>")
-            '';
-          }
+    #                     {
+    #   plugin = pkgs.vimPlugins.sqlite-lua;
+    #   config = "let g:sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3'";
+    # }
+    #       {
+    #         plugin = nvim-neoclip-lua;
+    #         type = "lua";
+    #         config = ''
+    #           vim.diagnostic.config { virtual_lines = { current_line = true } }
+    #           require("neoclip").setup({
+    #               enable_persistent_history = true
+    #           })
+    #           vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<cr>")
+    #         '';
+    #       }
           (pkgs.fetchFromGitHub {
             owner = "joe-re";
             repo = "sql-language-server";
@@ -313,6 +324,8 @@ inputs,
         art = "php artisan";
         zlss = "zellij list-sessions --no-formatting --short";
         zls = "zellij list-sessions";
+            wbp = "wl-paste";
+            wbc = "wl-copy";
       };
       initExtra = ''
         function za () {

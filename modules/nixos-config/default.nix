@@ -10,47 +10,26 @@
         ];
 
     boot.loader.systemd-boot.enable = true;
-    # boot.loader.systemd-boot.windows = {
-    #   "11-home" = {
-    #    title = "Windows 11 Home";
-    #    efiDeviceHandle = "FS1";
-    #    sortKey = "0_windows";
-    #  };
-    #
-    # };
-    # boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
 
     boot.loader.efi.canTouchEfiVariables = true;
-    #           boot.lanzaboote = {
-    #             enable = false;
-    #             pkiBundle = "/var/lib/sbctl";
-    #      settings = {
-    #      	editor = "yes";
-    # console-mode = "max";
-    # timeout = "10";
-    #      };
-    #           };
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-    # Bootloader.
-    # boot.loader.grub.enable = true;
-    # boot.loader.grub.efiSupport = true;
-    # boot.loader.grub.useOSProber = true;
-    # boot.loader.grub.devices = ["nodev"];
-
-    # Use latest kernel.
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
     networking.hostName = "nixos"; # Define your hostname.
 
     # Enable networking
     networking.networkmanager.enable = true;
+    services.tailscale.enable = true;
 
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
     # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+    virtualisation.docker = {
+        enable = true;
+    };
 
     # Set your time zone.
     time.timeZone = "America/Phoenix";
@@ -112,7 +91,7 @@
     users.users.ryanm = {
         isNormalUser = true;
         description = "Ryan Morton";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "networkmanager" "wheel" "docker" ];
         shell = pkgs.zsh;
         packages = with pkgs; [
             kdePackages.kate
@@ -138,11 +117,8 @@
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
-        #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-        git
-        neovim
-        os-prober
-        #  wget
+        wl-clipboard
+        docker-compose
     ];
 
     # Some programs need SUID wrappers, can be configured further or are
@@ -158,7 +134,6 @@
     # Enable the OpenSSH daemon.
     # services.openssh.enable = true;
 
-    services.tailscale.enable = true;
 
     # Open ports in the firewall.
     # networking.firewall.allowedTCPPorts = [ ... ];

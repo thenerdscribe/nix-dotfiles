@@ -9,6 +9,8 @@
     # to have it up-to-date or simply don't specify the nixpkgs input  
     inputs.nixpkgs.follows = "nixpkgs";
   };
+          hyprshell.url = "github:H3rmt/hyprswitch?ref=hyprshell";
+    hyprshell.inputs.nixpkgs.follows = "nixpkgs";
         home-manager = {
             url = "github:nix-community/home-manager/master";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -104,7 +106,6 @@
                     ./modules/nixos-config
                     home-manager.nixosModules.home-manager
                     {home-manager = {
-
                         useGlobalPkgs = true;
                         useUserPackages = true;
                         backupFileExtension = "bak";
