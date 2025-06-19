@@ -23,6 +23,10 @@ inputs,
         };
     };
 
+    wayland.windowManager.hyprland.plugins = [
+        inputs.hypr-darkwindow.packages.${pkgs.system}.Hypr-DarkWindow
+    ];
+
     home.file = {
         ".config/nvim/after/" = {
             source = ./dotfiles/nvim/after;
@@ -74,8 +78,14 @@ inputs,
         playerctl
         obsidian
         signal-desktop
-        mako
+        zellij
+        hyprsunset
     ];
+    services.mako = {
+        enable = true;
+        ignoreTimeout = 1;
+        defaultTimeout = 5;
+    };
     programs.zen-browser = {
         enable = true;
         policies = {

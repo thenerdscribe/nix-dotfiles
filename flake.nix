@@ -9,6 +9,10 @@
     # to have it up-to-date or simply don't specify the nixpkgs input  
     inputs.nixpkgs.follows = "nixpkgs";
   };
+    hypr-darkwindow = {
+      url = "github:alexhulbert/Hyprchroma";
+      inputs.hyprland.follows = "nixpkgs";
+    };
           hyprshell.url = "github:H3rmt/hyprswitch?ref=hyprshell";
     hyprshell.inputs.nixpkgs.follows = "nixpkgs";
         home-manager = {
@@ -28,6 +32,7 @@
         darwin,
         home-manager,
         ghostty,
+        hypr-darkwindow,
         zen-browser,
         ...
         } @inputs:

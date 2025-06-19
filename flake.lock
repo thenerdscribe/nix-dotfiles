@@ -118,6 +118,27 @@
         "type": "github"
       }
     },
+    "hypr-darkwindow": {
+      "inputs": {
+        "hyprland": [
+          "nixpkgs"
+        ],
+        "nix-filter": "nix-filter"
+      },
+      "locked": {
+        "lastModified": 1740505231,
+        "narHash": "sha256-GvJnZjwQWVy+RFtfRjVdGKZApnxgKjUEGezqwyPDfrw=",
+        "owner": "alexhulbert",
+        "repo": "Hyprchroma",
+        "rev": "0a705582590e6d8cbc75dde005ceeb546ecc36d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "alexhulbert",
+        "repo": "Hyprchroma",
+        "type": "github"
+      }
+    },
     "hyprshell": {
       "inputs": {
         "nixpkgs": [
@@ -136,6 +157,21 @@
         "owner": "H3rmt",
         "ref": "hyprshell",
         "repo": "hyprswitch",
+        "type": "github"
+      }
+    },
+    "nix-filter": {
+      "locked": {
+        "lastModified": 1731533336,
+        "narHash": "sha256-oRam5PS1vcrr5UPgALW0eo1m/5/pls27Z/pabHNy2Ms=",
+        "owner": "numtide",
+        "repo": "nix-filter",
+        "rev": "f7653272fd234696ae94229839a99b73c9ab7de0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "nix-filter",
         "type": "github"
       }
     },
@@ -173,6 +209,7 @@
         "darwin": "darwin",
         "ghostty": "ghostty",
         "home-manager": "home-manager",
+        "hypr-darkwindow": "hypr-darkwindow",
         "hyprshell": "hyprshell",
         "nixpkgs": "nixpkgs_2",
         "zen-browser": "zen-browser"
