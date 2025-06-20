@@ -9,12 +9,6 @@
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hypr-darkwindow = {
-      url = "github:alexhulbert/Hyprchroma";
-      inputs.hyprland.follows = "nixpkgs";
-    };
-    hyprshell.url = "github:H3rmt/hyprswitch?ref=hyprshell";
-    hyprshell.inputs.nixpkgs.follows = "nixpkgs";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,7 +26,6 @@
       darwin,
       home-manager,
       ghostty,
-      hypr-darkwindow,
       zen-browser,
       ...
     }@inputs:
@@ -117,9 +110,6 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 backupFileExtension = "bak";
-                users.ryanm.wayland.windowManager.hyprland.plugins = [
-                  hypr-darkwindow.packages.${pkgs.system}.Hypr-DarkWindow
-                ];
                 users.ryanm.imports = [
                   ./modules/home-manager
                 ];

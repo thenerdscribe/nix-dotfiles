@@ -419,6 +419,7 @@ require("image").setup({
 	processor = "magick_cli",
 })
 require("mini.align").setup()
+require("transparent").setup({})
 
 vim.api.nvim_create_user_command("Sqlify", function()
 	vim.cmd('%norm yss"')

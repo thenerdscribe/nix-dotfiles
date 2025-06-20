@@ -147,6 +147,16 @@
     docker-compose
   ];
 
+  networking.extraHosts = ''
+    34.216.166.84   phpadmin.walts.com test-retail-inventory-api.walts.com test-retail-api-ospos.walts.com test-retail-ordermanager.walts.com test-ordermanager.walts.com test-inventory-api.walts.com test-api-ospos.walts.com test-listingmanager.walts.com
+
+    50.112.66.233 test-www.walts.com
+    35.160.43.43 test-neo-pos1.walts.com test-retail-neo-pos1.walts.com
+    35.87.153.218 test-neo-wpos2.walts.com test-retail-neo-wpos2.walts.com
+    35.90.134.222           ae-staging.walts.com
+    54.149.169.134  commerce-1-admin.walts.com
+  '';
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -158,7 +168,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

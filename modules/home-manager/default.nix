@@ -66,15 +66,17 @@
     signal-desktop
     zellij
     hyprsunset
+    hyprshot
     distrobox
     cliphist
-
+    ueberzugpp
+    resvg
+    imagemagick
+    file
+    cava
+    cavalier
+    mako
   ];
-  services.mako = {
-    enable = true;
-    settings.ignore-timeout = 1;
-    settings.default-timeout = 5;
-  };
   programs.zen-browser = {
     enable = true;
     policies = {
@@ -84,6 +86,7 @@
     };
   };
   home.sessionVariables = {
+    HYPRSHOT_DIR = "~/Pictures/";
     PHP_CS_FIXER_IGNORE_ENV = 1;
     EDITOR = "nvim";
     FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git";
