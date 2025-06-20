@@ -1,9 +1,10 @@
 font-family = "FiraCode Nerd Font Light"
 font-size = 14
-background-opacity = 0.8
-background-blur-radius = 15
+background-opacity = 0.85
+background-blur = 100
 theme = catppuccin-mocha
 adjust-cell-height = 75%
 window-padding-x = 15
 window-padding-y = 15
-
+# keybind = super+c=copy_to_clipboard
+# keybind = super+v=paste_from_clipboard
