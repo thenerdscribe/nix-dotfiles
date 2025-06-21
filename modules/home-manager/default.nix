@@ -76,6 +76,7 @@
     cava
     cavalier
     mako
+    libnotify
   ];
   programs.zen-browser = {
     enable = true;
