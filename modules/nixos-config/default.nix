@@ -59,22 +59,18 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services.xserver.enable = false;
+  services.displayManager.sddm.wayland.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.enable = true;
   # services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
-  };
+  # services.xserver.xkb = {
+  #   layout = "us";
+  #   variant = "";
+  # };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -119,23 +115,24 @@
       wofi
       waybar
       gh
+      hyprland
       hyprpaper
     ];
   };
 
   # Enable automatic login for the user.
-  # services.greetd = {
-  #   enable = true;
-  #   settings = rec {
-  #     initial_session = {
-  #       command = "${pkgs.hyprland}/bin/hyprland";
-  #       user = "ryanm";
-  #     };
-  #     default_session = initial_session;
-  #   };
-  # };
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "ryanm";
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "${pkgs.hyprland}/bin/hyprland";
+        user = "ryanm";
+      };
+      default_session = initial_session;
+    };
+  };
+  # services.displayManager.autoLogin.enable = true;
+  # services.displayManager.autoLogin.user = "ryanm";
 
   # Install firefox.
   programs.firefox.enable = true;

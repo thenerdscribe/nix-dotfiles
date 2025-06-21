@@ -57,7 +57,6 @@
     pup
     font-awesome
     slack
-    spotify-unwrapped
     discord
     _1password-gui
     sqlite
