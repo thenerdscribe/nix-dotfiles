@@ -77,6 +77,7 @@
     cavalier
     mako
     libnotify
+    smartmontools
   ];
   programs.zen-browser = {
     enable = true;
