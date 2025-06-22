@@ -30,6 +30,30 @@
   # Enable networking
   networking.networkmanager.enable = true;
   services.tailscale.enable = true;
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        ids = [ "*" ];
+        extraConfig = ''
+           # Make Apple keyboards work the same way on KDE as they do on MacOS
+          [main]
+          # Bind both "Cmd" keys to trigger the 'meta_mac' layer
+          leftmeta = layer(meta_mac)
+          rightmeta = layer(meta_mac)
+        '';
+      };
+    };
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -74,6 +98,8 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  programs.xwayland.enable = true;
+  services.blueman.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -112,7 +138,7 @@
       os-prober
       kitty
       hyprland
-      wofi
+      rofi-wayland
       waybar
       gh
       hyprland
@@ -142,17 +168,36 @@
   environment.systemPackages = with pkgs; [
     wl-clipboard
     docker-compose
+    swww
   ];
 
   networking.extraHosts = ''
     34.216.166.84   phpadmin.walts.com test-retail-inventory-api.walts.com test-retail-api-ospos.walts.com test-retail-ordermanager.walts.com test-ordermanager.walts.com test-inventory-api.walts.com test-api-ospos.walts.com test-listingmanager.walts.com
-
+    127.0.0.1 neo-tools.dev.walts.com awesome-ecomm.dev.walts.com
     50.112.66.233 test-www.walts.com
     35.160.43.43 test-neo-pos1.walts.com test-retail-neo-pos1.walts.com
     35.87.153.218 test-neo-wpos2.walts.com test-retail-neo-wpos2.walts.com
     35.90.134.222           ae-staging.walts.com
     54.149.169.134  commerce-1-admin.walts.com
   '';
+  services.caddy = {
+    enable = true;
+    virtualHosts."http://awesome-ecomm.dev.walts.com".extraConfig = ''
+      header {
+        Access-Control-Allow-Origin *
+        Access-Control-Allow-Methods *
+        Access-Control-Allow-Headers *
+      }
+      reverse_proxy 127.0.0.1:8889 
+    '';
+    virtualHosts."http://neo-tools.dev.walts.com".extraConfig = ''
+      header {
+           Access-Control-Allow-Origin *
+           Access-Control-Allow-Credentials true
+      }
+      reverse_proxy 127.0.0.1:8888
+    '';
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

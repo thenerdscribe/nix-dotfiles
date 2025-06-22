@@ -18,6 +18,7 @@
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };
+    swww.url = "github:LGFae/swww";
   };
 
   outputs =

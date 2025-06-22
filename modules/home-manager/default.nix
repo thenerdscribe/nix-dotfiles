@@ -58,6 +58,7 @@
     font-awesome
     slack
     discord
+    spotify
     _1password-gui
     sqlite
     playerctl
@@ -66,6 +67,7 @@
     zellij
     hyprsunset
     hyprshot
+    hyprcursor
     distrobox
     cliphist
     ueberzugpp
@@ -73,10 +75,13 @@
     imagemagick
     file
     cava
-    cavalier
-    mako
     libnotify
     smartmontools
+    catppuccin-cursors.mochaRed
+    kdePackages.dolphin
+    swaynotificationcenter
+    lolcat
+    xdg-desktop-portal-hyprland
   ];
   programs.zen-browser = {
     enable = true;

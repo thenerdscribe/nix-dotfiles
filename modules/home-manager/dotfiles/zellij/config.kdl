@@ -148,13 +148,13 @@ keybinds clear-defaults=true {
     }
     shared_except "locked" {
         bind "Alt g" { SwitchToMode "Locked"; }
-        bind "Alt q" { Quit; }
-        bind "Alt n" { NewPane; }
-        bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
-        bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
-        bind "Alt j" "Alt Down" { MoveFocus "Down"; }
-        bind "Alt k" "Alt Up" { MoveFocus "Up"; }
-        bind "Alt =" "Alt +" { Resize "Increase"; }
+        bind "Super Alt q" { Quit; }
+        bind "Super Alt n" { NewPane; }
+        bind "Super Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
+        bind "Super Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
+        bind "Super Alt j" "Alt Down" { MoveFocus "Down"; }
+        bind "Super Alt k" "Alt Up" { MoveFocus "Up"; }
+        bind "Super Alt =" "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
