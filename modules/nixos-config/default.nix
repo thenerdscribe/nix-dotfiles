@@ -170,6 +170,16 @@
     docker-compose
     swww
   ];
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
+      ];
+    };
+  };
 
   networking.extraHosts = ''
     34.216.166.84   phpadmin.walts.com test-retail-inventory-api.walts.com test-retail-api-ospos.walts.com test-retail-ordermanager.walts.com test-ordermanager.walts.com test-inventory-api.walts.com test-api-ospos.walts.com test-listingmanager.walts.com
@@ -183,18 +193,9 @@
   services.caddy = {
     enable = true;
     virtualHosts."http://awesome-ecomm.dev.walts.com".extraConfig = ''
-      header {
-        Access-Control-Allow-Origin *
-        Access-Control-Allow-Methods *
-        Access-Control-Allow-Headers *
-      }
       reverse_proxy 127.0.0.1:8889 
     '';
     virtualHosts."http://neo-tools.dev.walts.com".extraConfig = ''
-      header {
-           Access-Control-Allow-Origin *
-           Access-Control-Allow-Credentials true
-      }
       reverse_proxy 127.0.0.1:8888
     '';
   };
