@@ -400,7 +400,7 @@ vim.keymap.set("n", "<leader>To", function()
 	require("neotest").output_panel.toggle()
 end)
 
-require("colorizer").setup()
+-- require("colorizer").setup()
 require("trouble").setup()
 
 vim.g.matchup_matchparen_offscreen = { method = "popup" }
