@@ -93,28 +93,31 @@
           pavucontrol
           neofetch
           dconf
+          nwg-look
         ];
-        dconf.settings = {
-          "org/gnome/desktop/interface" = {
-            color-scheme = "prefer-dark";
-          };
-        };
         gtk = {
           enable = true;
-          theme.name = "WhiteSur-dark";
-          iconTheme.name = "WhiteSur-dark";
+          theme.name = "WhiteSur-Dark";
+          theme.package = pkgs.whitesur-gtk-theme;
+          iconTheme.name = "WhiteSur-Dark";
           gtk3.extraConfig = {
             Settings = ''
               gtk-application-prefer-dark-theme=1
             '';
           };
-
           gtk4.extraConfig = {
             Settings = ''
               gtk-application-prefer-dark-theme=1
             '';
           };
-
+        };
+        dconf = {
+          enable = true;
+          settings = {
+            "org/gnome/desktop/interface" = {
+              color-scheme = "prefer-dark";
+            };
+          };
         };
         wayland.windowManager.hyprland = {
           extraConfig = ''
