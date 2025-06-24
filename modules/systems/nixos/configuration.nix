@@ -14,29 +14,36 @@
     ./hardware-configuration.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   networking.hostName = "nixos"; # Define your hostname.
-
-  # Enable networking
   networking.networkmanager.enable = true;
+  networking.extraHosts = ''
+    34.216.166.84   phpadmin.walts.com test-retail-inventory-api.walts.com test-retail-api-ospos.walts.com test-retail-ordermanager.walts.com test-ordermanager.walts.com test-inventory-api.walts.com test-api-ospos.walts.com test-listingmanager.walts.com
+    127.0.0.1 neo-tools.dev.walts.com awesome-ecomm.dev.walts.com
+    50.112.66.233 test-www.walts.com
+    35.160.43.43 test-neo-pos1.walts.com test-retail-neo-pos1.walts.com
+    35.87.153.218 test-neo-wpos2.walts.com test-retail-neo-wpos2.walts.com
+    35.90.134.222           ae-staging.walts.com
+    54.149.169.134  commerce-1-admin.walts.com
+  '';
+
   services.tailscale.enable = true;
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
-  };
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
   };
 
   services.keyd = {
@@ -54,10 +61,6 @@
       };
     };
   };
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   virtualisation.docker = {
     enable = true;
@@ -173,10 +176,11 @@
   xdg = {
     portal = {
       enable = true;
+      config.common.default = "*";
       extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
-        xdg-desktop-portal-hyprland
       ];
     };
   };
@@ -187,15 +191,6 @@
     nerd-fonts.fira-code
   ];
 
-  networking.extraHosts = ''
-    34.216.166.84   phpadmin.walts.com test-retail-inventory-api.walts.com test-retail-api-ospos.walts.com test-retail-ordermanager.walts.com test-ordermanager.walts.com test-inventory-api.walts.com test-api-ospos.walts.com test-listingmanager.walts.com
-    127.0.0.1 neo-tools.dev.walts.com awesome-ecomm.dev.walts.com
-    50.112.66.233 test-www.walts.com
-    35.160.43.43 test-neo-pos1.walts.com test-retail-neo-pos1.walts.com
-    35.87.153.218 test-neo-wpos2.walts.com test-retail-neo-wpos2.walts.com
-    35.90.134.222           ae-staging.walts.com
-    54.149.169.134  commerce-1-admin.walts.com
-  '';
   services.caddy = {
     enable = true;
     virtualHosts."http://awesome-ecomm.dev.walts.com".extraConfig = ''
@@ -218,12 +213,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -92,7 +92,18 @@
           hyprlandPlugins.hy3
           pavucontrol
           neofetch
+          dconf
         ];
+        dconf.settings = {
+          "org/gnome/desktop/interface" = {
+            color-scheme = "prefer-dark";
+          };
+        };
+        gtk = {
+          enable = true;
+          theme.name = "WhiteSur-dark";
+          iconTheme.name = "WhiteSur-dark";
+        };
         wayland.windowManager.hyprland = {
           extraConfig = ''
             plugin = ${pkgs.hyprlandPlugins.hy3}/lib/libhy3.so
@@ -188,7 +199,7 @@
               kb_layout = "us";
               follow_mouse = 1;
               sensitivity = 0;
-              natural_scroll = true;
+              natural_scroll = false;
               repeat_delay = 300;
               repeat_rate = 50;
             };
@@ -202,8 +213,6 @@
               "$mainMod, space, exec, $menu run -show-icons"
               "$mainMod SHIFT, space, exec, $menu window -show-icons "
               "$mainMod CTRL, f, fullscreen, # dwindle"
-              "$mainMod, C, exec, wl-copy"
-              "$mainMod, V, exec, wl-paste"
               "SUPER CTRL ALT SHIFT, c, exec, rofi -modi clipboard:~/.config/rofi/cliphist-rofi -show clipboard -show-icons"
               "SUPER SHIFT, 4, exec, hyprshot -m window"
               "SUPER SHIFT, 3, exec, hyprshot -m output -m active"
@@ -219,6 +228,11 @@
               "$mainMod CTRL, v, hy3:makegroup, v"
               "$mainMod CTRL, t, hy3:makegroup, h"
 
+              "$mainMod ALT, h, resizeactive, -30 0"
+              "$mainMod ALT, j, resizeactive, 0 30"
+              "$mainMod ALT, k, resizeactive, 0 -30"
+              "$mainMod ALT, l, resizeactive, 30 0"
+
               "$secondaryMod, 1, workspace, 1"
               "$secondaryMod, 2, workspace, 2"
               "$secondaryMod, 3, workspace, 3"
@@ -229,7 +243,7 @@
               "$mainMod CONTROL, 3, movetoworkspace, 3"
               "$mainMod CONTROL, 4, movetoworkspace, 4"
               "$mainMod CONTROL, 5, movetoworkspace, 5"
-              ", XF86AudioPlay, exec, playerctl play-pause"
+              ", XF86AudioPlay, exec, playerctl --player=spotify,zen play-pause"
             ];
             windowrule = [
               "suppressevent maximize, class:.*"
@@ -419,21 +433,21 @@
                 vim-matchup
                 catppuccin-nvim
                 nvim-colorizer-lua
-                #                     {
-                #   plugin = pkgs.vimPlugins.sqlite-lua;
-                #   config = "let g:sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3'";
-                # }
-                #       {
-                #         plugin = nvim-neoclip-lua;
-                #         type = "lua";
-                #         config = ''
-                #           vim.diagnostic.config { virtual_lines = { current_line = true } }
-                #           require("neoclip").setup({
-                #               enable_persistent_history = true
-                #           })
-                #           vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<cr>")
-                #         '';
-                #       }
+                {
+                  plugin = pkgs.vimPlugins.sqlite-lua;
+                  config = "let g:sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.so'";
+                }
+                {
+                  plugin = nvim-neoclip-lua;
+                  type = "lua";
+                  config = ''
+                    vim.diagnostic.config { virtual_lines = { current_line = true } }
+                    require("neoclip").setup({
+                        enable_persistent_history = true
+                    })
+                    vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<cr>")
+                  '';
+                }
                 (pkgs.fetchFromGitHub {
                   owner = "joe-re";
                   repo = "sql-language-server";

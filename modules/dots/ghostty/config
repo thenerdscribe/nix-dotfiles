@@ -6,5 +6,3 @@ theme = catppuccin-mocha
 adjust-cell-height = 75%
 window-padding-x = 15
 window-padding-y = 15
-# keybind = super+c=copy_to_clipboard
-# keybind = super+v=paste_from_clipboard
