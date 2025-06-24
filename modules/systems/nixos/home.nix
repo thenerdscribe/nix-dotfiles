@@ -103,6 +103,18 @@
           enable = true;
           theme.name = "WhiteSur-dark";
           iconTheme.name = "WhiteSur-dark";
+          gtk3.extraConfig = {
+            Settings = ''
+              gtk-application-prefer-dark-theme=1
+            '';
+          };
+
+          gtk4.extraConfig = {
+            Settings = ''
+              gtk-application-prefer-dark-theme=1
+            '';
+          };
+
         };
         wayland.windowManager.hyprland = {
           extraConfig = ''
@@ -114,16 +126,16 @@
           ];
           settings = {
             "$terminal" = "ghostty";
-            "$fileManager" = "dolphin";
-            "$menu" = "rofi -show";
+            "$fileManager" = "nautilus";
+            "$menu" = "rofi -show drun";
             "exec-once" = [
               "waybar & swww-daemon & hyprshell run & hyprsunsent & swaync"
               "wl-paste --watch cliphist store"
-              "~/.config/swww/swww_randomize.sh ~/Pictures/wallpapers/ 300"
+              "~/.config/swww/swww_randomize.sh ~/Pictures/wallpapers 300"
             ];
             monitor = [
-              "DP-1, 2560x1440@144.00,0x0,1"
-              "HDMI-A-2, 3840x2160@59.99700,2560x-250,2,transform, 1"
+              "DP-1,preferred,0x0,1"
+              "HDMI-A-2,preferred,2560x-250,2,transform, 1"
             ];
             general = {
               gaps_in = 10;
@@ -271,7 +283,8 @@
           };
         };
         home.sessionVariables = {
-          HYPRSHOT_DIR = "~/Pictures/";
+          GTK_THEME = "WhiteSur-dark";
+          HYPRSHOT_DIR = "~/Pictures/Screenshots/";
           PHP_CS_FIXER_IGNORE_ENV = 1;
           EDITOR = "nvim";
           FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git";
