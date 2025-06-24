@@ -78,11 +78,14 @@
     libnotify
     smartmontools
     catppuccin-cursors.mochaRed
-    kdePackages.dolphin
+    nautilus
+    sushi
+    whitesur-gtk-theme
+    whitesur-icon-theme
     swaynotificationcenter
     lolcat
     xdg-desktop-portal-hyprland
-    pkgs.hyprlandPlugins.hy3
+    hyprlandPlugins.hy3
     pavucontrol
     neofetch
   ];

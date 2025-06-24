@@ -102,25 +102,9 @@
           };
         };
         modules = [
-          ./modules/nixos-config
           home-manager.nixosModules.home-manager
-          (
-            { pkgs, ... }:
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                backupFileExtension = "bak";
-                users.ryanm.imports = [
-                  ./modules/home-manager
-                ];
-                extraSpecialArgs = {
-                  inherit inputs;
-                  system = "x86_64-linux";
-                };
-              };
-            }
-          )
+          ./modules/systems/nixos/configuration.nix
+          ./modules/systems/nixos/home.nix
         ];
       };
 
