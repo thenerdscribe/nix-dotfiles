@@ -97,7 +97,6 @@
           libsecret
           pulseaudio
           gnome-feeds
-          mkchromecast
         ];
 
         dconf = {
