@@ -227,6 +227,7 @@
               "$mainMod SHIFT, space, exec, $menu window -show-icons "
               "$mainMod CTRL, f, fullscreen, # dwindle"
               "SUPER CTRL ALT SHIFT, c, exec, rofi -modi clipboard:~/.config/rofi/cliphist-rofi -show clipboard -show-icons"
+              "SUPER CTRL ALT SHIFT, space, exec, ~/Scripts/run-appimage"
               "SUPER SHIFT, 2, exec, hyprshot -m window"
               "SUPER SHIFT, 3, exec, hyprshot -m output -m active"
               "SUPER SHIFT, 4, exec, hyprshot -m region"
@@ -286,7 +287,7 @@
         };
         home.sessionVariables = {
           GTK_THEME = "Juno";
-          HYPRSHOT_DIR = "~/Pictures/Screenshots/";
+          HYPRSHOT_DIR = "$HOME/Pictures/Screenshots";
           PHP_CS_FIXER_IGNORE_ENV = 1;
           EDITOR = "nvim";
           FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git";
