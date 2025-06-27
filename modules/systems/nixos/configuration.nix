@@ -173,14 +173,13 @@
     docker-compose
     swww
   ];
+
   xdg = {
     portal = {
       enable = true;
-      config.common.default = "xdg-desktop-portal-hyprland";
+      config.common.defualt = "*";
       extraPortals = with pkgs; [
         xdg-desktop-portal-hyprland
-        xdg-desktop-portal-wlr
-        xdg-desktop-portal-gtk
       ];
     };
   };

@@ -197,7 +197,9 @@ local servers = {
 	"tailwindcss",
 	"marksman",
 	"nixd",
+	"typos_lsp",
 }
+
 nvim_lsp.markdown_oxide.setup({})
 nvim_lsp.marksman.setup({})
 

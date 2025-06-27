@@ -86,31 +86,20 @@
           sushi
           whitesur-gtk-theme
           whitesur-icon-theme
+          juno-theme
           swaynotificationcenter
           lolcat
-          xdg-desktop-portal-hyprland
           hyprlandPlugins.hy3
           pavucontrol
           neofetch
           dconf
-          nwg-look
+          streamdeck-ui
+          libsecret
+          pulseaudio
+          gnome-feeds
+          mkchromecast
         ];
-        gtk = {
-          enable = true;
-          theme.name = "WhiteSur-Dark";
-          theme.package = pkgs.whitesur-gtk-theme;
-          iconTheme.name = "WhiteSur-Dark";
-          gtk3.extraConfig = {
-            Settings = ''
-              gtk-application-prefer-dark-theme=1
-            '';
-          };
-          gtk4.extraConfig = {
-            Settings = ''
-              gtk-application-prefer-dark-theme=1
-            '';
-          };
-        };
+
         dconf = {
           enable = true;
           settings = {
@@ -119,6 +108,15 @@
             };
           };
         };
+
+        gtk = {
+          enable = true;
+          theme = {
+            name = "Juno";
+            package = pkgs.juno-theme;
+          };
+        };
+
         wayland.windowManager.hyprland = {
           extraConfig = ''
             plugin = ${pkgs.hyprlandPlugins.hy3}/lib/libhy3.so
@@ -134,6 +132,7 @@
             "exec-once" = [
               "waybar & swww-daemon & hyprshell run & hyprsunsent & swaync"
               "wl-paste --watch cliphist store"
+              "streamdeck -n"
               "~/.config/swww/swww_randomize.sh ~/Pictures/wallpapers 300"
             ];
             monitor = [
@@ -229,8 +228,9 @@
               "$mainMod SHIFT, space, exec, $menu window -show-icons "
               "$mainMod CTRL, f, fullscreen, # dwindle"
               "SUPER CTRL ALT SHIFT, c, exec, rofi -modi clipboard:~/.config/rofi/cliphist-rofi -show clipboard -show-icons"
-              "SUPER SHIFT, 4, exec, hyprshot -m window"
+              "SUPER SHIFT, 2, exec, hyprshot -m window"
               "SUPER SHIFT, 3, exec, hyprshot -m output -m active"
+              "SUPER SHIFT, 4, exec, hyprshot -m region"
               "$secondaryMod, h, hy3:movefocus, l"
               "$secondaryMod, j, hy3:movefocus, d"
               "$secondaryMod, k, hy3:movefocus, u"
@@ -258,7 +258,7 @@
               "$mainMod CONTROL, 3, movetoworkspace, 3"
               "$mainMod CONTROL, 4, movetoworkspace, 4"
               "$mainMod CONTROL, 5, movetoworkspace, 5"
-              ", XF86AudioPlay, exec, playerctl --player=spotify,zen play-pause"
+              ", XF86AudioPlay, exec, playerctl --player=spotify,firefox play-pause"
             ];
             windowrule = [
               "suppressevent maximize, class:.*"
@@ -286,7 +286,7 @@
           };
         };
         home.sessionVariables = {
-          GTK_THEME = "WhiteSur-dark";
+          GTK_THEME = "Juno";
           HYPRSHOT_DIR = "~/Pictures/Screenshots/";
           PHP_CS_FIXER_IGNORE_ENV = 1;
           EDITOR = "nvim";
@@ -350,7 +350,8 @@
               nodejs_24
               sql-formatter
               blade-formatter
-              # php84Packages.php-cs-fixer
+              typos
+              typos-lsp
             ];
 
             plugins =
