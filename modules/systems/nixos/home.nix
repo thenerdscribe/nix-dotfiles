@@ -184,10 +184,10 @@
 
               animation = [
                 "global, 1, 10, default"
-                "border, 1, 5.39, easeOutQuint"
-                "windows, 1, 4.79, easeOutQuint"
-                "windowsIn, 1, 4.1, easeOutQuint, popin 87%"
-                "windowsOut, 1, 1.49, linear, popin 87%"
+                "border, 1, 5.39, easeInOutCubic"
+                "windows, 1, 5, easeInOutCubic, slide"
+                "windowsIn, 1, 5, easeInOutCubic, slide"
+                "windowsOut, 1, 5, easeInOutCubic, slide"
                 "fadeIn, 1, 1.73, almostLinear"
                 "fadeOut, 1, 1.46, almostLinear"
                 "fade, 1, 3.03, quick"
@@ -196,9 +196,9 @@
                 "layersOut, 1, 1.5, linear, fade"
                 "fadeLayersIn, 1, 1.79, almostLinear"
                 "fadeLayersOut, 1, 1.39, almostLinear"
-                "workspaces, 1, 1.94, almostLinear, fade"
-                "workspacesIn, 1, 1.21, almostLinear, fade"
-                "workspacesOut, 1, 1.94, almostLinear, fade"
+                "workspaces, 1, 3, easeInOutCubic, slide"
+                "workspacesIn, 1, 3, easeInOutCubic, slide"
+                "workspacesOut, 1, 3, easeInOutCubic, slide"
               ];
             };
             workspace = [
