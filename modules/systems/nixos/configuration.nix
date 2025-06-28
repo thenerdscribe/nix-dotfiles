@@ -14,6 +14,9 @@
     ./hardware-configuration.nix
   ];
 
+  # Add hypridle
+
+  nix.settings.download-buffer-size = 524288000;
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;

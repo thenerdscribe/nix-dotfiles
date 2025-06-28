@@ -97,6 +97,7 @@
           libsecret
           pulseaudio
           gnome-feeds
+          wlvncc
         ];
 
         dconf = {
