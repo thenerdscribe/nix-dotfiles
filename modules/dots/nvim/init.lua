@@ -220,6 +220,15 @@ local on_attach = function(client, bufnr, lsp)
 end
 
 require("blink.cmp").setup({
+	sources = {
+		default = { "laravel", "lsp", "path", "snippets", "buffer" },
+		providers = {
+			laravel = {
+				name = "laravel",
+				module = "laravel.blink_source",
+			},
+		},
+	},
 	keymap = {
 		preset = "default",
 		["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
@@ -273,6 +282,8 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
+require("laravel").setup()
+
 nvim_lsp["html"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -305,16 +316,16 @@ nvim_lsp.intelephense.setup({
 	end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "php", "blade" },
-	callback = function()
-		vim.lsp.start({
-			name = "laravel-ls",
-			cmd = { "/Users/ryanmorton/Developer/laravel-ls/start.sh" },
-			root_dir = vim.fn.getcwd(),
-		})
-	end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = { "php", "blade" },
+-- 	callback = function()
+-- 		vim.lsp.start({
+-- 			name = "laravel-ls",
+-- 			cmd = { "sh", "/home/ryanm/go/pkg/mod/github.com/laravel-ls/laravel-ls@v0.0.8/start.sh" },
+-- 			root_dir = vim.fn.getcwd(),
+-- 		})
+-- 	end,
+-- })
 
 require("notify").setup({
 	animate = false,
@@ -381,13 +392,13 @@ require("nvim-treesitter.configs").setup({
 
 require("neotest").setup({
 	log_level = vim.log.levels.DEBUG,
-	adapters = {
-		require("neotest-pest")({
-			sail_enabled = function()
-				return false
-			end,
-		}),
-	},
+	--	adapters = {
+	-- require("neotest-pest")({
+	-- 	sail_enabled = function()
+	-- 		return false
+	-- 	end,
+	-- 	}),
+	-- },
 })
 
 vim.keymap.set("n", "<leader>Tf", function()

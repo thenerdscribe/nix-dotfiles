@@ -288,7 +288,8 @@
         };
         home.sessionVariables = {
           GTK_THEME = "Juno";
-          HYPRSHOT_DIR = "$HOME/Pictures/Screenshots";
+          HYPRSHOT_DIR = "Pictures/Screenshots";
+          GOPATH = "/home/ryanm/go";
           PHP_CS_FIXER_IGNORE_ENV = 1;
           EDITOR = "nvim";
           FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git";
@@ -472,11 +473,17 @@
                   rev = "61f09a9";
                   sha256 = "A73coX1zS5PPXGwEgbLcBsg3lvJD1IXiEiyKX68620w=";
                 })
+                # (pkgs.fetchFromGitHub {
+                #   owner = "V13Axel";
+                #   repo = "neotest-pest";
+                #   rev = "b665a48";
+                #   sha256 = "uSPrvZPCjBhoAYTnAUQdMZ/CSosyRkj4itSQDZgthZ4=";
+                # })
                 (pkgs.fetchFromGitHub {
-                  owner = "V13Axel";
-                  repo = "neotest-pest";
-                  rev = "b665a48";
-                  sha256 = "uSPrvZPCjBhoAYTnAUQdMZ/CSosyRkj4itSQDZgthZ4=";
+                  owner = "adibhanna";
+                  repo = "laravel.nvim";
+                  rev = "6ba7713";
+                  sha256 = "OCu7yWu9H+n78Uv8lCZ0LrSWIH9AVB3SMlNoJD3/QWE=";
                 })
               ];
             extraLuaConfig = builtins.readFile ../../dots/nvim/init.lua;

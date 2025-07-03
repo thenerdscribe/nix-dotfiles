@@ -34,7 +34,9 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
   networking.extraHosts = ''
-    34.216.166.84   phpadmin.walts.com test-retail-inventory-api.walts.com test-retail-api-ospos.walts.com test-retail-ordermanager.walts.com test-ordermanager.walts.com test-inventory-api.walts.com test-api-ospos.walts.com test-listingmanager.walts.com
+    54.71.90.183   inventory-api.walts.com
+    54.71.90.183    phpadmin-production.walts.com
+    34.216.166.84   phpadmin.walts.com php test-retail-inventory-api.walts.com test-retail-api-ospos.walts.com test-retail-ordermanager.walts.com test-ordermanager.walts.com test-inventory-api.walts.com test-api-ospos.walts.com test-listingmanager.walts.com
     127.0.0.1 neo-tools.dev.walts.com awesome-ecomm.dev.walts.com
     50.112.66.233 test-www.walts.com
     35.160.43.43 test-neo-pos1.walts.com test-retail-neo-pos1.walts.com
