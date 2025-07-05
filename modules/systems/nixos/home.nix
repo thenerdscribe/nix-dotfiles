@@ -84,6 +84,7 @@
           catppuccin-cursors.mochaRed
           nautilus
           sushi
+          cheese
           whitesur-gtk-theme
           whitesur-icon-theme
           juno-theme
