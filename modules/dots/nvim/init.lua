@@ -422,10 +422,11 @@ vim.g.matchup_transmute_enabled = true
 vim.keymap.set("n", "<leader>XX", "<cmd>Trouble diagnostics toggle<cr>")
 vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>")
 
-vim.cmd("nnoremap <silent> <C-h> <C-w>h")
-vim.cmd("nnoremap <silent> <C-j> <C-w>j")
-vim.cmd("nnoremap <silent> <C-k> <C-w>k")
-vim.cmd("nnoremap <silent> <C-l> <C-w>l")
+require("zellij-nav").setup()
+vim.cmd("nnoremap <silent> <C-h> <cmd>ZellijNavigateLeftTab<cr>")
+vim.cmd("nnoremap <silent> <C-j> <cmd>ZellijNavigateDown<cr>")
+vim.cmd("nnoremap <silent> <C-k> <cmd>ZellijNavigateUp<cr>")
+vim.cmd("nnoremap <silent> <C-l> <cmd>ZellijNavigateRightTab<cr>")
 vim.cmd("nnoremap <silent> <leader>w :update<CR>")
 
 require("image").setup({

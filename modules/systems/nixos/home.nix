@@ -449,6 +449,7 @@
                 vim-surround
                 vim-repeat
                 vim-abolish
+                zellij-nav-nvim
                 luasnip
                 vim-matchup
                 catppuccin-nvim
