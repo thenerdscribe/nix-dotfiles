@@ -6,3 +6,4 @@ theme = catppuccin-mocha
 adjust-cell-height = 75%
 window-padding-x = 15
 window-padding-y = 15
+gtk-single-instance = true
