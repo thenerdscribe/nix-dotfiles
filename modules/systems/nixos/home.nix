@@ -99,6 +99,8 @@
           pulseaudio
           gnome-feeds
           wlvncc
+          wezterm
+          ghostty
         ];
 
         dconf = {

@@ -15,9 +15,6 @@
     };
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
     swww.url = "github:LGFae/swww";
   };
 
@@ -26,7 +23,6 @@
       nixpkgs,
       darwin,
       home-manager,
-      ghostty,
       zen-browser,
       ...
     }@inputs:
@@ -65,7 +61,6 @@
                   pkgs.wget
                   pkgs.zellij
                   pkgs.jankyborders
-                  ghostty.packages.x86_64-darwin
                 ];
               };
               nix.extraOptions = ''
