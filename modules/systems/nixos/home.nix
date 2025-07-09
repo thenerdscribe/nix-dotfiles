@@ -373,6 +373,7 @@
                 comment-nvim
                 delimitMate
                 targets-vim
+                obsidian-nvim
                 bclose-vim
                 gitsigns-nvim
                 vim-matchup
