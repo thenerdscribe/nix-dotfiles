@@ -101,6 +101,7 @@
           wlvncc
           wezterm
           ghostty
+          wf-recorder
         ];
 
         dconf = {
@@ -123,6 +124,7 @@
         wayland.windowManager.hyprland = {
           extraConfig = ''
             plugin = ${pkgs.hyprlandPlugins.hy3}/lib/libhy3.so
+            env = HYPRSHOT_DIR,/home/ryanm/Pictures/Screenshots/
           '';
           enable = true;
           plugins = [
@@ -291,7 +293,7 @@
         };
         home.sessionVariables = {
           GTK_THEME = "Juno";
-          HYPRSHOT_DIR = "Pictures/Screenshots";
+          HYPRSHOT_DIR = "/home/ryanm/Pictures/Screenshots";
           GOPATH = "/home/ryanm/go";
           PHP_CS_FIXER_IGNORE_ENV = 1;
           EDITOR = "nvim";
@@ -365,7 +367,7 @@
               [
                 mini-nvim
                 ReplaceWithRegister
-                render-markdown-nvim
+                # render-markdown-nvim
                 bufferline-nvim
                 blamer-nvim
                 neorg
@@ -373,8 +375,8 @@
                 comment-nvim
                 delimitMate
                 targets-vim
-                obsidian-nvim
                 bclose-vim
+                obsidian-nvim
                 gitsigns-nvim
                 vim-matchup
                 lsp-colors-nvim

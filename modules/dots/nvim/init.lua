@@ -447,3 +447,28 @@ end, {
 	desc = "Make a list SQLy",
 	bang = false,
 })
+
+require("obsidian").setup({
+	ui = { enable = true },
+	workspaces = {
+		{ name = "main", path = "~/Documents/Main" },
+	},
+	completion = {
+		nvim_cmp = false,
+		blink = true,
+	},
+	mappings = {
+		["<leader>ch"] = {
+			action = function()
+				return require("obsidian").util.toggle_checkbox()
+			end,
+			opts = { buffer = true },
+		},
+		["<cr>"] = {
+			action = function()
+				return require("obsidian").util.smart_action()
+			end,
+			opts = { buffer = true, expr = true },
+		},
+	},
+})
