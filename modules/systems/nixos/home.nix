@@ -120,7 +120,9 @@
             package = pkgs.juno-theme;
           };
         };
-
+        home.file.".profile".text = ''
+          export HYPRSHOT_DIR=/home/ryanm/Pictures/Screenshots/
+        '';
         wayland.windowManager.hyprland = {
           extraConfig = ''
             plugin = ${pkgs.hyprlandPlugins.hy3}/lib/libhy3.so
