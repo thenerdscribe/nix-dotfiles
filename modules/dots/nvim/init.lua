@@ -147,6 +147,7 @@ require("conform").setup({
 		blade = { "blade-formatter", "php-cs-fixer" },
 		nix = { "nixfmt" },
 		sql = { "sql_formatter" },
+		kdl = { "kdlfmt" },
 	},
 	formatters = {
 		["php-cs-fixer"] = {
@@ -423,10 +424,12 @@ vim.keymap.set("n", "<leader>XX", "<cmd>Trouble diagnostics toggle<cr>")
 vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>")
 
 require("zellij-nav").setup()
-vim.cmd("nnoremap <silent> <C-h> <cmd>ZellijNavigateLeftTab<cr>")
-vim.cmd("nnoremap <silent> <C-j> <cmd>ZellijNavigateDown<cr>")
-vim.cmd("nnoremap <silent> <C-k> <cmd>ZellijNavigateUp<cr>")
-vim.cmd("nnoremap <silent> <C-l> <cmd>ZellijNavigateRightTab<cr>")
+local map = vim.keymap.set
+map("n", "<c-h>", "<cmd>ZellijNavigateLeftTab<cr>", { desc = "navigate left or tab" })
+map("n", "<c-j>", "<cmd>ZellijNavigateDown<cr>", { desc = "navigate down" })
+map("n", "<c-k>", "<cmd>ZellijNavigateUp<cr>", { desc = "navigate up" })
+map("n", "<c-l>", "<cmd>ZellijNavigateRightTab<cr>", { desc = "navigate right or tab", noremap = true })
+
 vim.cmd("nnoremap <silent> <leader>w :update<CR>")
 
 require("image").setup({
@@ -456,19 +459,5 @@ require("obsidian").setup({
 	completion = {
 		nvim_cmp = false,
 		blink = true,
-	},
-	mappings = {
-		["<leader>ch"] = {
-			action = function()
-				return require("obsidian").util.toggle_checkbox()
-			end,
-			opts = { buffer = true },
-		},
-		["<cr>"] = {
-			action = function()
-				return require("obsidian").util.smart_action()
-			end,
-			opts = { buffer = true, expr = true },
-		},
 	},
 })

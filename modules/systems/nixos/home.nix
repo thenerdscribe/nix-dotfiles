@@ -358,6 +358,7 @@
               ripgrep
               nodejs_24
               sql-formatter
+              kdlfmt
               blade-formatter
               typos
               typos-lsp

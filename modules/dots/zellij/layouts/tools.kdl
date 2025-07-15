@@ -1,22 +1,28 @@
 layout {
-    cwd "/Users/ryanmorton/Sites/neo-tools"
+    cwd "~/Sites/neo-tools"
     default_tab_template {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
         }
         children
     }
-    tab name="editor" focus=true {
-            pane focus=true command="nvim" {
-            args  "."
+    tab name="Editor" focus=true cwd="~/Sites/neo-tools" {
+        pane name="Neovim" focus=true command="zsh" {
+            args "-c" "nix develop --command zsh"
         }
     }
-    tab name="watchers" {
-        pane 
-        pane
-        pane
+    tab name="Commands" cwd="~/Sites/neo-tools" {
+        pane name="Commands" command="zsh" {
+            args "-c" "nix develop --command zsh"
+        }
     }
-    tab name="scratch" cwd="/Users/ryanmorton" {
-        pane
+    tab name="Watchers" cwd="~/Sites/neo-tools" {
+        pane name="Vite" command="zsh" {
+            args "-c" "nix develop --command 'npm' 'run' 'dev'"
+        }
+        pane name="Server" command="zsh" {
+            args "-c" "nix develop --command 'php' 'artisan' 'serve' '--port=8888'"
+        }
     }
 }
+
