@@ -37,7 +37,7 @@
     54.71.90.183   inventory-api.walts.com
     54.71.90.183    phpadmin-production.walts.com
     34.216.166.84   phpadmin.walts.com php test-retail-inventory-api.walts.com test-retail-api-ospos.walts.com test-retail-ordermanager.walts.com test-ordermanager.walts.com test-inventory-api.walts.com test-api-ospos.walts.com test-listingmanager.walts.com
-    127.0.0.1 neo-tools.dev.walts.com awesome-ecomm.dev.walts.com
+    127.0.0.1 neo-tools.dev.walts.com awesome-ecomm.dev.walts.com inventory-api.dev.walts.com
     50.112.66.233 test-www.walts.com
     35.160.43.43 test-neo-pos1.walts.com test-retail-neo-pos1.walts.com
     35.87.153.218 test-neo-wpos2.walts.com test-retail-neo-wpos2.walts.com
@@ -204,6 +204,9 @@
     virtualHosts."http://neo-tools.dev.walts.com".extraConfig = ''
       reverse_proxy 127.0.0.1:8888
     '';
+    virtualHosts."http://inventory-api.dev.walts.com".extraConfig = ''
+      reverse_proxy 127.0.0.1:8890
+    '';
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -218,6 +221,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.hardware.openrgb.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -102,6 +102,8 @@
           wezterm
           ghostty
           wf-recorder
+          openrgb-with-all-plugins
+          wget
         ];
 
         dconf = {
