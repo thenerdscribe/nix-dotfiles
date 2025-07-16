@@ -72,6 +72,7 @@
           hyprsunset
           hyprshot
           hyprcursor
+          magnetic-catppuccin-gtk
           distrobox
           cliphist
           ueberzugpp
@@ -85,9 +86,6 @@
           nautilus
           sushi
           cheese
-          whitesur-gtk-theme
-          whitesur-icon-theme
-          juno-theme
           swaynotificationcenter
           lolcat
           hyprlandPlugins.hy3
@@ -97,13 +95,13 @@
           streamdeck-ui
           libsecret
           pulseaudio
-          gnome-feeds
           wlvncc
           wezterm
           ghostty
           wf-recorder
           openrgb-with-all-plugins
           wget
+          whitesur-gtk-theme
         ];
 
         dconf = {
@@ -114,14 +112,18 @@
             };
           };
         };
-
         gtk = {
           enable = true;
           theme = {
-            name = "Juno";
-            package = pkgs.juno-theme;
+            name = "WhiteSur-Dark";
+            package = pkgs.whitesur-gtk-theme;
+          };
+          iconTheme = {
+            name = "WhiteSur";
+            package = pkgs.whitesur-icon-theme;
           };
         };
+
         home.file.".profile".text = ''
           export HYPRSHOT_DIR=/home/ryanm/Pictures/Screenshots/
         '';
@@ -296,7 +298,7 @@
           };
         };
         home.sessionVariables = {
-          GTK_THEME = "Juno";
+          GTK_THEME = "WhiteSur-Dark";
           HYPRSHOT_DIR = "/home/ryanm/Pictures/Screenshots";
           GOPATH = "/home/ryanm/go";
           PHP_CS_FIXER_IGNORE_ENV = 1;
