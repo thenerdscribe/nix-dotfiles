@@ -102,6 +102,8 @@
           openrgb-with-all-plugins
           wget
           whitesur-gtk-theme
+          wlogout
+          postman
         ];
 
         dconf = {
@@ -232,7 +234,7 @@
             "$secondaryMod" = "ALT";
             bind = [
               "$mainMod, q, killactive,"
-              "$mainMod, M, exit,"
+              "$mainMod, M, exec, wlogout,"
               "$mainMod, E, exec, $fileManager"
               "$secondaryMod, f, togglefloating,"
               "$mainMod, space, exec, $menu run -show-icons"
