@@ -84,6 +84,7 @@
           smartmontools
           catppuccin-cursors.mochaRed
           nautilus
+          calibre
           sushi
           cheese
           swaynotificationcenter
