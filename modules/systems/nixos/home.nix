@@ -107,6 +107,8 @@
           whitesur-gtk-theme
           wlogout
           postman
+          syncthing
+          realvnc-vnc-viewer
         ];
 
         dconf = {
@@ -149,6 +151,7 @@
               "waybar & swww-daemon & hyprshell run & hyprsunsent & swaync"
               "wl-paste --watch cliphist store"
               "streamdeck -n"
+              "syncthing"
               "~/.config/swww/swww_randomize.sh ~/Pictures/wallpapers 300"
             ];
             monitor = [
