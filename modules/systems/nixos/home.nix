@@ -85,6 +85,7 @@
           catppuccin-cursors.mochaRed
           nautilus
           calibre
+          audacious
           sushi
           cheese
           swaynotificationcenter
@@ -99,6 +100,7 @@
           wlvncc
           wezterm
           ghostty
+          termusic
           wf-recorder
           openrgb-with-all-plugins
           wget
@@ -273,7 +275,7 @@
               "$mainMod CONTROL, 3, movetoworkspace, 3"
               "$mainMod CONTROL, 4, movetoworkspace, 4"
               "$mainMod CONTROL, 5, movetoworkspace, 5"
-              ", XF86AudioPlay, exec, playerctl --player=spotify,firefox play-pause"
+              ", XF86AudioPlay, exec, playerctl --player=spotify,termusic,audacious,firefox play-pause"
             ];
             windowrule = [
               "suppressevent maximize, class:.*"
