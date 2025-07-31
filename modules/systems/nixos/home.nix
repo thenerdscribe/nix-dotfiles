@@ -82,6 +82,8 @@
           cava
           libnotify
           smartmontools
+          fluent-gtk-theme
+          fluent-icon-theme
           catppuccin-cursors.mochaRed
           nautilus
           calibre
@@ -89,7 +91,6 @@
           sushi
           cheese
           swaynotificationcenter
-          lolcat
           hyprlandPlugins.hy3
           pavucontrol
           neofetch
@@ -104,7 +105,6 @@
           wf-recorder
           openrgb-with-all-plugins
           wget
-          whitesur-gtk-theme
           wlogout
           postman
           syncthing
@@ -122,12 +122,12 @@
         gtk = {
           enable = true;
           theme = {
-            name = "WhiteSur-Dark";
-            package = pkgs.whitesur-gtk-theme;
+            name = "Fluent-Dark";
+            package = pkgs.fluent-gtk-theme;
           };
           iconTheme = {
-            name = "WhiteSur";
-            package = pkgs.whitesur-icon-theme;
+            name = "Fluent-Dark";
+            package = pkgs.fluent-icon-theme;
           };
         };
 
