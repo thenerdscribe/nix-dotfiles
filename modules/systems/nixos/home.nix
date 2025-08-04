@@ -109,6 +109,7 @@
           postman
           syncthing
           realvnc-vnc-viewer
+          sherlock-launcher
         ];
 
         dconf = {
@@ -502,10 +503,10 @@
                 #   sha256 = "uSPrvZPCjBhoAYTnAUQdMZ/CSosyRkj4itSQDZgthZ4=";
                 # })
                 (pkgs.fetchFromGitHub {
-                  owner = "adibhanna";
-                  repo = "laravel.nvim";
-                  rev = "6ba7713";
-                  sha256 = "OCu7yWu9H+n78Uv8lCZ0LrSWIH9AVB3SMlNoJD3/QWE=";
+                  owner = "NTBBloodbath";
+                  repo = "color-converter.nvim";
+                  rev = "5888e92";
+                  sha256 = "gQDSHeQnfMteZjr0Ji8wsTzo6alK/dgcVL3YSRVshyc=";
                 })
               ];
             extraLuaConfig = builtins.readFile ../../dots/nvim/init.lua;

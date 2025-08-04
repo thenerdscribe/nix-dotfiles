@@ -1,11 +1,11 @@
 font-family = "FiraCode Nerd Font Light"
-font-size = 14
+font-size = 12
 background-opacity = 0.85
 background-blur = 100
 theme = catppuccin-mocha
-adjust-cell-height = 75%
-window-padding-x = 15
-window-padding-y = 15
+adjust-cell-height = 85%
+window-padding-x = 20
+window-padding-y = 20
 gtk-single-instance = true
 # custom-shader = /home/ryanm/Developer/crt-shader-with-chromatic-aberration-glow-scanlines-dot-matrix/crt-shader-with-chromatic-aberration-glow-scanlines-dot-matrix.glsl
 # custom-shader = /home/ryanm/Developer/ghostty-shaders/bettercrt.glsl

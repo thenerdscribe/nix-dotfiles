@@ -12,7 +12,7 @@ return {
 	},
 	hide_tab_bar_if_only_one_tab = true,
 	font_size = 16.0,
-	line_height = 1.8,
+	line_height = 1,
 	color_scheme = "Catppuccin Mocha",
-	max_fps = 120,
+	max_fps = 144,
 }

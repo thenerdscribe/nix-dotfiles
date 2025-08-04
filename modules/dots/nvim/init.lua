@@ -199,6 +199,7 @@ local servers = {
 	"marksman",
 	"nixd",
 	"typos_lsp",
+	"laravel_ls",
 }
 
 nvim_lsp.markdown_oxide.setup({})
@@ -222,13 +223,7 @@ end
 
 require("blink.cmp").setup({
 	sources = {
-		default = { "laravel", "lsp", "path", "snippets", "buffer" },
-		providers = {
-			laravel = {
-				name = "laravel",
-				module = "laravel.blink_source",
-			},
-		},
+		default = { "lsp", "path", "snippets", "buffer" },
 	},
 	keymap = {
 		preset = "default",
@@ -283,7 +278,7 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
-require("laravel").setup()
+require("color-converter").setup({})
 
 nvim_lsp["html"].setup({
 	capabilities = capabilities,
