@@ -98,7 +98,6 @@
           streamdeck-ui
           libsecret
           pulseaudio
-          wlvncc
           wezterm
           ghostty
           termusic
@@ -109,7 +108,8 @@
           postman
           syncthing
           realvnc-vnc-viewer
-          sherlock-launcher
+          #vieb # doesn't satisfy security
+          nyxt
         ];
 
         dconf = {
