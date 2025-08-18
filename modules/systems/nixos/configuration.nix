@@ -35,6 +35,7 @@
   networking.networkmanager.enable = true;
   networking.extraHosts = ''
     54.71.90.183   inventory-api.walts.com
+    54.71.90.183   listingmanager.walts.com
     54.71.90.183    phpadmin-production.walts.com
     34.216.166.84   phpadmin.walts.com php test-retail-inventory-api.walts.com test-retail-api-ospos.walts.com test-retail-ordermanager.walts.com test-ordermanager.walts.com test-inventory-api.walts.com test-api-ospos.walts.com test-listingmanager.walts.com
     127.0.0.1 neo-tools.dev.walts.com awesome-ecomm.dev.walts.com inventory-api.dev.walts.com api-ospos.dev.walts.com

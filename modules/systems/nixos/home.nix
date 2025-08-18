@@ -110,6 +110,7 @@
           realvnc-vnc-viewer
           #vieb # doesn't satisfy security
           nyxt
+          unzip
         ];
 
         dconf = {
