@@ -18,6 +18,7 @@
 
         imports = [
           inputs.zen-browser.homeModules.twilight
+          ../../home-manager/vicinae.nix
         ];
 
         home.file = {
@@ -245,8 +246,9 @@
               "$mainMod, M, exec, wlogout,"
               "$mainMod, E, exec, $fileManager"
               "$secondaryMod, f, togglefloating,"
-              "$mainMod, space, exec, $menu run -show-icons"
-              "$mainMod SHIFT, space, exec, $menu window -show-icons "
+              "$mainMod, space, exec, vicinae"
+              "$mainMod SHIFT, space, exec, $menu run -show-icons"
+              #"$mainMod SHIFT, space, exec, $menu window -show-icons "
               "$mainMod CTRL, f, fullscreen, # dwindle"
               "SUPER CTRL ALT SHIFT, c, exec, rofi -modi clipboard:~/.config/rofi/cliphist-rofi -show clipboard -show-icons"
               "SUPER CTRL ALT SHIFT, space, exec, ~/Scripts/run-appimage"
@@ -307,6 +309,7 @@
             # find more options here: https://mozilla.github.io/policy-templates/
           };
         };
+        services.vicinae.enable = true;
         home.sessionVariables = {
           GTK_THEME = "WhiteSur-Dark";
           HYPRSHOT_DIR = "/home/ryanm/Pictures/Screenshots";
