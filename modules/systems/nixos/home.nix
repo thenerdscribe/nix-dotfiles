@@ -64,6 +64,7 @@
           slack
           discord
           spotify
+          lnav
           _1password-gui
           sqlite
           playerctl
