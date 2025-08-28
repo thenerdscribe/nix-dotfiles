@@ -384,6 +384,7 @@
               with pkgs.tree-sitter-grammars;
               [
                 mini-nvim
+                leap-nvim
                 ReplaceWithRegister
                 # render-markdown-nvim
                 bufferline-nvim

@@ -456,3 +456,4 @@ require("obsidian").setup({
 		blink = true,
 	},
 })
+require("leap").set_default_mappings()
