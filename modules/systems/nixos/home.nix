@@ -88,7 +88,6 @@
           fluent-icon-theme
           catppuccin-cursors.mochaRed
           nautilus
-          calibre
           audacious
           sushi
           cheese
@@ -110,8 +109,6 @@
           postman
           syncthing
           realvnc-vnc-viewer
-          #vieb # doesn't satisfy security
-          nyxt
           unzip
         ];
 
