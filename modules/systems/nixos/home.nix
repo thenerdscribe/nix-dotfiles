@@ -18,7 +18,7 @@
 
         imports = [
           inputs.zen-browser.homeModules.twilight
-          ../../home-manager/vicinae.nix
+          # ../../home-manager/vicinae.nix
         ];
 
         home.file = {
@@ -244,7 +244,7 @@
               "$mainMod, M, exec, wlogout,"
               "$mainMod, E, exec, $fileManager"
               "$secondaryMod, f, togglefloating,"
-              "$mainMod, space, exec, vicinae"
+              "$mainMod, space, exec, $menu"
               "$mainMod SHIFT, space, exec, $menu run -show-icons"
               #"$mainMod SHIFT, space, exec, $menu window -show-icons "
               "$mainMod CTRL, f, fullscreen, # dwindle"
@@ -307,7 +307,7 @@
             # find more options here: https://mozilla.github.io/policy-templates/
           };
         };
-        services.vicinae.enable = true;
+        # services.vicinae.enable = false;
         home.sessionVariables = {
           GTK_THEME = "WhiteSur-Dark";
           HYPRSHOT_DIR = "/home/ryanm/Pictures/Screenshots";

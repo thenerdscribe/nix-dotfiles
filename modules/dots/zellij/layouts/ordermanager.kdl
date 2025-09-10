@@ -1,0 +1,25 @@
+layout {
+    cwd "~/Sites/ordermanager"
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+    }
+    tab name="Editor" focus=true cwd="~/Sites/ordermanager" {
+        pane name="Neovim" focus=true command="zsh" {
+            args "-c" "nix develop --command zsh"
+        }
+    }
+    tab name="Commands" cwd="~/Sites/ordermanager" {
+        pane name="Commands" command="zsh" {
+            args "-c" "nix develop --command zsh"
+        }
+    }
+    tab name="Watchers" cwd="~/Sites/ordermanager" {
+        pane name="Server" command="zsh" {
+            args "-c" "nix develop --command 'php' 'artisan' 'serve' '--port=8893'"
+        }
+    }
+}
+

@@ -1,0 +1,28 @@
+layout {
+    cwd "~/Sites/forma-planner"
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+    }
+    tab name="Editor" focus=true cwd="~/Sites/forma-planner" {
+        pane name="Neovim" focus=true command="zsh" {
+            args "-c" "nix develop --command zsh"
+        }
+    }
+    tab name="Commands" cwd="~/Sites/forma-planner" {
+        pane name="Commands" command="zsh" {
+            args "-c" "nix develop --command zsh"
+        }
+    }
+    tab name="Watchers" cwd="~/Sites/forma-planner" {
+        pane name="Vite" command="zsh" {
+            args "-c" "nix develop --command 'npm' 'run' 'dev'"
+        }
+        pane name="Server" command="zsh" {
+            args "-c" "nix develop --command 'php' 'artisan' 'serve' '--port=8893'"
+        }
+    }
+}
+
