@@ -21,7 +21,7 @@ layout {
             args "-c" "nix develop --command 'npm' 'run' 'dev'"
         }
         pane name="Server" command="zsh" {
-            args "-c" "nix develop --command 'php' 'artisan' 'serve' '--port=8893'"
+            args "-c" "nix develop --command 'php' 'artisan' 'serve' '--port=8894'"
         }
     }
 }

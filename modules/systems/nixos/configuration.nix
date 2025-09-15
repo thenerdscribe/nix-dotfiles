@@ -225,11 +225,11 @@
     virtualHosts."http://gaming-schedule.test".extraConfig = ''
       reverse_proxy 127.0.0.1:8892 
     '';
-    virtualHosts."http://forma-planner.test".extraConfig = ''
-      reverse_proxy 127.0.0.1:8893
-    '';
     virtualHosts."http://ordermanager.dev.walts.com".extraConfig = ''
       reverse_proxy 127.0.0.1:8893 
+    '';
+    virtualHosts."http://forma-planner.test".extraConfig = ''
+      reverse_proxy 127.0.0.1:8894
     '';
   };
 
