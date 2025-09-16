@@ -111,7 +111,6 @@
           syncthing
           realvnc-vnc-viewer
           unzip
-          (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
         ];
 
         dconf = {

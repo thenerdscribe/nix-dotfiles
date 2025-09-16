@@ -152,6 +152,7 @@
       gh
       hyprland
       hyprpaper
+      (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
     ];
   };
 
