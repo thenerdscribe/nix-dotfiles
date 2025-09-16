@@ -147,7 +147,7 @@
       os-prober
       kitty
       hyprland
-      rofi-wayland
+      rofi
       waybar
       gh
       hyprland

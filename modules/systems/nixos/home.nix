@@ -92,7 +92,7 @@
           sushi
           cheese
           swaynotificationcenter
-          hyprlandPlugins.hy3
+          #hyprlandPlugins.hy3
           pavucontrol
           neofetch
           dconf
@@ -137,12 +137,10 @@
         '';
         wayland.windowManager.hyprland = {
           extraConfig = ''
-            plugin = ${pkgs.hyprlandPlugins.hy3}/lib/libhy3.so
             env = HYPRSHOT_DIR,/home/ryanm/Pictures/Screenshots/
           '';
           enable = true;
           plugins = [
-            pkgs.hyprlandPlugins.hy3
           ];
           settings = {
             "$terminal" = "ghostty";
@@ -165,7 +163,7 @@
               border_size = 4;
               resize_on_border = true;
               allow_tearing = false;
-              layout = "hy3";
+              layout = "";
               "col.active_border" = "rgba(ef59f9ee) rgba(59abf9ee) 45deg";
               "col.inactive_border" = "rgba(595959aa)";
             };
@@ -191,7 +189,6 @@
             };
             animations = {
               enabled = "yes";
-              first_launch_animation = true;
 
               # Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 
@@ -253,17 +250,15 @@
               "SUPER SHIFT, 2, exec, hyprshot -m window"
               "SUPER SHIFT, 3, exec, hyprshot -m output -m active"
               "SUPER SHIFT, 4, exec, hyprshot -m region"
-              "$secondaryMod, h, hy3:movefocus, l"
-              "$secondaryMod, j, hy3:movefocus, d"
-              "$secondaryMod, k, hy3:movefocus, u"
-              "$secondaryMod, l, hy3:movefocus, r"
+              "$secondaryMod, h, movefocus, l"
+              "$secondaryMod, j, movefocus, d"
+              "$secondaryMod, k, movefocus, u"
+              "$secondaryMod, l, movefocus, r"
 
-              "$mainMod CTRL, h, hy3:movewindow, l"
-              "$mainMod CTRL, j, hy3:movewindow, d"
-              "$mainMod CTRL, k, hy3:movewindow, u"
-              "$mainMod CTRL, l, hy3:movewindow, r"
-              "$mainMod CTRL, v, hy3:makegroup, v"
-              "$mainMod CTRL, t, hy3:makegroup, h"
+              "$mainMod CTRL, h, movewindow, l"
+              "$mainMod CTRL, j, movewindow, d"
+              "$mainMod CTRL, k, movewindow, u"
+              "$mainMod CTRL, l, movewindow, r"
 
               "$mainMod ALT, h, resizeactive, -30 0"
               "$mainMod ALT, j, resizeactive, 0 30"
