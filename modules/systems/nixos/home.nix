@@ -60,6 +60,7 @@
           yazi-unwrapped
           imagemagick
           pup
+          gum
           font-awesome
           slack
           discord
@@ -110,6 +111,7 @@
           syncthing
           realvnc-vnc-viewer
           unzip
+          (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
         ];
 
         dconf = {
