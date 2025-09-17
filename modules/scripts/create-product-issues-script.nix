@@ -43,7 +43,7 @@ pkgs.writeShellScriptBin "issues-script" ''
   outfile="update-gmc-$filedate.sh";
 
   # Echo out how many models exist in the CSV
-  entrants=`echo $models | wc -l | cut -f1 -d ' '`;
+  entrants=`echo $models | wc -w | cut -f1 -d ' '`;
 
   format_success "$outfile will have $entrants entries";
 
