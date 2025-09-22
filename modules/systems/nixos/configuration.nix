@@ -247,6 +247,8 @@
   #   enableSSHSupport = true;
   # };
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

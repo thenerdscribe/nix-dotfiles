@@ -117,6 +117,7 @@
           emote
           alacritty
           fuzzel
+          xwayland-satellite
         ];
 
         dconf = {
