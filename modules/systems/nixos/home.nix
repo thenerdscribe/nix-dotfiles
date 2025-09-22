@@ -111,6 +111,7 @@
           syncthing
           realvnc-vnc-viewer
           unzip
+          emote
         ];
 
         dconf = {
@@ -248,6 +249,7 @@
               "$mainMod CTRL, f, fullscreen, # dwindle"
               "SUPER CTRL ALT SHIFT, c, exec, rofi -modi clipboard:~/.config/rofi/cliphist-rofi -show clipboard -show-icons"
               "SUPER CTRL ALT SHIFT, space, exec, ~/Scripts/run-appimage"
+              "SUPER CTRL ALT SHIFT, e, exec, emote"
               "SUPER SHIFT, 2, exec, hyprshot -m window"
               "SUPER SHIFT, 3, exec, hyprshot -m output -m active"
               "SUPER SHIFT, 4, exec, hyprshot -m region"
