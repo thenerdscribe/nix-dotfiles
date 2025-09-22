@@ -115,6 +115,8 @@
           realvnc-vnc-viewer
           unzip
           emote
+          alacritty
+          fuzzel
         ];
 
         dconf = {
