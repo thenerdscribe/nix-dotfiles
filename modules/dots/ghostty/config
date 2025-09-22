@@ -1,7 +1,7 @@
 font-family = "FiraCode Nerd Font Light"
 font-size = 12
-background-opacity = 0.85
-background-blur = true
+background-opacity = 1
+background-blur = false
 theme = Catppuccin Mocha
 adjust-cell-height = 85%
 window-padding-x = 20
