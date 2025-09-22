@@ -150,18 +150,21 @@
       rofi
       waybar
       gh
-      hyprland
+      #hyprland
       hyprpaper
       (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
     ];
   };
+
+  programs.niri.enable = true;
 
   # Enable automatic login for the user.
   services.greetd = {
     enable = true;
     settings = rec {
       initial_session = {
-        command = "${pkgs.hyprland}/bin/hyprland";
+        # command = "${pkgs.hyprland}/bin/hyprland";
+        command = "${pkgs.niri}/bin/niri";
         user = "ryanm";
       };
       default_session = initial_session;

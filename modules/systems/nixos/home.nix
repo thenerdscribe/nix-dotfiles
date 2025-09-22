@@ -34,6 +34,9 @@
           ".config/fzf/" = {
             source = ../../dots/fzf;
           };
+          ".config/niri/" = {
+            source = ../../dots/niri;
+          };
         };
         home.packages = with pkgs; [
           (python313.withPackages (
