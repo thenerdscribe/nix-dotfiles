@@ -457,3 +457,5 @@ require("obsidian").setup({
 	},
 })
 require("leap").set_default_mappings()
+vim.keymap.del("n", "gra")
+vim.keymap.del("n", "gri")

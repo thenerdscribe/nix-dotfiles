@@ -3,7 +3,7 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 environment {
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
 }
 output "DP-1" {
     variable-refresh-rate
@@ -11,7 +11,8 @@ output "DP-1" {
     focus-at-startup
 }
 output "HDMI-A-2" {
-    mode "1920x1080@60.00"
+    // mode "1920x1080@60.00"
+    scale 2.0
     position x=2560 y=-250
     transform "90"
 }
@@ -358,7 +359,7 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Alt+O repeat=false {
+    Mod+O repeat=false {
         toggle-overview
     }
     Mod+Q repeat=false {
