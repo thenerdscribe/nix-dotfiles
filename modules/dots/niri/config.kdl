@@ -11,7 +11,7 @@ output "DP-1" {
     focus-at-startup
 }
 output "HDMI-A-2" {
-    scale 2.0
+    mode "1920x1080@60.00"
     position x=2560 y=-250
     transform "90"
 }
@@ -344,21 +344,21 @@ binds {
     // Example media keys mapping using playerctl.
     // This will work with any MPRIS-enabled media player.
     XF86AudioPlay allow-when-locked=true {
-        spawn-sh "playerctl play-pause"
+        spawn-sh "playerctl --player=spotify,termusic,audacious,firefox play-pause"
     }
     XF86AudioStop allow-when-locked=true {
-        spawn-sh "playerctl stop"
+        spawn-sh "playerctl --player=spotify,termusic,audacious,firefox stop"
     }
     XF86AudioPrev allow-when-locked=true {
-        spawn-sh "playerctl previous"
+        spawn-sh "playerctl --player=spotify,termusic,audacious,firefox previous"
     }
     XF86AudioNext allow-when-locked=true {
-        spawn-sh "playerctl next"
+        spawn-sh "playerctl --player=spotify,termusic,audacious,firefox next"
     }
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false {
+    Alt+O repeat=false {
         toggle-overview
     }
     Mod+Q repeat=false {
@@ -418,17 +418,17 @@ binds {
     Mod+Shift+Ctrl+L {
         move-window-to-monitor-right
     }
-    Mod+U {
-        focus-workspace-down
-    }
-    Mod+I {
+    Alt+U {
         focus-workspace-up
     }
-    Mod+Ctrl+U {
-        move-column-to-workspace-down
+    Alt+I {
+        focus-workspace-down
     }
-    Mod+Ctrl+I {
+    Alt+Ctrl+U {
         move-column-to-workspace-up
+    }
+    Alt+Ctrl+I {
+        move-column-to-workspace-down
     }
     Mod+Shift+U {
         move-workspace-down
