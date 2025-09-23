@@ -34,6 +34,9 @@
           ".config/fzf/" = {
             source = ../../dots/fzf;
           };
+          ".config/niri/" = {
+            source = ../../dots/niri;
+          };
         };
         home.packages = with pkgs; [
           (python313.withPackages (
@@ -112,6 +115,9 @@
           realvnc-vnc-viewer
           unzip
           emote
+          alacritty
+          fuzzel
+          xwayland-satellite
         ];
 
         dconf = {
