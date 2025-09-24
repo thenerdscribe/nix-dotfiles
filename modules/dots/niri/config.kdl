@@ -3,18 +3,17 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 environment {
-    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+}
+output "HDMI-A-2" {
+    scale 2.0
+    position x=2560 y=-250
+    transform "90"
 }
 output "DP-1" {
     variable-refresh-rate
     position x=0 y=0
     focus-at-startup
-}
-output "HDMI-A-2" {
-    // mode "1920x1080@60.00"
-    scale 2.0
-    position x=2560 y=-250
-    transform "90"
 }
 // Input device configuration.
 // Find the full list of options on the wiki:

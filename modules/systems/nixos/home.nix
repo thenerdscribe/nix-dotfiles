@@ -90,7 +90,7 @@
           smartmontools
           fluent-gtk-theme
           fluent-icon-theme
-          catppuccin-cursors.mochaRed
+          #catppuccin-cursors.mochaRed
           nautilus
           audacious
           sushi
