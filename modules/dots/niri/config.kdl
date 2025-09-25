@@ -685,7 +685,6 @@ workspace "Code" {
 workspace "Spotify" {
     open-on-output "HDMI-A-2"
 }
-spawn-at-startup "zen"
 spawn-at-startup "ghostty"
 spawn-at-startup "spotify"
 spawn-at-startup "obsidian"
@@ -703,6 +702,10 @@ window-rule {
 window-rule {
     match at-startup=true title="Spotify"
     open-on-workspace "Spotify"
+}
+window-rule {
+    match at-startup=true title="Zen Twilight"
+    open-on-workspace "Main"
 }
 window-rule {
     match at-startup=true title="Obsidian"
