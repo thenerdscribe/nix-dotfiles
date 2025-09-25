@@ -19,7 +19,7 @@ output "DP-1" {
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
 input {
-    focus-follows-mouse
+    focus-follows-mouse max-scroll-amount="0%"
     keyboard {
         xkb {
  // You can set rules, model, layout, variant and options.
@@ -685,38 +685,39 @@ workspace "Code" {
 workspace "Spotify" {
     open-on-output "HDMI-A-2"
 }
+spawn-at-startup "zen"
 spawn-at-startup "ghostty"
 spawn-at-startup "spotify"
 spawn-at-startup "obsidian"
 spawn-at-startup "discord"
 spawn-at-startup "signal"
+spawn-at-startup "slack"
 window-rule {
-    match at-startup=true app-id="Ghostty"
+    match title="Ghostty"
     open-maximized true
+}
+window-rule {
+    match at-startup=true title="Ghostty"
     open-on-workspace "Code"
 }
 window-rule {
-    match at-startup=true app-id="Spotify"
+    match at-startup=true title="Spotify"
     open-on-workspace "Spotify"
 }
 window-rule {
-    match at-startup=true app-id="Zen"
+    match at-startup=true title="Obsidian"
     open-on-workspace "Main"
 }
 window-rule {
-    match at-startup=true app-id="Obsidian"
-    open-on-workspace "Main"
-}
-window-rule {
-    match at-startup=true app-id="Slack"
+    match at-startup=true title="Slack"
     open-on-workspace "Messaging"
 }
 window-rule {
-    match at-startup=true app-id="Discord"
+    match at-startup=true title="Discord"
     open-on-workspace "Messaging"
 }
 window-rule {
-    match at-startup=true app-id="Signal"
+    match at-startup=true title="Signal"
     open-on-workspace "Messaging"
 }
 
