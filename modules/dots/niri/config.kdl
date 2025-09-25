@@ -682,14 +682,14 @@ workspace "Messaging" {
 workspace "Code" {
     open-on-output "HDMI-A-2"
 }
-workspace "Spotify" {
+workspace "Music" {
     open-on-output "HDMI-A-2"
 }
 spawn-at-startup "ghostty"
 spawn-at-startup "spotify"
 spawn-at-startup "obsidian"
 spawn-at-startup "discord"
-spawn-at-startup "signal"
+spawn-at-startup "signal-desktop"
 spawn-at-startup "slack"
 window-rule {
     match title="Ghostty"
@@ -701,7 +701,7 @@ window-rule {
 }
 window-rule {
     match at-startup=true title="Spotify"
-    open-on-workspace "Spotify"
+    open-on-workspace "Music"
 }
 window-rule {
     match at-startup=true title="Zen Twilight"
