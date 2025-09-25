@@ -673,4 +673,43 @@ binds {
         power-off-monitors
     }
 }
+workspace "main" {
+    open-on-output "DP-1"
+}
+workspace "messaging" {
+    open-on-output "DP-1"
+}
+workspace "code_spotify" {
+    open-on-output "HDMI-A-2"
+}
+spawn-at-startup "ghostty"
+spawn-at-startup "spotify"
+spawn-at-startup "obsidian"
+spawn-at-startup "discord"
+spawn-at-startup "signal"
+window-rule {
+    match at-startup=true app-id="Ghostty"
+    open-maximized true
+    open-on-workspace "code_spotify"
+}
+window-rule {
+    match at-startup=true app-id="Spotify"
+    open-on-workspace "code_spotify"
+}
+window-rule {
+    match at-startup=true app-id="Obsidian"
+    open-on-workspace "main"
+}
+window-rule {
+    match at-startup=true app-id="Slack"
+    open-on-workspace "messaging"
+}
+window-rule {
+    match at-startup=true app-id="Discord"
+    open-on-workspace "messaging"
+}
+window-rule {
+    match at-startup=true app-id="Signal"
+    open-on-workspace "messaging"
+}
 
