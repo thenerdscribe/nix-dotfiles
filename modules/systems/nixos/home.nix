@@ -135,7 +135,7 @@
             package = pkgs.fluent-gtk-theme;
           };
           iconTheme = {
-            name = "Fluent-Dark";
+            name = "Fluent";
             package = pkgs.fluent-icon-theme;
           };
         };
