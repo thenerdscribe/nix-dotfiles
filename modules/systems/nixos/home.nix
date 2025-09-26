@@ -613,11 +613,11 @@
             settings = {
               add_newline = true;
               format = ''
-                [](#cba6f7)$username[](bg:#f38ba8 fg:#cba6f7)$directory[](bg:#fab387 fg:#f38ba8)$git_branch$git_status[](bg:#f9e2af fg:#fab387)$nix_shell[](bg:#74c7ec fg:#f9e2af)$time[ ](fg:#74c7ec)
+                [](#293136)$username[](bg:#3a464c fg:#293136)$directory[](bg:#434f55 fg:#3a464c)$git_branch$git_status[](bg:#dbbc7f fg:#434f55)$nix_shell[](bg:#343f55 fg:#dbbc7f)
                 $character 
               '';
               directory = {
-                style = "bg:#f38ba8 fg:#11111b";
+                style = "bg:#3a464c fg:#d3c6aa";
                 format = "[ $path ]($style)";
                 truncation_length = 3;
                 truncation_symbol = "…/";
@@ -630,32 +630,32 @@
               };
               username = {
                 show_always = true;
-                style_user = "bg:#cba6f7 fg:#11111b";
-                style_root = "bg:#cba6f7 fg:#11111b";
+                style_user = "bg:#293136 fg:#d3c6aa";
+                style_root = "bg:#293136 fg:#d3c6aa";
                 format = "[ 󰿘 ]($style)";
               };
               git_branch = {
                 symbol = "";
-                style = "bg:#fab387 fg:#11111b";
+                style = "bg:#434f55 fg:#d3c6aa";
                 format = "[ $symbol $branch ]($style)";
               };
               git_status = {
-                style = "bg:#fab387 fg:#11111b";
+                style = "bg:#434f55 fg:#d3c6aa";
                 format = "[$all_status$ahead_behind ]($style)";
               };
               character = {
                 format = "[ $symbol ](bg: #45475a)";
-                vimcmd_symbol = "[ ](fg:#f9e2af)";
-                success_symbol = "[ ](fg:#a6e3a1)";
-                error_symbol = "[ ](fg:#f38ba8)";
-                vimcmd_replace_symbol = "[R](fg:#f9e2af)";
-                vimcmd_replace_one_symbol = "[RO](fg:#f9e2af)";
-                vimcmd_visual_symbol = "[V](fg:#f9e2af)";
+                vimcmd_symbol = "[ ](fg:#dbbc7f)";
+                success_symbol = "[ ](fg:#a8c080)";
+                error_symbol = "[ ](fg:#e67e80)";
+                vimcmd_replace_symbol = "[R](fg:#dbbc7f)";
+                vimcmd_replace_one_symbol = "[RO](fg:#dbbc7f)";
+                vimcmd_visual_symbol = "[V](fg:#dbbc7f)";
               };
               nix_shell = {
                 symbol = " ";
                 format = "[ via $symbol$state( \($name\)) ]($style)";
-                style = "bg:#f9e2af fg:#11111b";
+                style = "bg:#dbbc7f fg:#293136";
                 impure_msg = "(I)";
                 pure_msg = "(P)";
                 unknown_msg = "";
