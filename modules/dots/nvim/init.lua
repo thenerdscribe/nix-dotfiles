@@ -94,7 +94,7 @@ vim.opt.fillchars = {
 	vertright = "┣",
 	verthoriz = "╋",
 }
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("everforest")
 require("telescope").setup({
 	defaults = {
 		results_title = false,

@@ -485,6 +485,7 @@
                 luasnip
                 vim-matchup
                 catppuccin-nvim
+                everforest
                 nvim-colorizer-lua
                 {
                   plugin = pkgs.vimPlugins.sqlite-lua;
