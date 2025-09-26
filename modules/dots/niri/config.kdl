@@ -217,6 +217,8 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // This line starts waybar, a commonly used bar for Wayland compositors.
+spawn-at-startup "elephant"
+spawn-at-startup "walker --gapplication-service"
 spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "swww-daemon"
@@ -317,9 +319,9 @@ binds {
         spawn "fuzzel"
     }
     Mod+Space hotkey-overlay-title="Run an Application: rofi" {
-        spawn-sh "rofi -show drun -show-icons"
+        spawn "walker"
     }
-    Super+Alt+Shift+Ctrl+C hotkey-overlay-title="Run an Application: rofi" {
+    Super+Alt+Shift+Ctrl+C hotkey-overlay-title="Clipboard history" {
         spawn-sh "rofi -modi clipboard:~/.config/rofi/cliphist-rofi -show clipboard"
     }
     Super+Alt+Shift+Ctrl+Space hotkey-overlay-title="Run an Application: rofi" {

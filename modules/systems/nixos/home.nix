@@ -18,6 +18,7 @@
 
         imports = [
           inputs.zen-browser.homeModules.twilight
+          inputs.walker.homeManagerModules.default
           # ../../home-manager/vicinae.nix
         ];
 
@@ -114,7 +115,6 @@
           syncthing
           realvnc-vnc-viewer
           unzip
-          emote
           alacritty
           fuzzel
           xwayland-satellite
@@ -302,6 +302,10 @@
               "ignorealpha 0.5, rofi"
             ];
           };
+        };
+        programs.walker = {
+          enable = true;
+          runAsService = true;
         };
         programs.zen-browser = {
           enable = true;
