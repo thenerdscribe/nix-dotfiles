@@ -1,0 +1,138 @@
+@import "../colors/mocha.css";
+
+/* margin: top right bottom left */
+/* Spacing outside the element */
+
+/* padding: top right bottom left */
+/* Spacing inside the element */
+
+* {
+  font-family: SFPro;
+  font-size: 18px;
+}
+
+window#waybar {
+  background-color: rgba(45,53,59, 0.75);
+  color: @text;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-radius: 0px;
+  transition-duration: .5s;
+  margin: 16px 16px;
+}
+
+window#waybar.hidden {
+  opacity: 0.8;
+}
+
+#workspaces button {
+  color: @green;
+  background: transparent;
+  border-radius: 12px;
+  padding: 0px 12px 0px 12px;
+  margin: 7px 5px 10px 5px;
+  border: 1px solid @green;
+}
+
+#workspaces button:hover {
+  background: @green;
+  color: white;
+}
+
+#workspaces button.active {
+  color: @crust;
+  background: @green;
+  border: @green; 
+}
+
+#custom-launcher,
+#clock,
+#battery,
+#cpu,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#memory,
+#custom-dunst,
+#custom-powermenu{
+  padding: 0px 20px;
+  margin: 7px 0px 10px 0px;
+	border-radius: 8px;
+  color: @crust;
+}
+
+#window,
+#custom-launcher {
+  padding: 0px 25px 0px 20px;
+  margin: 7px 0px 10px 20px;
+  background-color: transparent;
+  color: @text;
+        border-radius: 8px;
+}
+
+#cpu {
+  background-color: @lavender;
+}
+
+#temperature{
+  background-color: @blue;
+}
+
+#memory {
+  background-color: @sapphire;
+}
+
+#custom-dunst {
+  padding: 0px 20px 0px 13px;
+  background-color: @sky;
+}
+
+#pulseaudio {
+  padding: 0px 20px 0px 17px;
+  background-color: @teal;
+}
+
+#network {
+  padding: 0px 15px 0px 20px;
+  background-color: @green;
+}
+
+#battery {
+  background-color: @yellow;
+}
+
+#clock {
+  background-color: @rosewater;
+}
+
+#custom-powermenu {
+  padding: 0px 25px 0px 20px;
+  margin: 7px 20px 10px 0px;
+  background-color: @maroon;
+}
+
+#custom-nowplaying {
+  padding: 0px 25px 0px 20px;
+  margin: 7px 10px 10px 0px;
+}
+
+@keyframes blink {
+  to {
+    background-color: rgba(30, 34, 42, 0.5);
+    color: #abb2bf;
+  }
+}
+
+#battery.critical:not(.charging) {
+  color: #f53c3c;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #000000;
+}

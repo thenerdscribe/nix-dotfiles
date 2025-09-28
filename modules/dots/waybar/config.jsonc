@@ -1,0 +1,43 @@
+{
+    "position": "top",
+    "modules-left": [
+        "niri/workspaces",
+        "niri/window"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "custom/nowplaying",
+        "clock",
+        "custom/notification"
+    ],
+    "clock": {
+        "format": "<span>   </span>{:%a %d %I:%M %p }",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "custom/nowplaying": {
+        "format": "    {}",
+        "exec": "~/.config/waybar/nowplaying.sh",
+        "interval": 1,
+        "on-click": "playerctl --player=spotify,firefox play-pause"
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "   {icon}    ",
+        "format-icons": {
+            "notification": "",
+            "none": "",
+            "dnd-notification": "",
+            "dnd-none": "",
+            "inhibited-notification": "",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    }
+}

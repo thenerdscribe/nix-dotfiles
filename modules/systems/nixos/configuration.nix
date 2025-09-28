@@ -163,7 +163,6 @@
     enable = true;
     settings = rec {
       initial_session = {
-        # command = "${pkgs.hyprland}/bin/hyprland";
         command = "${pkgs.niri}/bin/niri";
         user = "ryanm";
       };

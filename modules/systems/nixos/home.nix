@@ -38,6 +38,9 @@
           ".config/niri/" = {
             source = ../../dots/niri;
           };
+          ".config/waybar/" = {
+            source = ../../dots/waybar;
+          };
         };
         home.packages = with pkgs; [
           (python313.withPackages (
