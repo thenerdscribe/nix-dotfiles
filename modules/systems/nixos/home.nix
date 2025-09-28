@@ -41,6 +41,9 @@
           ".config/waybar/" = {
             source = ../../dots/waybar;
           };
+          ".config/swww/" = {
+            source = ../../dots/swww;
+          };
         };
         home.packages = with pkgs; [
           (python313.withPackages (
