@@ -432,7 +432,7 @@ plugins {
         path "compact-bar"
     }
 }
-theme "catppuccin-mocha"
+theme "everforest"
 themes {
     everforest {
         fg "#d3c6aa"

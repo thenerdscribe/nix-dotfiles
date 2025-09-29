@@ -60,11 +60,11 @@ window#waybar.hidden {
 
 #window,
 #custom-launcher {
-  padding: 0px 25px 0px 20px;
-  margin: 7px 0px 10px 20px;
+  padding: 0px 12px;
+  margin: 6px 8px;
   background-color: transparent;
   color: @text;
-        border-radius: 8px;
+  border-radius: 8px;
 }
 
 #cpu {
