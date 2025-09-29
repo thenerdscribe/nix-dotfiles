@@ -1,4 +1,5 @@
 {
+    "margin": 14,
     "position": "top",
     "modules-left": [
         "niri/workspaces",
