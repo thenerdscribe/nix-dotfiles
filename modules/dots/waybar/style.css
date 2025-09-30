@@ -24,7 +24,7 @@ window#waybar.hidden {
 #workspaces button {
   color: @green;
   background: transparent;
-  border-radius: 12px;
+  border-radius: 6px;
   padding: 0px 8px;
   margin: 8px 6px;
   border: 1px solid @green;
@@ -54,7 +54,7 @@ window#waybar.hidden {
 #custom-powermenu{
   padding: 0px 12px;
   margin: 8px 0px;
-  border-radius: 12px;
+  border-radius: 6px;
   color: @crust;
 }
 
@@ -64,7 +64,8 @@ window#waybar.hidden {
   margin: 6px 8px;
   background-color: transparent;
   color: @text;
-  border-radius: 8px;
+  border-radius: 6px;
+  letter-spacing: 2px;
 }
 
 #cpu {
