@@ -13,7 +13,6 @@ window#waybar {
   transition-property: background-color;
   transition-duration: 0.5s;
   transition-duration: .5s;
-  /* margin: 12px 24px; */
   border-radius: 12px;
 }
 
@@ -65,7 +64,6 @@ window#waybar.hidden {
   background-color: transparent;
   color: @text;
   border-radius: 6px;
-  letter-spacing: 2px;
 }
 
 #cpu {
