@@ -150,7 +150,7 @@
       rofi
       waybar
       gh
-      #hyprland
+
       hyprpaper
       (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
     ];
@@ -190,6 +190,7 @@
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
         xdg-desktop-portal-hyprland
+        gnome-keyring
       ];
     };
   };
@@ -236,7 +237,9 @@
     '';
   };
 
-  services.gnome.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring = {
+    enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
