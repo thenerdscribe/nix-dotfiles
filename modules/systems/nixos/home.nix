@@ -97,13 +97,11 @@
           smartmontools
           fluent-gtk-theme
           fluent-icon-theme
-          #catppuccin-cursors.mochaRed
           nautilus
           audacious
           sushi
           cheese
           swaynotificationcenter
-          #hyprlandPlugins.hy3
           pavucontrol
           neofetch
           dconf
@@ -321,7 +319,6 @@
             # find more options here: https://mozilla.github.io/policy-templates/
           };
         };
-        # services.vicinae.enable = false;
         home.sessionVariables = {
           GTK_THEME = "WhiteSur-Dark";
           HYPRSHOT_DIR = "/home/ryanm/Pictures/Screenshots";

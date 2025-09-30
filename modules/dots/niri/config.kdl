@@ -314,13 +314,13 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" {
         spawn "fuzzel"
     }
-    Mod+Space hotkey-overlay-title="Run an Application: rofi" {
+    Mod+Space hotkey-overlay-title="Run an Application: walker" {
         spawn "walker"
     }
     Super+Alt+Shift+Ctrl+C hotkey-overlay-title="Clipboard history" {
         spawn-sh "rofi -modi clipboard:~/.config/rofi/cliphist-rofi -show clipboard"
     }
-    Super+Alt+Shift+Ctrl+Space hotkey-overlay-title="Run an Application: rofi" {
+    Super+Alt+Shift+Ctrl+Space hotkey-overlay-title="Open an AppImage" {
         spawn-sh "~/Scripts/run-appimage"
     }
     // Example volume keys mappings for PipeWire & WirePlumber.
@@ -663,6 +663,9 @@ binds {
     }
     Ctrl+Alt+Delete {
         quit
+    }
+    Mod+Alt+L {
+        spawn "swaylock"
     }
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
