@@ -143,13 +143,21 @@ require("conform").setup({
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		javascript = { "prettierd", "prettier" },
-		php = { "prettier", "php-cs-fixer" },
-		blade = { "blade-formatter", "php-cs-fixer" },
+		css = { "prettierd", "prettier" },
+		html = { "prettierd", "prettier" },
+		php = { "pint", "prettier", "php-cs-fixer" },
+		blade = { "blade-formatter" },
 		nix = { "nixfmt" },
 		sql = { "sql_formatter" },
 		kdl = { "kdlfmt" },
 	},
 	formatters = {
+		["pint"] = {
+			command = "vendor/bin/pint",
+			args = {
+				"$FILENAME",
+			},
+		},
 		["php-cs-fixer"] = {
 			command = "php-cs-fixer",
 			args = {

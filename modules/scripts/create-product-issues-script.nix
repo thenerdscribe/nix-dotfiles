@@ -53,5 +53,5 @@ pkgs.writeShellScriptBin "issues-script" ''
 
   format_success "$outfile was created";
 
-  gum confirm "Upload to ecomm site?" && scp $outfile awesome:~/gmc/ || format_error  "Did not upload $outfile to web server";
+  ${pkgs.gum}/bin/gum confirm "Upload to ecomm site?" && scp $outfile awesome:~/gmc/ || format_error  "Did not upload $outfile to web server";
 ''
