@@ -103,6 +103,7 @@
           cheese
           swaynotificationcenter
           pavucontrol
+          cmus
           neofetch
           dconf
           streamdeck-ui
