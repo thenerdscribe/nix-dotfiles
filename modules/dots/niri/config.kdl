@@ -736,4 +736,8 @@ cursor {
     hide-when-typing
     hide-after-inactive-ms 1000
 }
+window-rule {
+    match is-focused=false
+    opacity 0.85
+}
 
