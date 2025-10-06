@@ -730,4 +730,10 @@ window-rule {
     match at-startup=true title="Signal"
     open-on-workspace "Messaging"
 }
+cursor {
+    xcursor-size 24
+    xcursor-theme "breeze_cursors"
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
 

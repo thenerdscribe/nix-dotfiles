@@ -154,6 +154,11 @@
       (import ../../scripts/switch-audio.nix { inherit pkgs; })
     ];
   };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
 
   programs.niri.enable = true;
 
