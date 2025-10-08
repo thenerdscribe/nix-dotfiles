@@ -415,12 +415,12 @@ binds {
     Mod+Shift+Ctrl+L {
         move-window-to-monitor-right
     }
-    // Alt+U {
-    //     focus-workspace-up
-    // }
-    // Alt+I {
-    //     focus-workspace-down
-    // }
+    Alt+U {
+        focus-workspace-down
+    }
+    Alt+I {
+        focus-workspace-up
+    }
     Alt+Ctrl+U {
         move-column-to-workspace-up
     }
