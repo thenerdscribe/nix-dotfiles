@@ -326,7 +326,7 @@
           GOPATH = "/home/ryanm/go";
           PHP_CS_FIXER_IGNORE_ENV = 1;
           EDITOR = "nvim";
-          FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git";
+          FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git --reverse --height=10";
           FZF_CTRL_T_OPTS = ''
             --walker-skip .git,node_modules,target \
             --preview 'bat -n --color=always {}' \

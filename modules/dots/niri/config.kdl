@@ -730,6 +730,10 @@ window-rule {
     match at-startup=true title="Signal"
     open-on-workspace "Messaging"
 }
+window-rule {
+    match title="Soulframe"
+    open-fullscreen true
+}
 cursor {
     xcursor-size 24
     xcursor-theme "breeze_cursors"
