@@ -422,10 +422,10 @@ binds {
         focus-workspace-up
     }
     Alt+Ctrl+U {
-        move-column-to-workspace-up
+        move-column-to-workspace-down
     }
     Alt+Ctrl+I {
-        move-column-to-workspace-down
+        move-column-to-workspace-up
     }
     Mod+Shift+U {
         move-workspace-down
