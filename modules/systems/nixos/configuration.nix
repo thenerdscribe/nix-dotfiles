@@ -146,9 +146,7 @@
       ghostty
       os-prober
       kitty
-      hyprland
       rofi
-      waybar
       gh
       (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
       (import ../../scripts/switch-audio.nix { inherit pkgs; })
@@ -160,44 +158,18 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
+  security.polkit.enable = true; # polkit
   programs.niri.enable = true;
-
-  # Enable automatic login for the user.
-  services.greetd = {
-    enable = true;
-    settings = rec {
-      initial_session = {
-        command = "${pkgs.niri}/bin/niri";
-        user = "ryanm";
-      };
-      default_session = initial_session;
-    };
-  };
-  # services.displayManager.autoLogin.enable = true;
-  # services.displayManager.autoLogin.user = "ryanm";
 
   # Install firefox.
   programs.firefox.enable = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     wl-clipboard
     docker-compose
+    xwayland-satellite
     swww
   ];
-
-  xdg = {
-    portal = {
-      enable = true;
-      config.common.default = "*";
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-hyprland
-        gnome-keyring
-      ];
-    };
-  };
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

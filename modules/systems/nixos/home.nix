@@ -82,9 +82,6 @@
           obsidian
           signal-desktop
           zellij
-          hyprsunset
-          hyprshot
-          hyprcursor
           magnetic-catppuccin-gtk
           distrobox
           cliphist
@@ -144,174 +141,11 @@
             package = pkgs.fluent-icon-theme;
           };
         };
-
-        home.file.".profile".text = ''
-          export HYPRSHOT_DIR=/home/ryanm/Pictures/Screenshots/
-        '';
-        wayland.windowManager.hyprland = {
-          extraConfig = ''
-            env = HYPRSHOT_DIR,/home/ryanm/Pictures/Screenshots/
-          '';
-          enable = true;
-          plugins = [
-          ];
-          settings = {
-            "$terminal" = "ghostty";
-            "$fileManager" = "nautilus";
-            "$menu" = "rofi -show drun";
-            "exec-once" = [
-              "waybar & swww-daemon & hyprshell run & hyprsunsent & swaync"
-              "wl-paste --watch cliphist store"
-              "streamdeck -n"
-              "syncthing"
-              "~/.config/swww/swww_randomize.sh ~/Pictures/wallpapers 300"
-            ];
-            monitor = [
-              "DP-1,preferred,0x0,1"
-              "HDMI-A-2,preferred,2560x-250,2,transform, 1"
-            ];
-            general = {
-              gaps_in = 10;
-              gaps_out = 10;
-              border_size = 4;
-              resize_on_border = true;
-              allow_tearing = false;
-              layout = "";
-              "col.active_border" = "rgba(ef59f9ee) rgba(59abf9ee) 45deg";
-              "col.inactive_border" = "rgba(595959aa)";
-            };
-            decoration = {
-              rounding = 20;
-              rounding_power = 4;
-              active_opacity = 1.0;
-              inactive_opacity = 0.75;
-
-              shadow = {
-                enabled = false;
-                range = 4;
-                render_power = 3;
-                color = "rgba(1a1a1aee)";
-              };
-
-              blur = {
-                enabled = true;
-                size = 5;
-                passes = 3;
-                vibrancy = 0.4;
-              };
-            };
-            animations = {
-              enabled = "yes";
-
-              # Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
-
-              bezier = [
-                "easeOutQuint,0.23,1,0.32,1"
-                "easeInOutCubic,0.65,0.05,0.36,1"
-                "linear,0,0,1,1"
-                "almostLinear,0.5,0.5,0.75,1.0"
-                "quick,0.15,0,0.1,1"
-              ];
-
-              animation = [
-                "global, 1, 10, default"
-                "border, 1, 5.39, easeInOutCubic"
-                "windows, 1, 5, easeInOutCubic, slide"
-                "windowsIn, 1, 5, easeInOutCubic, slide"
-                "windowsOut, 1, 5, easeInOutCubic, slide"
-                "fadeIn, 1, 1.73, almostLinear"
-                "fadeOut, 1, 1.46, almostLinear"
-                "fade, 1, 3.03, quick"
-                "layers, 1, 3.81, easeOutQuint"
-                "layersIn, 1, 4, easeOutQuint, fade"
-                "layersOut, 1, 1.5, linear, fade"
-                "fadeLayersIn, 1, 1.79, almostLinear"
-                "fadeLayersOut, 1, 1.39, almostLinear"
-                "workspaces, 1, 3, easeInOutCubic, slide"
-                "workspacesIn, 1, 3, easeInOutCubic, slide"
-                "workspacesOut, 1, 3, easeInOutCubic, slide"
-              ];
-            };
-            workspace = [
-              "1, monitor:DP-1"
-              "2, monitor:DP-1"
-              "3, monitor:HDMI-A-2"
-              "4, monitor:HDMI-A-2"
-              "5, monitor:HDMI-A-2"
-            ];
-            input = {
-              kb_layout = "us";
-              follow_mouse = 1;
-              sensitivity = 0;
-              natural_scroll = false;
-              repeat_delay = 300;
-              repeat_rate = 50;
-            };
-            "$mainMod" = "SUPER";
-            "$secondaryMod" = "ALT";
-            bind = [
-              "$mainMod, q, killactive,"
-              "$mainMod, M, exec, wlogout,"
-              "$mainMod, E, exec, $fileManager"
-              "$secondaryMod, f, togglefloating,"
-              "$mainMod, space, exec, $menu"
-              "$mainMod SHIFT, space, exec, $menu run -show-icons"
-              #"$mainMod SHIFT, space, exec, $menu window -show-icons "
-              "$mainMod CTRL, f, fullscreen, # dwindle"
-              "SUPER CTRL ALT SHIFT, c, exec, rofi -modi clipboard:~/.config/rofi/cliphist-rofi -show clipboard -show-icons"
-              "SUPER CTRL ALT SHIFT, space, exec, ~/Scripts/run-appimage"
-              "SUPER CTRL ALT SHIFT, e, exec, emote"
-              "SUPER SHIFT, 2, exec, hyprshot -m window"
-              "SUPER SHIFT, 3, exec, hyprshot -m output -m active"
-              "SUPER SHIFT, 4, exec, hyprshot -m region"
-              "$secondaryMod, h, movefocus, l"
-              "$secondaryMod, j, movefocus, d"
-              "$secondaryMod, k, movefocus, u"
-              "$secondaryMod, l, movefocus, r"
-
-              "$mainMod CTRL, h, movewindow, l"
-              "$mainMod CTRL, j, movewindow, d"
-              "$mainMod CTRL, k, movewindow, u"
-              "$mainMod CTRL, l, movewindow, r"
-
-              "$mainMod ALT, h, resizeactive, -30 0"
-              "$mainMod ALT, j, resizeactive, 0 30"
-              "$mainMod ALT, k, resizeactive, 0 -30"
-              "$mainMod ALT, l, resizeactive, 30 0"
-
-              "$secondaryMod, 1, workspace, 1"
-              "$secondaryMod, 2, workspace, 2"
-              "$secondaryMod, 3, workspace, 3"
-              "$secondaryMod, 4, workspace, 4"
-              "$secondaryMod, 5, workspace, 5"
-              "$mainMod CONTROL, 1, movetoworkspace, 1"
-              "$mainMod CONTROL, 2, movetoworkspace, 2"
-              "$mainMod CONTROL, 3, movetoworkspace, 3"
-              "$mainMod CONTROL, 4, movetoworkspace, 4"
-              "$mainMod CONTROL, 5, movetoworkspace, 5"
-              ", XF86AudioPlay, exec, playerctl --player=spotify,termusic,audacious,firefox play-pause"
-            ];
-            windowrule = [
-              "suppressevent maximize, class:.*"
-              "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-            ];
-            layerrule = [
-              "blur, swaync-control-center"
-              "blur, swaync-notification-window"
-              "ignorezero, swaync-control-center"
-              "ignorezero, swaync-notification-window"
-              "ignorealpha 0.5, swaync-control-center"
-              "ignorealpha 0.5, swaync-notification-window"
-              "blur, rofi"
-              "ignorezero, rofi"
-              "ignorealpha 0.5, rofi"
-            ];
-          };
-        };
         programs.walker = {
           enable = true;
           runAsService = true;
         };
+        programs.waybar.enable = true;
         programs.zen-browser = {
           enable = true;
           policies = {
@@ -321,7 +155,12 @@
           };
         };
         home.sessionVariables = {
-          GTK_THEME = "WhiteSur-Dark";
+          GTK_THEME = "Fluent-Dark";
+          GTK_USE_PORTAL = "1";
+          DISPLAY = ":0";
+          XDG_CURRENT_DESKTOP = "niri";
+          XDG_SESSION_TYPE = "wayland";
+          XDG_SESSION_DESKTOP = "niri";
           HYPRSHOT_DIR = "/home/ryanm/Pictures/Screenshots";
           GOPATH = "/home/ryanm/go";
           PHP_CS_FIXER_IGNORE_ENV = 1;
