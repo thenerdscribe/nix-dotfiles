@@ -157,6 +157,9 @@
         home.sessionVariables = {
           GTK_THEME = "Fluent-Dark";
           GTK_USE_PORTAL = "1";
+          QT_QPA_PLATFORM = "wayland";
+          ELECTRON_OZONE_PLATFORM_HINT = "auto";
+          GDK_SCALE = "2";
           DISPLAY = ":0";
           XDG_CURRENT_DESKTOP = "niri";
           XDG_SESSION_TYPE = "wayland";

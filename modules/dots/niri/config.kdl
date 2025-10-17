@@ -3,7 +3,9 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 environment {
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
+ // ELECTRON_OZONE_PLATFORM_HINT "auto"
+    // GDK_SCALE "2"
+
 }
 output "HDMI-A-2" {
     scale 2.0
