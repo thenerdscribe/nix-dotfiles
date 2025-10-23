@@ -76,7 +76,6 @@
           discord
           spotify
           lnav
-          (flameshot.override { enableWlrSupport = true; })
           _1password-gui
           sqlite
           playerctl
