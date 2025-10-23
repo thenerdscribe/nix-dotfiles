@@ -346,16 +346,16 @@ binds {
     // Example media keys mapping using playerctl.
     // This will work with any MPRIS-enabled media player.
     XF86AudioPlay allow-when-locked=true {
-        spawn-sh "playerctl --player=spotify,termusic,audacious,firefox play-pause"
+        spawn-sh "playerctl --player=cmus,spotify,termusic,audacious,firefox play-pause"
     }
     XF86AudioStop allow-when-locked=true {
-        spawn-sh "playerctl --player=spotify,termusic,audacious,firefox stop"
+        spawn-sh "playerctl --player=cmus,spotify,termusic,audacious,firefox stop"
     }
     XF86AudioPrev allow-when-locked=true {
-        spawn-sh "playerctl --player=spotify,termusic,audacious,firefox previous"
+        spawn-sh "playerctl --player=cmus,spotify,termusic,audacious,firefox previous"
     }
     XF86AudioNext allow-when-locked=true {
-        spawn-sh "playerctl --player=spotify,termusic,audacious,firefox next"
+        spawn-sh "playerctl --player=cmus,spotify,termusic,audacious,firefox next"
     }
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
