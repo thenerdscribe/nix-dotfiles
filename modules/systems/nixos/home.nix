@@ -76,6 +76,7 @@
           discord
           spotify
           lnav
+          (flameshot.override { enableWlrSupport = true; })
           _1password-gui
           sqlite
           playerctl
@@ -174,13 +175,13 @@
             --preview 'bat -n --color=always {}' \
             --bind 'ctrl-/:change-preview-window(down|hidden|)' '';
           FZF_CTRL_R_OPTS = ''
-            --preview 'echo {}' --preview-window up:3:hidden:wrap
-            --bind 'ctrl-/:toggle-preview'
-            --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
-            --color header:italic
-            --header 'Press CTRL-Y to copy command into clipboard' '';
+            --preview 'echo {}' --preview-window up:3:hidden:wrap \
+                        --bind 'ctrl-/:toggle-preview' \
+                        --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' \
+                        --color header:italic \
+                        --header 'Press CTRL-Y to copy command into clipboard' '';
           FZF_ALT_C_OPTS = ''
-            --walker-skip .git,node_modules,target
+            --walker-skip .git,node_modules,target \
             --preview 'tree -C {}' '';
           HISTFILE = "~/.zsh_history";
           HISTSIZE = "100000";

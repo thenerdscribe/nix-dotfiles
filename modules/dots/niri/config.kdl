@@ -678,10 +678,10 @@ binds {
 workspace "Main" {
     open-on-output "DP-1"
 }
-workspace "Messaging" {
-    open-on-output "DP-1"
-}
 workspace "Code" {
+    open-on-output "HDMI-A-2"
+}
+workspace "Messaging" {
     open-on-output "HDMI-A-2"
 }
 workspace "Music" {
