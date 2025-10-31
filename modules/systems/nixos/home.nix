@@ -57,7 +57,6 @@
           less
           nh
           ffmpeg_7-full
-          nb
           poppler
           prettyping
           redis
