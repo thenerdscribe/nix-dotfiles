@@ -14,6 +14,6 @@ pkgs.writeShellScriptBin "switch-audio" ''
   fi
 
   echo "Switching to: $NEW";
-  CARD="$(${pkgs.pulseaudio}/bin/pactl list cards | rg Card | tail -n1 | rg -o '\d\d')"
+  CARD="$(${pkgs.pulseaudio}/bin/pactl list cards | rg Card | tail -n1 | rg -o '\d+')"
   ${pkgs.pulseaudio}/bin/pactl set-card-profile $CARD "output:$NEW-stereo";
 ''
