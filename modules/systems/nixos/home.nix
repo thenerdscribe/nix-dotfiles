@@ -398,6 +398,7 @@
               pbp = "pbpaste";
               c = "clear";
               zwl = "zellij -l welcome";
+              zkl = "zellij kill-all-sessions -y; zellij delete-all-sessions -y";
               ls = "eza --icons --color=always";
               la = "ls -a";
               ll = "ls -al";

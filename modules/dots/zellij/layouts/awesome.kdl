@@ -6,18 +6,22 @@ layout {
         }
         children
     }
-    tab name="editor" focus=true {
-            pane focus=true command="nvim" {
-            args  "."
+    tab name="Editor" focus=true cwd "/Users/ryanmorton/Sites/awesome-ecomm" {
+        pane name="Neovim" focus=true command="zsh" {
+            args "-c" "nix develop --command zsh"
         }
     }
-    tab name="watchers" {
-            pane command="nix" {
-            args "develop" "--command" "zsh"
+    tab name="Commands" cwd="~/Sites/awesome-ecomm/" {
+        pane name="Commands" command="zsh" {
+            args "-c" "nix develop --command zsh"
         }
-        pane
     }
-    tab name="scratch" cwd="/Users/ryanmorton" {
-            pane
+    tab name="Watchers" cwd="~/Sites/awesome-ecomm/" {
+        pane name="Vite" command="zsh" {
+            args "-c" "nix develop --command 'npm' 'run' 'dev'"
+        }
+        pane name="Server" command="zsh" {
+            args "-c" "nix develop --command 'php' 'artisan' 'serve' '--port=8889'"
+        }
     }
 }
