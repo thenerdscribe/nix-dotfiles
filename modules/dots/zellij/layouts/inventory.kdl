@@ -1,18 +1,25 @@
 layout {
-    cwd "/Users/ryanmorton/Sites/inventory-api"
+    cwd "~/Sites/inventory-api/"
     default_tab_template {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
         }
         children
     }
-    tab name="editor" focus=true {
-            pane size="10%"
-            pane size="90%" focus=true command="nvim" {
-            args  "."
+    tab name="Editor" focus=true cwd="~/Sites/inventory-api/" {
+        pane name="Neovim" focus=true command="zsh" {
+            args "-c" "nix develop --command zsh"
         }
     }
-    tab name="scratch" cwd="/Users/ryanmorton" {
-            pane
+    tab name="Commands" cwd="~/Sites/inventory-api/" {
+        pane name="Commands" command="zsh" {
+            args "-c" "nix develop --command zsh"
+        }
+    }
+    tab name="Watchers" cwd="~/Sites/inventory-api/public" {
+        pane name="Server" command="zsh" {
+            args "-c" "nix develop --command 'php' '-S' '127.0.0.1:8890'"
+        }
     }
 }
+

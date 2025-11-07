@@ -18,7 +18,7 @@ layout {
     }
     tab name="Watchers" cwd="~/Sites/neo-pos1/public" {
         pane name="Server" command="zsh" {
-            args "-c" "nix develop --command 'php' 'artisan' 'serve' '--port=8895'"
+            args "-c" "nix develop --command 'php' '-S' '127.0.0.1:8895'"
         }
     }
 }
