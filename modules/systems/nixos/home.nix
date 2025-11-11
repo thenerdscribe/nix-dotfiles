@@ -119,6 +119,8 @@
           alacritty
           fuzzel
           xwayland-satellite
+          vial
+          via
         ];
 
         dconf = {

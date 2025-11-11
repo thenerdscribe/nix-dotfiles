@@ -309,7 +309,7 @@ binds {
     Mod+Shift+Slash {
         show-hotkey-overlay
     }
-    Mod+E hotkey-overlay-title="Open a Terminal: ghostty" {
+    Mod+E hotkey-overlay-title="Open file manager: nautilus" {
         spawn "nautilus"
     }
     // Suggested binds for running programs: terminal, app launcher, screen locker.

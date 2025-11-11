@@ -188,6 +188,7 @@
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
+  hardware.keyboard.qmk.enable = true;
 
   services.caddy = {
     enable = true;
