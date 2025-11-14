@@ -250,7 +250,6 @@
                 delimitMate
                 targets-vim
                 bclose-vim
-                obsidian-nvim
                 gitsigns-nvim
                 vim-matchup
                 lsp-colors-nvim
@@ -267,9 +266,10 @@
                 friendly-snippets
                 nvim-notify
                 nvim-web-devicons
-                plenary-nvim
-                telescope-fzf-native-nvim
-                telescope-nvim
+                # plenary-nvim
+                # telescope-fzf-native-nvim
+                # telescope-nvim
+                fzf-lua
                 transparent-nvim
                 (nvim-treesitter.withPlugins (p: [
                   p.javascript

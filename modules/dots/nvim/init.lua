@@ -95,45 +95,16 @@ vim.opt.fillchars = {
 	verthoriz = "╋",
 }
 vim.cmd.colorscheme("everforest")
-require("telescope").setup({
-	defaults = {
-		results_title = false,
-		sorting_strategy = "ascending",
-		layout_strategy = "center",
-		layout_config = {
-			preview_cutoff = 1, -- Preview should always show (unless previewer = false)
-			width = function(_, max_columns, _)
-				return math.min(max_columns, 80)
-			end,
-			height = function(_, _, max_lines)
-				return math.min(max_lines, 15)
-			end,
-		},
-		border = true,
-		borderchars = {
-			prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
-			results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
-			preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-		},
-		file_ignore_patterns = {
-			"horizon/app.js",
-			"*.min.js",
-			"public/*",
-			"node_modules/*",
-		},
-	},
-})
 
-require("telescope").load_extension("fzf")
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>p", builtin.find_files, {})
+require("fzf-lua").setup()
+vim.keymap.set("n", "<leader>p", require("fzf-lua").files, {})
+vim.keymap.set("n", "<leader>e", require("fzf-lua").buffers, {})
 vim.keymap.set("n", "<leader>fh", function()
-	builtin.oldfiles({ cwd_only = true })
+	require("fzf-lua").oldfiles({ cwd_only = true })
 end, {})
-vim.keymap.set("n", "<leader>e", builtin.buffers, {})
-vim.keymap.set("n", "<leader>G", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>gs", builtin.git_status, {})
-vim.keymap.set("n", "<leader>ts", builtin.treesitter, {})
+vim.keymap.set("n", "<leader>G", require("fzf-lua").live_grep, {})
+vim.keymap.set("n", "<leader>gs", require("fzf-lua").git_status, {})
+vim.keymap.set("n", "<leader>ts", require("fzf-lua").treesitter, {})
 
 -- If you want the formatexpr, here is the place to set it
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
@@ -195,7 +166,6 @@ end, {
 	desc = "Re-enable autoformat-on-save",
 })
 
-local nvim_lsp = require("lspconfig")
 local navic = require("nvim-navic")
 local servers = {
 	"ts_ls",
@@ -209,9 +179,6 @@ local servers = {
 	"typos_lsp",
 	"laravel_ls",
 }
-
-nvim_lsp.markdown_oxide.setup({})
-nvim_lsp.marksman.setup({})
 
 local on_attach = function(client, bufnr, lsp)
 	local bufopts = { noremap = true, silent = true }
@@ -277,18 +244,17 @@ require("blink.cmp").setup({
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 for _, lsp in ipairs(servers) do
-	nvim_lsp[lsp].setup({
+	vim.lsp.config(lsp, {
 		capabilities = capabilities,
 		on_attach = on_attach,
 		settings = {
 			Lua = { diagnostics = { globals = { "vim" } } },
 		},
 	})
+	vim.lsp.enable(lsp)
 end
 
-require("color-converter").setup({})
-
-nvim_lsp["html"].setup({
+vim.lsp.config("html", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { "html", "blade" },
@@ -302,7 +268,9 @@ nvim_lsp["html"].setup({
 	},
 })
 
-nvim_lsp.phpactor.setup({
+vim.lsp.enable("html")
+
+vim.lsp.config("phpactor", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { "php", "blade" },
@@ -311,25 +279,15 @@ nvim_lsp.phpactor.setup({
 	end,
 })
 
-nvim_lsp.intelephense.setup({
+vim.lsp.enable("phpactor")
+
+vim.lsp.config("intelephense", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { "php", "blade" },
-	root_dir = function()
-		return vim.loop.cwd()
-	end,
 })
 
--- vim.api.nvim_create_autocmd("FileType", {
--- 	pattern = { "php", "blade" },
--- 	callback = function()
--- 		vim.lsp.start({
--- 			name = "laravel-ls",
--- 			cmd = { "sh", "/home/ryanm/go/pkg/mod/github.com/laravel-ls/laravel-ls@v0.0.8/start.sh" },
--- 			root_dir = vim.fn.getcwd(),
--- 		})
--- 	end,
--- })
+vim.lsp.enable("intelephense")
 
 require("notify").setup({
 	animate = false,
@@ -454,16 +412,7 @@ end, {
 	bang = false,
 })
 
-require("obsidian").setup({
-	ui = { enable = true },
-	workspaces = {
-		{ name = "main", path = "~/Documents/Main" },
-	},
-	completion = {
-		nvim_cmp = false,
-		blink = true,
-	},
-})
-require("leap").set_default_mappings()
+require("color-converter").setup({})
+
 vim.keymap.del("n", "gra")
 vim.keymap.del("n", "gri")
