@@ -224,7 +224,7 @@ spawn-sh-at-startup "~/.config/swww/swww_randomize.sh ~/Pictures/wallpapers 300"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "streamdeck -n"
 spawn-sh-at-startup "syncthing"
-//spawn-sh-at-startup "create-dev-environment"
+spawn-sh-at-startup "create-dev-environment"
 hotkey-overlay {
     skip-at-startup
 }

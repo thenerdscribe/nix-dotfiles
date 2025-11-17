@@ -150,6 +150,7 @@
       rofi
       gh
       (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
+      (import ../../scripts/create-dev-environment.nix { inherit pkgs; })
       (import ../../scripts/switch-audio.nix { inherit pkgs; })
     ];
   };
