@@ -121,6 +121,7 @@
           xwayland-satellite
           vial
           via
+          supersonic-wayland
         ];
 
         dconf = {
