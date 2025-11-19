@@ -157,6 +157,7 @@
           };
         };
         home.sessionVariables = {
+          TERM = "xterm-ghosty";
           GTK_THEME = "Fluent-Dark";
           GTK_USE_PORTAL = "1";
           QT_QPA_PLATFORM = "wayland";

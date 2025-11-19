@@ -177,7 +177,7 @@ local servers = {
 	"marksman",
 	"nixd",
 	"typos_lsp",
-	"laravel_ls",
+	--"laravel_ls",
 }
 
 local on_attach = function(client, bufnr, lsp)
@@ -274,15 +274,13 @@ vim.lsp.config("phpactor", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { "php", "blade" },
-	root_dir = function()
-		return vim.loop.cwd()
-	end,
 })
 
 vim.lsp.enable("phpactor")
 
+local intelephense_capabilities = capabilities
 vim.lsp.config("intelephense", {
-	capabilities = capabilities,
+	capabilities = intelephense_capabilities,
 	on_attach = on_attach,
 	filetypes = { "php", "blade" },
 })
@@ -294,7 +292,6 @@ require("notify").setup({
 	stages = "static",
 	max_width = 40,
 	timeout = 2000,
-	-- render = "wrapped-compact",
 })
 require("noice").setup({})
 
