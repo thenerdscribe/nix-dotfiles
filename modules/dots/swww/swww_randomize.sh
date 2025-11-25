@@ -22,7 +22,7 @@ while true; do
 	done \
 	| sort -n | cut -d':' -f2- \
 	| while read -r img; do
-		swww img  --transition-type center --resize="$RESIZE_TYPE" "$img"
+		awww img  --transition-type center --resize="$RESIZE_TYPE" "$img"
 		sleep "${2:-$DEFAULT_INTERVAL}"
 	done
 done

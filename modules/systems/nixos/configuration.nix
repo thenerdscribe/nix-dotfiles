@@ -6,6 +6,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }:
 {
@@ -171,6 +172,7 @@
     docker-compose
     xwayland-satellite
     swww
+    inputs.awww.packages.${pkgs.system}.awww
   ];
 
   programs.nix-ld.enable = true;

@@ -320,11 +320,11 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" {
         spawn "fuzzel"
     }
-    Mod+Space hotkey-overlay-title="Run an Application: walker" {
-        spawn "walker"
+    Mod+Space repeat=false hotkey-overlay-title="Vicinae" {
+        spawn "vicinae" "toggle"
     }
     Super+Alt+Shift+Ctrl+C hotkey-overlay-title="Clipboard history" {
-        spawn-sh "rofi -modi clipboard:~/.config/rofi/cliphist-rofi -show clipboard"
+        spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"
     }
     Super+Alt+Shift+Ctrl+Space hotkey-overlay-title="Open an AppImage" {
         spawn-sh "~/Scripts/run-appimage"

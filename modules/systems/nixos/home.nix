@@ -19,9 +19,13 @@
         imports = [
           inputs.zen-browser.homeModules.twilight
           inputs.walker.homeManagerModules.default
+          inputs.vicinae.homeManagerModules.default
           # ../../home-manager/vicinae.nix
         ];
-
+        services.vicinae = {
+          enable = true;
+          autoStart = true;
+        };
         home.file = {
           ".config/nvim/after/" = {
             source = ../../dots/nvim/after;
