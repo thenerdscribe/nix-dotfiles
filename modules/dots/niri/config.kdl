@@ -219,12 +219,12 @@ spawn-at-startup "elephant"
 spawn-at-startup "walker --gapplication-service"
 spawn-at-startup "waybar"
 spawn-at-startup "swaync"
-spawn-at-startup "swww-daemon"
+spawn-at-startup "awww-daemon"
 spawn-sh-at-startup "~/.config/swww/swww_randomize.sh ~/Pictures/wallpapers 300"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "streamdeck -n"
 spawn-sh-at-startup "syncthing"
-spawn-sh-at-startup "create-dev-environment"
+// spawn-sh-at-startup "create-dev-environment"
 hotkey-overlay {
     skip-at-startup
 }
