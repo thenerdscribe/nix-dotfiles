@@ -8,16 +8,14 @@ pkgs.writeShellScriptBin "issues-script" ''
           --foreground 212 \
           --padding "0 2" \
           --border-foreground 12 --border double \
-          --align center \
-          $1;
+          "$1";
   }
   function format_success() {
       ${pkgs.gum}/bin/gum  style \
           --foreground 6 \
           --padding "0 2" \
           --border-foreground 12 --border double \
-          --align center \
-          $1;
+          "$1";
   }
 
   # Get what date to search on
