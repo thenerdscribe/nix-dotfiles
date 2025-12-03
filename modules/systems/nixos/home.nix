@@ -427,6 +427,7 @@
               # composer = "valet composer";
               # php = "valet php";
               art = "php artisan";
+              stress = "./vendor/bin/pest stress";
               zlss = "zellij list-sessions --no-formatting --short";
               zls = "zellij list-sessions";
               wbp = "wl-paste";
