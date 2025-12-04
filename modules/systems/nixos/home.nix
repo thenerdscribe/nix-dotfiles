@@ -126,6 +126,7 @@
           vial
           via
           supersonic-wayland
+          kdePackages.kcachegrind
         ];
 
         dconf = {
@@ -138,6 +139,10 @@
         };
         gtk = {
           enable = true;
+          font = {
+            name = "FiraCode Nerd Font Light";
+            size = 10;
+          };
           theme = {
             name = "Fluent-Dark";
             package = pkgs.fluent-gtk-theme;
