@@ -413,3 +413,25 @@ require("color-converter").setup({})
 
 vim.keymap.del("n", "gra")
 vim.keymap.del("n", "gri")
+
+require("dapui").setup()
+
+map("n", "<leader>tb", function()
+	require("dap").toggle_breakpoint()
+end, { desc = "Toggle Breakpoint", noremap = true })
+
+map("n", "<leader>dn", function()
+	require("dap").continue()
+end, { desc = "Continue debugging", noremap = true })
+
+map("n", "<leader>do", function()
+	require("dap").step_over()
+end, { desc = "Step Over", noremap = true })
+
+map("n", "<leader>di", function()
+	require("dap").step_into()
+end, { desc = "Step Into", noremap = true })
+
+map("n", "<leader>db", function()
+	require("dapui").toggle()
+end, { desc = "Toggle DAP UI", noremap = true })

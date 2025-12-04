@@ -165,7 +165,6 @@
           GTK_USE_PORTAL = "1";
           QT_QPA_PLATFORM = "wayland";
           ELECTRON_OZONE_PLATFORM_HINT = "auto";
-          GDK_SCALE = "2";
           DISPLAY = ":0";
           XDG_CURRENT_DESKTOP = "niri";
           XDG_SESSION_TYPE = "wayland";
@@ -242,6 +241,7 @@
             plugins =
               with pkgs.vimPlugins;
               with pkgs.tree-sitter-grammars;
+              with pkgs.vscode-extensions;
               [
                 mini-nvim
                 leap-nvim
@@ -339,6 +339,30 @@
                 catppuccin-nvim
                 everforest
                 nvim-colorizer-lua
+                xdebug.php-debug
+                {
+                  plugin = nvim-dap;
+                  type = "lua";
+                  config = ''
+                    local dap = require('dap')
+                    dap.adapters.php = {
+                      type = 'executable',
+                      command = 'node',
+                      args = { '${xdebug.php-debug.out}/share/vscode/extensions/xdebug.php-debug/out/phpDebug.js' }
+                    }
+
+                    dap.configurations.php = {
+                      {
+                        type = 'php',
+                        request = 'launch',
+                        name = 'Listen for Xdebug',
+                        port = 9003
+                      }
+                    }
+
+                  '';
+                }
+                nvim-dap-ui
                 {
                   plugin = pkgs.vimPlugins.sqlite-lua;
                   config = "let g:sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.so'";
