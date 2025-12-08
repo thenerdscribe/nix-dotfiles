@@ -53,6 +53,7 @@
           (python313.withPackages (
             p: with p; [
               pandas
+              requests
             ]
           ))
           sqlite
