@@ -763,6 +763,12 @@ window-rule {
     open-on-workspace "Messaging"
 }
 window-rule {
+    match title="Friends List"
+    default-column-width {
+        proportion 0.33333
+    }
+}
+window-rule {
     match title="Soulframe"
     open-fullscreen true
 }

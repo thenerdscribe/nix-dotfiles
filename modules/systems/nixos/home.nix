@@ -24,7 +24,7 @@
         ];
         services.vicinae = {
           enable = true;
-          autoStart = true;
+          # autoStart = true;
         };
         home.file = {
           ".config/nvim/after/" = {
@@ -57,6 +57,7 @@
             ]
           ))
           sqlite
+          _1password-cli
           go
           curl
           less
