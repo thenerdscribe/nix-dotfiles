@@ -87,6 +87,7 @@ input {
 layout {
     // Set gaps around windows in logical pixels.
     gaps 16
+    background-color "transparent"
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
     //   or right edge of the screen.
@@ -146,8 +147,8 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
-        active-gradient from="#e67e80" to="#7fbbb3" angle=-45
+        active-gradient from="#80c8ff" to="#c7ff7f" angle=45
+ // active-gradient from="#e67e80" to="#7fbbb3" angle=-45
  // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
         // To do that, set relative-to="workspace-view".
@@ -215,13 +216,13 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "elephant"
-spawn-at-startup "walker --gapplication-service"
-spawn-at-startup "waybar"
-spawn-at-startup "swaync"
-spawn-at-startup "awww-daemon"
-spawn-sh-at-startup "~/.config/swww/swww_randomize.sh ~/Pictures/wallpapers 300"
-spawn-sh-at-startup "wl-paste --watch cliphist store"
+// spawn-at-startup "elephant"
+// spawn-at-startup "walker --gapplication-service"
+// spawn-at-startup "waybar"
+// spawn-at-startup "swaync"
+// spawn-at-startup "awww-daemon"
+// spawn-sh-at-startup "~/.config/swww/swww_randomize.sh ~/Pictures/wallpapers 300"
+// spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "streamdeck -n"
 spawn-sh-at-startup "syncthing"
 // spawn-sh-at-startup "create-dev-environment"
@@ -782,4 +783,8 @@ window-rule {
     match is-focused=false
     opacity 0.85
 }
+ // include "dms/colors.kdl"
+// include "dms/layout.kdl"
+// include "dms/alttab.kdl"
+// include "dms/binds.kdl"
 

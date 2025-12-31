@@ -94,7 +94,7 @@ vim.opt.fillchars = {
 	vertright = "┣",
 	verthoriz = "╋",
 }
-vim.cmd.colorscheme("everforest")
+vim.cmd.colorscheme("catppuccin")
 
 require("fzf-lua").setup()
 vim.keymap.set("n", "<leader>p", require("fzf-lua").files, {})

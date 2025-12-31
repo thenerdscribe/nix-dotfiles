@@ -24,7 +24,6 @@
         ];
         services.vicinae = {
           enable = true;
-          # autoStart = true;
         };
         home.file = {
           ".config/nvim/after/" = {
@@ -129,6 +128,7 @@
           via
           supersonic-wayland
           kdePackages.kcachegrind
+          matugen
         ];
 
         dconf = {
@@ -154,11 +154,11 @@
             package = pkgs.fluent-icon-theme;
           };
         };
-        programs.walker = {
-          enable = true;
-          runAsService = true;
-        };
-        programs.waybar.enable = true;
+        # programs.walker = {
+        #   enable = true;
+        #   runAsService = true;
+        # };
+        #programs.waybar.enable = true;
         programs.zen-browser = {
           enable = true;
           policies = {
