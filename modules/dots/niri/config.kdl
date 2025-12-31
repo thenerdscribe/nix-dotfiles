@@ -1,11 +1,9 @@
-// This config is in the KDL format: https://kdl.dev
-// "/-" comments out the following node.
-// Check the wiki for a full description of the configuration:
-// https://yalter.github.io/niri/Configuration:-Introduction
 environment {
- // ELECTRON_OZONE_PLATFORM_HINT "auto"
-    // GDK_SCALE "2"
-
+    XDG_CURRENT_DESKTOP "niri"
+    QT_QPA_PLATFORM "wayland"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_QPA_PLATFORMTHEME "gtk3"
+    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
 }
 output "HDMI-A-2" {
     scale 2.0
@@ -13,7 +11,7 @@ output "HDMI-A-2" {
     transform "90"
 }
 output "DP-1" {
-    variable-refresh-rate
+    variable-refresh-rate on-demand=true
     position x=0 y=0
     focus-at-startup
 }
@@ -318,14 +316,13 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: ghostty" {
         spawn "ghostty"
     }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" {
-        spawn "fuzzel"
-    }
-    Mod+Space repeat=false hotkey-overlay-title="Vicinae" {
-        spawn "vicinae" "toggle"
+    Mod+Space repeat=false hotkey-overlay-title="Spotlight" {
+        // spawn "vicinae" "toggle"
+        spawn "dms" "ipc" "call" "spotlight" "toggle"
     }
     Super+Alt+Shift+Ctrl+C hotkey-overlay-title="Clipboard history" {
-        spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"
+        // spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"
+        spawn "dms" "ipc" "call" "clipboard" "toggle"
     }
     Super+Alt+Shift+Ctrl+Space hotkey-overlay-title="Open an AppImage" {
         spawn-sh "~/Scripts/run-appimage"
