@@ -24,7 +24,6 @@
         ];
         services.vicinae = {
           enable = true;
-          # autoStart = true;
         };
         home.file = {
           ".config/nvim/after/" = {
@@ -129,6 +128,7 @@
           via
           supersonic-wayland
           kdePackages.kcachegrind
+          matugen
         ];
 
         dconf = {
@@ -154,11 +154,11 @@
             package = pkgs.fluent-icon-theme;
           };
         };
-        programs.walker = {
-          enable = true;
-          runAsService = true;
-        };
-        programs.waybar.enable = true;
+        # programs.walker = {
+        #   enable = true;
+        #   runAsService = true;
+        # };
+        #programs.waybar.enable = true;
         programs.zen-browser = {
           enable = true;
           policies = {
@@ -498,12 +498,12 @@
             settings = {
               add_newline = true;
               format = ''
-                [](#293136)$username[](bg:#3a464c fg:#293136)$directory[](bg:#434f55 fg:#3a464c)$git_branch$git_status[](bg:#dbbc7f fg:#434f55)$nix_shell[](bg:#343f55 fg:#dbbc7f)
+                $username $directory $git_branch$git_status $nix_shell
                 $character 
               '';
               directory = {
-                style = "bg:#3a464c fg:#d3c6aa";
-                format = "[ $path ]($style)";
+                style = "fg:#8bd5ca";
+                format = "[$path]($style)";
                 truncation_length = 3;
                 truncation_symbol = "…/";
                 substitutions = {
@@ -515,32 +515,31 @@
               };
               username = {
                 show_always = true;
-                style_user = "bg:#293136 fg:#d3c6aa";
-                style_root = "bg:#293136 fg:#d3c6aa";
-                format = "[ 󰿘 ]($style)";
+                style_user = "fg:#8aadf4";
+                format = "[󰿘 ]($style)";
               };
               git_branch = {
                 symbol = "";
-                style = "bg:#434f55 fg:#d3c6aa";
-                format = "[ $symbol $branch ]($style)";
+                style = "fg:#f0c6c6";
+                format = "[$symbol $branch]($style)";
               };
               git_status = {
-                style = "bg:#434f55 fg:#d3c6aa";
-                format = "[$all_status$ahead_behind ]($style)";
+                style = "fg:#ed8796";
+                format = "[$all_status$ahead_behind]($style)";
               };
               character = {
-                format = "[ $symbol ](bg: #45475a)";
-                vimcmd_symbol = "[ ](fg:#dbbc7f)";
-                success_symbol = "[ ](fg:#a8c080)";
-                error_symbol = "[ ](fg:#e67e80)";
+                format = "[$symbol](bg: #45475a)";
+                vimcmd_symbol = "[ ](fg:#eed49f)";
+                success_symbol = "[ ](fg:#a6da95)";
+                error_symbol = "[ ](fg:#ed8796)";
                 vimcmd_replace_symbol = "[R](fg:#dbbc7f)";
                 vimcmd_replace_one_symbol = "[RO](fg:#dbbc7f)";
                 vimcmd_visual_symbol = "[V](fg:#dbbc7f)";
               };
               nix_shell = {
                 symbol = " ";
-                format = "[ via $symbol$state( \($name\)) ]($style)";
-                style = "bg:#dbbc7f fg:#293136";
+                format = "[$symbol]($style)";
+                style = "fg:#eed49f";
                 impure_msg = "(I)";
                 pure_msg = "(P)";
                 unknown_msg = "";
