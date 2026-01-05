@@ -316,13 +316,14 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: ghostty" {
         spawn "ghostty"
     }
-    Mod+Space repeat=false hotkey-overlay-title="Spotlight" {
-        // spawn "vicinae" "toggle"
+    Mod+Space repeat=false hotkey-overlay-title="Vicinae (Raycast)" {
+        spawn "vicinae" "toggle"
+    }
+    Mod+Shift+Space repeat=false hotkey-overlay-title="DMS Spotlight" {
         spawn "dms" "ipc" "call" "spotlight" "toggle"
     }
     Super+Alt+Shift+Ctrl+C hotkey-overlay-title="Clipboard history" {
-        // spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"
-        spawn "dms" "ipc" "call" "clipboard" "toggle"
+        spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"
     }
     Super+Alt+Shift+Ctrl+Space hotkey-overlay-title="Open an AppImage" {
         spawn-sh "~/Scripts/run-appimage"
@@ -721,6 +722,7 @@ spawn-at-startup "obsidian"
 spawn-at-startup "discord"
 spawn-at-startup "signal-desktop"
 spawn-at-startup "slack"
+spawn-sh-at-startup "vicinae server"
 window-rule {
     match title="Ghostty"
     open-maximized true

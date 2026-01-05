@@ -525,10 +525,10 @@
               };
               git_status = {
                 style = "fg:#ed8796";
-                format = "[$all_status$ahead_behind ]($style)";
+                format = "[$all_status$ahead_behind]($style)";
               };
               character = {
-                format = "[$symbol ](bg: #45475a)";
+                format = "[$symbol](bg: #45475a)";
                 vimcmd_symbol = "[ ](fg:#eed49f)";
                 success_symbol = "[ ](fg:#a6da95)";
                 error_symbol = "[ ](fg:#ed8796)";
@@ -538,7 +538,7 @@
               };
               nix_shell = {
                 symbol = " ";
-                format = "[$symbol $state( \($name\)) ]($style)";
+                format = "[$symbol]($style)";
                 style = "fg:#eed49f";
                 impure_msg = "(I)";
                 pure_msg = "(P)";
