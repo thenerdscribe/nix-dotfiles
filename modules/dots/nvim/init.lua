@@ -329,25 +329,25 @@ require("lualine").setup({
 require("oil").setup({})
 vim.g.blamer_enabled = true
 
-require("nvim-treesitter.configs").setup({
-	autotag = true,
-	matchup = {
-		enable = true,
-	},
-	indent = {
-		enable = true,
-	},
-	highlight = {
-		enable = true,
-	},
-	config = function()
-		vim.filetype.add({
-			pattern = {
-				[".*%.blade%.php"] = "blade",
-			},
-		})
-	end,
-})
+-- require("nvim-treesitter.configs").setup({
+-- 	autotag = true,
+-- 	matchup = {
+-- 		enable = true,
+-- 	},
+-- 	indent = {
+-- 		enable = true,
+-- 	},
+-- 	highlight = {
+-- 		enable = true,
+-- 	},
+-- 	config = function()
+-- 		vim.filetype.add({
+-- 			pattern = {
+-- 				[".*%.blade%.php"] = "blade",
+-- 			},
+-- 		})
+-- 	end,
+-- })
 
 require("neotest").setup({
 	log_level = vim.log.levels.DEBUG,
