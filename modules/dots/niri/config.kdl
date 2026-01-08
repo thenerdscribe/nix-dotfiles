@@ -325,9 +325,6 @@ binds {
     Super+Alt+Shift+Ctrl+C hotkey-overlay-title="Clipboard history" {
         spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"
     }
-    Super+Alt+Shift+Ctrl+Space hotkey-overlay-title="Open an AppImage" {
-        spawn-sh "~/Scripts/run-appimage"
-    }
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
     // Using spawn-sh allows to pass multiple arguments together with the command.
