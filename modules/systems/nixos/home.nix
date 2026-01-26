@@ -71,6 +71,7 @@
           delta
           magic-wormhole
           #ice-bar
+          protontricks
           yazi-unwrapped
           imagemagick
           pup
