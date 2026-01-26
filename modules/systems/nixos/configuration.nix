@@ -153,7 +153,6 @@
       (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
       (import ../../scripts/create-dev-environment.nix { inherit pkgs; })
       (import ../../scripts/switch-audio.nix { inherit pkgs; })
-      (import ../../scripts/protonhax.nix { inherit pkgs; })
     ];
   };
   programs.steam = {
