@@ -73,6 +73,7 @@
           #ice-bar
           yazi-unwrapped
           gimp2-with-plugins
+          ripgrep-all
           imagemagick
           pup
           gum
