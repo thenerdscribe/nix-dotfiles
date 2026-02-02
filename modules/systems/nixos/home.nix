@@ -72,6 +72,7 @@
           magic-wormhole
           #ice-bar
           yazi-unwrapped
+          gimp2-with-plugins
           imagemagick
           pup
           gum
