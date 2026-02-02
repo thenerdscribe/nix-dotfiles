@@ -33,7 +33,13 @@
   ];
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi = {
+      scanRandMacAddress = false;
+      powersave = false;
+    };
+  };
   networking.extraHosts = ''
     54.71.90.183   inventory-api.walts.com
     54.71.90.183   listingmanager.walts.com
