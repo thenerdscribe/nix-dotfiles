@@ -74,6 +74,7 @@
           yazi-unwrapped
           gimp2-with-plugins
           ripgrep-all
+          tableplus
           imagemagick
           pup
           gum

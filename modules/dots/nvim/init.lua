@@ -390,9 +390,9 @@ map("n", "<c-l>", "<cmd>ZellijNavigateRightTab<cr>", { desc = "navigate right or
 
 vim.cmd("nnoremap <silent> <leader>w :update<CR>")
 
-require("image").setup({
-	processor = "magick_cli",
-})
+-- require("image").setup({
+-- 	processor = "magick_cli",
+-- })
 require("mini.align").setup()
 require("transparent").setup({})
 
