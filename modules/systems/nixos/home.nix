@@ -103,6 +103,7 @@
           fluent-icon-theme
           nautilus
           audacious
+          rustdesk
           sushi
           cheese
           swaynotificationcenter
