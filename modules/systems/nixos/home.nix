@@ -103,7 +103,7 @@
           fluent-icon-theme
           nautilus
           audacious
-          rustdesk
+          rustdesk-flutter
           scribus
           sushi
           cheese
