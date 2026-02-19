@@ -104,6 +104,7 @@
           nautilus
           audacious
           rustdesk
+          scribus
           sushi
           cheese
           swaynotificationcenter
