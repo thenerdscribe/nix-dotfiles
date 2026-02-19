@@ -104,6 +104,7 @@
           nautilus
           audacious
           rustdesk-flutter
+          inkscape-with-extensions
           scribus
           sushi
           cheese
