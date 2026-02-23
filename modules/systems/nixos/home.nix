@@ -14,7 +14,7 @@
         ...
       }:
       {
-        home.stateVersion = "24.11";
+        home.stateVersion = "25.11";
 
         imports = [
           inputs.zen-browser.homeModules.twilight
