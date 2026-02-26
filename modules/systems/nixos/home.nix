@@ -102,6 +102,7 @@
           fluent-gtk-theme
           fluent-icon-theme
           nautilus
+          claude-code
           audacious
           rustdesk-flutter
           inkscape-with-extensions
