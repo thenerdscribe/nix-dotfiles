@@ -17,7 +17,6 @@
     vicinae.url = "github:vicinaehq/vicinae";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    swww.url = "github:LGFae/swww";
     awww.url = "git+https://codeberg.org/LGFae/awww";
   };
 

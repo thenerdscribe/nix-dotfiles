@@ -134,7 +134,7 @@
           via
           supersonic-wayland
           kdePackages.kcachegrind
-          matugen
+          ollama-vulkan
         ];
 
         dconf = {
