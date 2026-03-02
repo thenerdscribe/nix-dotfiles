@@ -22,6 +22,7 @@
           inputs.vicinae.homeManagerModules.default
           # ../../home-manager/vicinae.nix
         ];
+        programs.zen-browser.suppressXdgMigrationWarning = true;
         services.vicinae = {
           enable = true;
         };
@@ -239,7 +240,7 @@
               vscode-langservers-extracted
               tailwindcss-language-server
               nixd
-              nixfmt-rfc-style
+              nixfmt
               marksman
               prettierd
               stylua
@@ -411,7 +412,7 @@
                   sha256 = "gQDSHeQnfMteZjr0Ji8wsTzo6alK/dgcVL3YSRVshyc=";
                 })
               ];
-            extraLuaConfig = builtins.readFile ../../dots/nvim/init.lua;
+            initLua = builtins.readFile ../../dots/nvim/init.lua;
           };
           eza = {
             enable = true;
@@ -564,7 +565,7 @@
       };
     extraSpecialArgs = {
       inherit inputs;
-      system = "x86_64-linux";
+      stdenv.hostPlatform.system = "x86_64-linux";
     };
   };
 }
