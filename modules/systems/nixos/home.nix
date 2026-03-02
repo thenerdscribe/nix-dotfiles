@@ -119,6 +119,7 @@
           libsecret
           pulseaudio
           wezterm
+          chromium
           ghostty
           termusic
           wf-recorder

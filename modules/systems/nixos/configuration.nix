@@ -157,6 +157,7 @@
       rofi
       gh
       inputs.matugen.packages.${system}.default
+      inputs.quickshell.packages.${system}.default
       (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
       (import ../../scripts/create-dev-environment.nix { inherit pkgs; })
       (import ../../scripts/switch-audio.nix { inherit pkgs; })
