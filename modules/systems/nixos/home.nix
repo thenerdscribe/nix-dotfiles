@@ -113,7 +113,7 @@
           swaynotificationcenter
           pavucontrol
           cmus
-          neofetch
+          qobuz-player
           dconf
           streamdeck-ui
           libsecret
