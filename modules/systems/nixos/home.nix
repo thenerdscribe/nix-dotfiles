@@ -20,9 +20,7 @@
           inputs.zen-browser.homeModules.twilight
           inputs.walker.homeManagerModules.default
           inputs.vicinae.homeManagerModules.default
-          # ../../home-manager/vicinae.nix
         ];
-        # programs.zen-browser.suppressXdgMigrationWarning = true;
         services.vicinae = {
           enable = true;
         };
@@ -177,15 +175,15 @@
           };
         };
         home.sessionVariables = {
-          GTK_THEME = "Fluent-Dark";
-          GTK_USE_PORTAL = "1";
+          #GTK_THEME = "Fluent-Dark";
+          #GTK_USE_PORTAL = "1";
           QT_QPA_PLATFORM = "wayland";
           ELECTRON_OZONE_PLATFORM_HINT = "auto";
-          DISPLAY = ":0";
-          XDG_CURRENT_DESKTOP = "niri";
-          XDG_SESSION_TYPE = "wayland";
-          XDG_SESSION_DESKTOP = "niri";
-          HYPRSHOT_DIR = "/home/ryanm/Pictures/Screenshots";
+          #DISPLAY = ":0";
+          #XDG_CURRENT_DESKTOP = "niri";
+          #XDG_SESSION_TYPE = "wayland";
+          #XDG_SESSION_DESKTOP = "niri";
+          #HYPRSHOT_DIR = "/home/ryanm/Pictures/Screenshots";
           GOPATH = "/home/ryanm/go";
           PHP_CS_FIXER_IGNORE_ENV = 1;
           EDITOR = "nvim";

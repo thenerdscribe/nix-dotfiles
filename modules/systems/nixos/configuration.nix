@@ -233,20 +233,11 @@
     enable = true;
   };
 
-  services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="04D8", ATTRS{idProduct}=="eb52", TAG+="uaccess"
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="a3c4", TAG+="uaccess"
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="a3c5", TAG+="uaccess"
-  '';
-
   programs.dms-shell = {
     enable = true;
     systemd.enable = true;
   };
-  services.displayManager.dms-greeter = {
-    enable = true;
-    compositor.name = "niri"; # Or "hyprland" or "sway"
-  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
