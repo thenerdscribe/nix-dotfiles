@@ -22,7 +22,7 @@
           inputs.vicinae.homeManagerModules.default
           # ../../home-manager/vicinae.nix
         ];
-        programs.zen-browser.suppressXdgMigrationWarning = true;
+        # programs.zen-browser.suppressXdgMigrationWarning = true;
         services.vicinae = {
           enable = true;
         };
