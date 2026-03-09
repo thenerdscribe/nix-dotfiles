@@ -764,15 +764,15 @@ window-rule {
     match title="Soulframe"
     open-fullscreen true
 }
+window-rule {
+    match is-focused=false
+    opacity 0.85
+}
 cursor {
     xcursor-size 24
     xcursor-theme "breeze_cursors"
     hide-when-typing
     hide-after-inactive-ms 1000
-}
-window-rule {
-    match is-focused=false
-    opacity 0.85
 }
  // include "dms/colors.kdl"
 // include "dms/layout.kdl"
