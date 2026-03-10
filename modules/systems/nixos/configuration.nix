@@ -36,8 +36,8 @@
   networking.networkmanager = {
     enable = true;
     wifi = {
-      scanRandMacAddress = true;
-      powersave = true;
+      scanRandMacAddress = false;
+      powersave = false;
     };
   };
   networking.extraHosts = ''
