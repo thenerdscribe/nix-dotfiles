@@ -509,7 +509,6 @@
               match is-focused=false
               opacity 0.85
           }
-
         '';
         programs.dank-material-shell = {
           enable = true;
@@ -907,6 +906,28 @@
                   rev = "61f09a9";
                   sha256 = "A73coX1zS5PPXGwEgbLcBsg3lvJD1IXiEiyKX68620w=";
                 })
+                {
+                  plugin = pkgs.fetchFromGitHub {
+                    owner = "Ssnibles";
+                    repo = "matugen.nvim";
+                    rev = "6cc055f";
+                    sha256 = "s0CHTihXlBMCKmbBBb8dUhfgOOQu9PBCQ+uviy7o47w=";
+                  };
+                  type = "lua";
+                  config = ''
+                    require('matugen').setup({
+                        opts = {
+                            file = "~/.cache/matugen/colors.jsonc",
+                            plugins = {
+                                base = true,
+                                treesitter = true,
+                                cmp = true,
+                                lualine = true,
+                            }
+                        }
+                    })
+                  '';
+                }
                 # (pkgs.fetchFromGitHub {
                 #   owner = "V13Axel";
                 #   repo = "neotest-pest";
