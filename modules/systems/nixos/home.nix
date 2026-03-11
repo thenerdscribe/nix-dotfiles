@@ -448,6 +448,7 @@
               open-on-output "HDMI-A-2"
           }
           spawn-sh-at-startup "streamdeck -n"
+          spawn-sh-at-startup "dms run"
           spawn-sh-at-startup "syncthing"
           spawn-at-startup "ghostty"
           spawn-at-startup "spotify"
@@ -906,28 +907,7 @@
                   rev = "61f09a9";
                   sha256 = "A73coX1zS5PPXGwEgbLcBsg3lvJD1IXiEiyKX68620w=";
                 })
-                {
-                  plugin = pkgs.fetchFromGitHub {
-                    owner = "Ssnibles";
-                    repo = "matugen.nvim";
-                    rev = "6cc055f";
-                    sha256 = "s0CHTihXlBMCKmbBBb8dUhfgOOQu9PBCQ+uviy7o47w=";
-                  };
-                  type = "lua";
-                  config = ''
-                    require('matugen').setup({
-                        opts = {
-                            file = "~/.cache/matugen/colors.jsonc",
-                            plugins = {
-                                base = true,
-                                treesitter = true,
-                                cmp = true,
-                                lualine = true,
-                            }
-                        }
-                    })
-                  '';
-                }
+
                 # (pkgs.fetchFromGitHub {
                 #   owner = "V13Axel";
                 #   repo = "neotest-pest";
