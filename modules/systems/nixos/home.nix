@@ -645,6 +645,7 @@
           supersonic-wayland
           kdePackages.kcachegrind
           ollama-vulkan
+          papirus-icon-theme
         ];
 
         dconf = {
@@ -666,8 +667,8 @@
             package = pkgs.fluent-gtk-theme;
           };
           iconTheme = {
-            name = "Fluent";
-            package = pkgs.fluent-icon-theme;
+            name = "PaiPirus";
+            package = pkgs.papirus-icon-theme;
           };
         };
         # programs.walker = {
@@ -684,14 +685,14 @@
           };
         };
         home.sessionVariables = {
-          #GTK_THEME = "Fluent-Dark";
-          #GTK_USE_PORTAL = "1";
+          # GTK_THEME = "Fluent-Dark";
+          GTK_USE_PORTAL = "1";
           QT_QPA_PLATFORM = "wayland";
           ELECTRON_OZONE_PLATFORM_HINT = "auto";
-          #DISPLAY = ":0";
-          #XDG_CURRENT_DESKTOP = "niri";
-          #XDG_SESSION_TYPE = "wayland";
-          #XDG_SESSION_DESKTOP = "niri";
+          DISPLAY = ":0";
+          XDG_CURRENT_DESKTOP = "niri";
+          XDG_SESSION_TYPE = "wayland";
+          XDG_SESSION_DESKTOP = "niri";
           #HYPRSHOT_DIR = "/home/ryanm/Pictures/Screenshots";
           GOPATH = "/home/ryanm/go";
           PHP_CS_FIXER_IGNORE_ENV = 1;
@@ -863,6 +864,7 @@
                 everforest
                 nvim-colorizer-lua
                 xdebug.php-debug
+                base16-nvim
                 {
                   plugin = nvim-dap;
                   type = "lua";

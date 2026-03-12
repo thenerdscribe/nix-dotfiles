@@ -94,8 +94,14 @@ vim.opt.fillchars = {
 	vertright = "┣",
 	verthoriz = "╋",
 }
+local current_file_path = vim.fn.stdpath("config") .. "/lua/plugins/dankcolors.lua"
+local dms = dofile(current_file_path)
+if dms[1].config ~= nil then
+    dms[1].config()
+else
+    vim.cmd.colorscheme("catppuccin")
+end
 
-vim.cmd.colorscheme("catppuccin")
 require("fzf-lua").setup()
 vim.keymap.set("n", "<leader>p", require("fzf-lua").files, {})
 vim.keymap.set("n", "<leader>e", require("fzf-lua").buffers, {})
