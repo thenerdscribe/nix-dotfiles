@@ -23,6 +23,7 @@
           inputs.zen-browser.homeModules.twilight
           inputs.walker.homeManagerModules.default
           ./niri.nix
+          ./packages.nix
         ];
 
         programs.dank-material-shell = {
@@ -44,6 +45,7 @@
             ];
           };
         };
+
         home.file = {
           ".config/nvim/after/" = {
             source = ../../dots/nvim/after;
@@ -51,15 +53,9 @@
           ".config/zellij/" = {
             source = ../../dots/zellij;
           };
-          # ".config/ghostty/" = {
-          #   source = ../../dots/ghostty;
-          # };
           ".config/fzf/" = {
             source = ../../dots/fzf;
           };
-          # ".config/niri/" = {
-          #   source = ../../dots/niri;
-          # };
           ".config/waybar/" = {
             source = ../../dots/waybar;
           };
@@ -67,100 +63,6 @@
             source = ../../dots/swww;
           };
         };
-        home.packages = with pkgs; [
-          (python313.withPackages (
-            p: with p; [
-              pandas
-              requests
-            ]
-          ))
-          sqlite
-          _1password-cli
-          vicinae
-          go
-          curl
-          less
-          nh
-          ffmpeg_7-full
-          poppler
-          prettyping
-          redis
-          tailscale
-          gh
-          tree
-          delta
-          magic-wormhole
-          #ice-bar
-          yazi-unwrapped
-          gimp2-with-plugins
-          ripgrep-all
-          tableplus
-          imagemagick
-          pup
-          gum
-          font-awesome
-          slack
-          discord
-          spotify
-          lnav
-          _1password-gui
-          sqlite
-          playerctl
-          obsidian
-          signal-desktop
-          zellij
-          magnetic-catppuccin-gtk
-          distrobox
-          cliphist
-          ueberzugpp
-          resvg
-          imagemagick
-          file
-          cava
-          libnotify
-          smartmontools
-          fluent-gtk-theme
-          fluent-icon-theme
-          nautilus
-          claude-code
-          audacious
-          rustdesk-flutter
-          inkscape-with-extensions
-          scribus
-          sushi
-          cheese
-          swaynotificationcenter
-          pavucontrol
-          cmus
-          qobuz-player
-          dconf
-          streamdeck-ui
-          libsecret
-          pulseaudio
-          wezterm
-          chromium
-          ghostty
-          termusic
-          wf-recorder
-          openrgb-with-all-plugins
-          wget
-          wlogout
-          postman
-          syncthing
-          realvnc-vnc-viewer
-          unzip
-          alacritty
-          fuzzel
-          xwayland-satellite
-          vial
-          via
-          supersonic-wayland
-          kdePackages.kcachegrind
-          ollama-vulkan
-          papirus-icon-theme
-          warpd
-          whitesur-gtk-theme
-        ];
 
         dconf = {
           enable = true;
@@ -170,6 +72,7 @@
             };
           };
         };
+
         gtk = {
           enable = true;
           font = {
@@ -177,11 +80,11 @@
             size = 10;
           };
           theme = {
-            name = "WhiteSur-Dark";
+            name = "Fluent-Dark";
             package = pkgs.whitesur-gtk-theme;
           };
           iconTheme = {
-            name = "WhiteSur-Dark";
+            name = "Fluent-Dark";
             package = pkgs.whitesur-icon-theme;
           };
         };
@@ -207,7 +110,6 @@
           XDG_CURRENT_DESKTOP = "niri";
           XDG_SESSION_TYPE = "wayland";
           XDG_SESSION_DESKTOP = "niri";
-          #HYPRSHOT_DIR = "/home/ryanm/Pictures/Screenshots";
           GOPATH = "/home/ryanm/go";
           PHP_CS_FIXER_IGNORE_ENV = 1;
           EDITOR = "nvim";
