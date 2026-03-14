@@ -81,18 +81,14 @@
           };
           theme = {
             name = "Fluent-Dark";
-            package = pkgs.whitesur-gtk-theme;
+            package = pkgs.fluent-gtk-theme;
           };
           iconTheme = {
             name = "Fluent-Dark";
-            package = pkgs.whitesur-icon-theme;
+            package = pkgs.fluent-icon-theme;
           };
         };
-        # programs.walker = {
-        #   enable = true;
-        #   runAsService = true;
-        # };
-        #programs.waybar.enable = true;
+
         programs.zen-browser = {
           enable = true;
           policies = {
@@ -101,6 +97,7 @@
             # find more options here: https://mozilla.github.io/policy-templates/
           };
         };
+
         home.sessionVariables = {
           GTK_THEME = "Fluent-Dark";
           GTK_USE_PORTAL = "1";
@@ -131,6 +128,7 @@
           HISTSIZE = "100000";
           SAVEHIST = "100000";
         };
+
         programs = {
           zoxide.enable = true;
           ripgrep.enable = true;
@@ -489,6 +487,7 @@
             };
           };
         };
+
       };
     extraSpecialArgs = {
       inherit inputs;

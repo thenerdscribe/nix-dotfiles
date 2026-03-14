@@ -23,8 +23,8 @@
     tree
     delta
     magic-wormhole
-    #ice-bar
     yazi-unwrapped
+    pcmanfm
     gimp2-with-plugins
     ripgrep-all
     tableplus
@@ -54,8 +54,6 @@
     smartmontools
     fluent-gtk-theme
     fluent-icon-theme
-    nautilus
-    claude-code
     audacious
     rustdesk-flutter
     inkscape-with-extensions
@@ -89,7 +87,5 @@
     via
     supersonic-wayland
     ollama-vulkan
-    fluent-gtk-theme
-    fluent-icon-theme
   ];
 }
