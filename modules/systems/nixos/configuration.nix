@@ -15,7 +15,9 @@
     ./hardware-configuration.nix
   ];
 
-  # Add hypridle
+  nixpkgs.overlays = [
+    inputs.niri.overlays.default
+  ];
 
   nix.settings.download-buffer-size = 524288000;
   hardware.bluetooth = {
