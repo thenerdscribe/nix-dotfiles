@@ -25,6 +25,7 @@
     magic-wormhole
     yazi-unwrapped
     pcmanfm
+    xarchiver
     gimp2-with-plugins
     ripgrep-all
     tableplus
