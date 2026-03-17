@@ -214,6 +214,7 @@
                 # telescope-nvim
                 fzf-lua
                 transparent-nvim
+                nvim-treesitter-parsers.blade
                 (nvim-treesitter.withPlugins (p: [
                   p.javascript
                   p.php

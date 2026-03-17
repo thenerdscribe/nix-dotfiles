@@ -88,5 +88,6 @@
     via
     supersonic-wayland
     ollama-vulkan
+    inotify-tools
   ];
 }
