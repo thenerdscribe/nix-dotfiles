@@ -103,7 +103,7 @@
           GTK_USE_PORTAL = "1";
           QT_QPA_PLATFORM = "wayland";
           ELECTRON_OZONE_PLATFORM_HINT = "auto";
-          DISPLAY = ":0";
+          #DISPLAY = ":0";
           XDG_CURRENT_DESKTOP = "niri";
           XDG_SESSION_TYPE = "wayland";
           XDG_SESSION_DESKTOP = "niri";
