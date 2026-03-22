@@ -163,6 +163,7 @@
               vscode-langservers-extracted
               tailwindcss-language-server
               nixd
+              rust-analyzer
               nixfmt
               marksman
               prettierd
