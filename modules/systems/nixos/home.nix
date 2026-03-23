@@ -102,12 +102,14 @@
             };
 
             home.sessionVariables = {
+              XDG_CURRENT_DESKTOP = "niri";
+              QT_QPA_PLATFORMTHEME = "gtk3";
+              QT_QPA_PLATFORMTHEME_QT6 = "gtk3";
               GTK_THEME = "Fluent-Dark";
               GTK_USE_PORTAL = "1";
               QT_QPA_PLATFORM = "wayland";
               ELECTRON_OZONE_PLATFORM_HINT = "auto";
               #DISPLAY = ":0";
-              XDG_CURRENT_DESKTOP = "niri";
               XDG_SESSION_TYPE = "wayland";
               XDG_SESSION_DESKTOP = "niri";
               GOPATH = "/home/ryanm/go";

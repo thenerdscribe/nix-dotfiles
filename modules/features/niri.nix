@@ -19,7 +19,7 @@
     {
       packages.configuredNiri = inputs.wrapper-modules.wrappers.niri.wrap {
         inherit pkgs;
-        programs.niri.config = ''
+        "config.kdl".content = ''
           environment {
               XDG_CURRENT_DESKTOP "niri"
               QT_QPA_PLATFORM "wayland"
