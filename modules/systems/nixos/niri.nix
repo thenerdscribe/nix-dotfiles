@@ -19,7 +19,7 @@
         focus-at-startup
     }
     input {
-        focus-follows-mouse max-scroll-amount="50%"
+        focus-follows-mouse max-scroll-amount="0%"
         keyboard {
             numlock
         }
