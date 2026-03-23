@@ -1,19 +1,17 @@
 { self, inputs, ... }:
 {
   flake.nixosModules.niri =
-    { pkgs, inputs, ... }:
+    { pkgs, lib, ... }:
     {
       programs.niri = {
         enable = true;
         package = self.packages.${pkgs.stdenv.hostPlatform.system}.configuredNiri;
-
       };
     };
   perSystem =
     {
       pkgs,
       lib,
-      self',
       ...
     }:
     {

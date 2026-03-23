@@ -3,13 +3,14 @@
   flake.nixosModules.nixosConfig =
     { pkgs, lib, ... }:
     {
-      imports = [
-        self.nixosModules.nixosHardware
-      ];
 
-      nixpkgs.config.allowUnfree = true;
       nixpkgs.overlays = [
         inputs.niri.overlays.default
+      ];
+
+      imports = [
+        self.nixosModules.nixosHardware
+        self.nixosModules.niri
       ];
 
       nix.settings.download-buffer-size = 524288000;
@@ -149,7 +150,6 @@
       };
 
       security.polkit.enable = true; # polkit
-      programs.niri.enable = true;
 
       # Install firefox.
       programs.firefox.enable = true;
@@ -160,6 +160,7 @@
         xwayland-satellite
         swww
         inputs.awww.packages.${pkgs.system}.awww
+        git
       ];
 
       programs.nix-ld.enable = true;

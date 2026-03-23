@@ -15,6 +15,9 @@
       url = "github:niri-wm/niri/wip/branch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pcpaneld = {
+      url = "github:thenerdscribe/pcpaneld/flake";
+    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
@@ -42,5 +45,9 @@
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
   };
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake {
+      inherit inputs;
+    } (inputs.import-tree ./modules);
 }

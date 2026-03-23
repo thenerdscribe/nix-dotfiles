@@ -344,6 +344,22 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1773734432,
+        "narHash": "sha256-IF5ppUWh6gHGHYDbtVUyhwy/i7D261P7fWD1bPefOsw=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "cda48547b432e8d3b18b4180ba07473762ec8558",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1768564909,
         "narHash": "sha256-Kell/SpJYVkHWMvnhqJz/8DqQg2b6PguxVWOuadbHCc=",
         "owner": "NixOS",
@@ -358,7 +374,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1773840656,
         "narHash": "sha256-9tpvMGFteZnd3gRQZFlRCohVpqooygFuy9yjuyRL2C0=",
@@ -371,6 +387,25 @@
         "owner": "NixOS",
         "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "pcpaneld": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1773955357,
+        "narHash": "sha256-W9sQfgvPaHkHcqu5Uha4y7cO0QtaUEr4UZkI7DkfLgE=",
+        "owner": "thenerdscribe",
+        "repo": "pcpaneld",
+        "rev": "9aabd53163cc3f716c4d34f95ad4d21ffe61f2ac",
+        "type": "github"
+      },
+      "original": {
+        "owner": "thenerdscribe",
+        "ref": "flake",
+        "repo": "pcpaneld",
         "type": "github"
       }
     },
@@ -428,6 +463,7 @@
         "niri": "niri",
         "niri-flake": "niri-flake",
         "nixpkgs": "nixpkgs_2",
+        "pcpaneld": "pcpaneld",
         "quickshell": "quickshell_2",
         "walker": "walker",
         "wrapper-modules": "wrapper-modules",
@@ -509,7 +545,7 @@
     "walker": {
       "inputs": {
         "elephant": "elephant",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "systems": "systems_2"
       },
       "locked": {
@@ -528,7 +564,7 @@
     },
     "wrapper-modules": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1774281039,
