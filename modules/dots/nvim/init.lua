@@ -97,10 +97,17 @@ vim.opt.fillchars = {
 local current_file_path = vim.fn.stdpath("config") .. "/lua/plugins/dankcolors.lua"
 local dms = dofile(current_file_path)
 if dms[1].config ~= nil then
-    dms[1].config()
+	dms[1].config()
 else
-    vim.cmd.colorscheme("catppuccin")
+	vim.cmd.colorscheme("catppuccin")
 end
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "blade" },
+	callback = function()
+		vim.treesitter.start()
+	end,
+})
 
 require("fzf-lua").setup()
 vim.keymap.set("n", "<leader>p", require("fzf-lua").files, {})
@@ -263,7 +270,6 @@ end
 vim.lsp.config("html", {
 	capabilities = capabilities,
 	on_attach = on_attach,
-	filetypes = { "html", "blade" },
 	init_options = {
 		configurationSection = { "html", "css", "javascript" },
 		embeddedLanguages = {
@@ -279,16 +285,15 @@ vim.lsp.enable("html")
 vim.lsp.config("phpactor", {
 	capabilities = capabilities,
 	on_attach = on_attach,
-	filetypes = { "php", "blade" },
 })
 
 vim.lsp.enable("phpactor")
 
 local intelephense_capabilities = capabilities
+
 vim.lsp.config("intelephense", {
 	capabilities = intelephense_capabilities,
 	on_attach = on_attach,
-	filetypes = { "php", "blade" },
 })
 
 vim.lsp.enable("intelephense")
@@ -334,26 +339,6 @@ require("lualine").setup({
 })
 require("oil").setup({})
 vim.g.blamer_enabled = true
-
--- require("nvim-treesitter.configs").setup({
--- 	autotag = true,
--- 	matchup = {
--- 		enable = true,
--- 	},
--- 	indent = {
--- 		enable = true,
--- 	},
--- 	highlight = {
--- 		enable = true,
--- 	},
--- 	config = function()
--- 		vim.filetype.add({
--- 			pattern = {
--- 				[".*%.blade%.php"] = "blade",
--- 			},
--- 		})
--- 	end,
--- })
 
 require("neotest").setup({
 	log_level = vim.log.levels.DEBUG,

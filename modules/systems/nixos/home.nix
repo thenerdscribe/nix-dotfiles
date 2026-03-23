@@ -17,503 +17,17 @@
         home.stateVersion = "25.11";
 
         imports = [
-          inputs.niri.homeModules.niri
+          inputs.niri-flake.homeModules.niri
           inputs.dms.homeModules.dank-material-shell
           inputs.dms.homeModules.niri
           inputs.zen-browser.homeModules.twilight
           inputs.walker.homeManagerModules.default
-          inputs.vicinae.homeManagerModules.default
+          ./niri.nix
+          ./packages.nix
         ];
-        programs.niri.config = ''
-          environment {
-              XDG_CURRENT_DESKTOP "niri"
-              QT_QPA_PLATFORM "wayland"
-              ELECTRON_OZONE_PLATFORM_HINT "auto"
-              QT_QPA_PLATFORMTHEME "gtk3"
-              QT_QPA_PLATFORMTHEME_QT6 "gtk3"
-          }
-          output "HDMI-A-2" {
-              scale 2.0
-              position x=2560 y=-250
-              transform "90"
-          }
-          output "DP-1" {
-              variable-refresh-rate on-demand=true
-              position x=0 y=0
-              focus-at-startup
-          }
-          input {
-              focus-follows-mouse max-scroll-amount="0%"
-              keyboard {
-                  numlock
-              }
-              touchpad {
-                  // off
-                  tap
-                  // dwt
-                  // dwtp
-                  // drag false
-                  // drag-lock
-                  natural-scroll
-                    // accel-speed 0.2
-                  // accel-profile "flat"
-                  // scroll-method "two-finger"
-                  // disabled-on-external-mouse
-              }
-              mouse {
-                  // off
-                  // natural-scroll
-                  // accel-speed 0.2
-                  // accel-profile "flat"
-                  // scroll-method "no-scroll"
 
-              }
-          }
-          layout {
-              gaps 16
-              background-color "transparent"
-              center-focused-column "never"
-              preset-column-widths {
-                  proportion 0.25
-                  proportion 0.33333
-                  proportion 0.5
-                  proportion 0.66667
-                  proportion 0.75
-                  proportion 1.0
-              }
-              default-column-width {
-                  proportion 0.5
-              }
-              focus-ring {
-                  width 2
-                  inactive-color "#505050"
-                  active-gradient from="#80c8ff" to="#c7ff7f" angle=45
-              }
-              // You can also add a border. It's similar to the focus ring, but always visible.
-              border {
-                  off
-              }
-          }
-          hotkey-overlay {
-              skip-at-startup
-          }
-          prefer-no-csd
-          screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-          animations {
-          }
-          window-rule {
-              match app-id="^org\\.wezfurlong\\.wezterm$"
-              default-column-width {
-
-              }
-          }
-          // Open the Firefox picture-in-picture player as floating by default.
-          window-rule {
-              // This app-id regular expression will work for both:
-              // - host Firefox (app-id is "firefox")
-              // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-              match app-id="firefox$" title="^Picture-in-Picture$"
-              open-floating true
-          }
-          window-rule {
-              // This app-id regular expression will work for both:
-              // - host Firefox (app-id is "firefox")
-              // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-              match app-id="rofi$" title="Rofi"
-              open-floating true
-          }
-          // Example: block out two password managers from screen capture.
-          // (This example rule is commented out with a "/-" in front.)
-          /-window-rule {
-          match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-          match app-id=r#"^org\.gnome\.World\.Secrets$"#
-          block-out-from "screen-capture"
-          // Use this instead if you want them visible on third-party screenshot tools.
-          // block-out-from "screencast"
-          }
-          // Example: enable rounded corners for all windows.
-          // (This example rule is commented out with a "/-" in front.)
-          window-rule {
-              geometry-corner-radius 10
-              clip-to-geometry true
-          }
-          binds {
-              Mod+Shift+Slash {
-                  show-hotkey-overlay
-              }
-              Mod+E hotkey-overlay-title="Open file manager: nautilus" {
-                  spawn "nautilus"
-              }
-              Mod+T hotkey-overlay-title="Open a Terminal: ghostty" {
-                  spawn "ghostty"
-              }
-              Mod+Space repeat=false hotkey-overlay-title="Vicinae (Raycast)" {
-                  spawn "vicinae" "toggle"
-              }
-              Mod+Shift+Space repeat=false hotkey-overlay-title="DMS Spotlight" {
-                  spawn "dms" "ipc" "call" "spotlight" "toggle"
-              }
-              Super+Alt+Shift+Ctrl+C hotkey-overlay-title="Clipboard history" {
-                  spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"
-              }
-              XF86AudioRaiseVolume allow-when-locked=true {
-                  spawn-sh "playerctl --player=cmus,qobuz-player,spotify,Supersonic,audacious,firefox volume 0.1+"
-              }
-              XF86AudioLowerVolume allow-when-locked=true {
-                  spawn-sh "playerctl --player=cmus,qobuz-player,spotify,Supersonic,audacious,firefox volume 0.1-"
-              }
-              XF86AudioMute allow-when-locked=true {
-                  spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-              }
-              XF86AudioMicMute allow-when-locked=true {
-                  spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-              }
-              XF86AudioPlay allow-when-locked=true {
-                  spawn-sh "playerctl --player=cmus,qobuz-player,spotify,Supersonic,audacious,firefox play-pause"
-              }
-              XF86AudioStop allow-when-locked=true {
-                  spawn-sh "playerctl --player=cmus,qobuz-player,spotify,Supersonic,audacious,firefox stop"
-              }
-              XF86AudioPrev allow-when-locked=true {
-                  spawn-sh "playerctl --player=cmus,qobuz-player,spotify,Supersonic,audacious,firefox previous"
-              }
-              XF86AudioNext allow-when-locked=true {
-                  spawn-sh "playerctl --player=cmus,qobuz-player,spotify,Supersonic,audacious,firefox next"
-              }
-              Mod+O repeat=false {
-                  toggle-overview
-              }
-              Mod+Q repeat=false {
-                  close-window
-              }
-              Alt+H {
-                  focus-column-left
-              }
-              Alt+J {
-                  focus-window-down
-              }
-              Alt+K {
-                  focus-window-up
-              }
-              Alt+L {
-                  focus-column-right
-              }
-              Mod+Ctrl+Left {
-                  move-column-left
-              }
-              Mod+Ctrl+Down {
-                  move-window-down
-              }
-              Mod+Ctrl+Up {
-                  move-window-up
-              }
-              Mod+Ctrl+Right {
-                  move-column-right
-              }
-              Mod+Ctrl+H {
-                  move-column-left
-              }
-              Mod+Ctrl+J {
-                  move-window-down
-              }
-              Mod+Ctrl+K {
-                  move-window-up
-              }
-              Mod+Ctrl+L {
-                  move-column-right
-              }
-              Mod+Shift+H {
-                  focus-monitor-left
-              }
-              Mod+Shift+L {
-                  focus-monitor-right
-              }
-              Mod+Shift+Ctrl+H {
-                  move-window-to-monitor-left
-              }
-              Mod+Shift+Ctrl+L {
-                  move-window-to-monitor-right
-              }
-              Alt+U {
-                  focus-workspace-down
-              }
-              Alt+I {
-                  focus-workspace-up
-              }
-              Alt+Ctrl+U {
-                  move-column-to-workspace-down
-              }
-              Alt+Ctrl+I {
-                  move-column-to-workspace-up
-              }
-              Mod+Shift+U {
-                  move-workspace-down
-              }
-              Mod+Shift+I {
-                  move-workspace-up
-              }
-              Mod+WheelScrollDown cooldown-ms=150 {
-                  focus-workspace-down
-              }
-              Mod+WheelScrollUp cooldown-ms=150 {
-                  focus-workspace-up
-              }
-              Mod+Ctrl+WheelScrollDown cooldown-ms=150 {
-                  move-column-to-workspace-down
-              }
-              Mod+Ctrl+WheelScrollUp cooldown-ms=150 {
-                  move-column-to-workspace-up
-              }
-              Mod+WheelScrollRight {
-                  focus-column-right
-              }
-              Mod+WheelScrollLeft {
-                  focus-column-left
-              }
-              Mod+Ctrl+WheelScrollRight {
-                  move-column-right
-              }
-              Mod+Ctrl+WheelScrollLeft {
-                  move-column-left
-              }
-              Mod+Shift+WheelScrollDown {
-                  focus-column-right
-              }
-              Mod+Shift+WheelScrollUp {
-                  focus-column-left
-              }
-              Mod+Ctrl+Shift+WheelScrollDown {
-                  move-column-right
-              }
-              Mod+Ctrl+Shift+WheelScrollUp {
-                  move-column-left
-              }
-              Mod+1 {
-                  focus-workspace 1
-              }
-              Mod+2 {
-                  focus-workspace 2
-              }
-              Mod+3 {
-                  focus-workspace 3
-              }
-              Mod+4 {
-                  focus-workspace 4
-              }
-              Mod+5 {
-                  focus-workspace 5
-              }
-              Mod+6 {
-                  focus-workspace 6
-              }
-              Mod+7 {
-                  focus-workspace 7
-              }
-              Mod+8 {
-                  focus-workspace 8
-              }
-              Mod+9 {
-                  focus-workspace 9
-              }
-              Mod+Ctrl+1 {
-                  move-column-to-workspace 1
-              }
-              Mod+Ctrl+2 {
-                  move-column-to-workspace 2
-              }
-              Mod+Ctrl+3 {
-                  move-column-to-workspace 3
-              }
-              Mod+Ctrl+4 {
-                  move-column-to-workspace 4
-              }
-              Mod+Ctrl+5 {
-                  move-column-to-workspace 5
-              }
-              Mod+Ctrl+6 {
-                  move-column-to-workspace 6
-              }
-              Mod+Ctrl+7 {
-                  move-column-to-workspace 7
-              }
-              Mod+Ctrl+8 {
-                  move-column-to-workspace 8
-              }
-              Mod+Ctrl+9 {
-                  move-column-to-workspace 9
-              }
-              Mod+BracketLeft {
-                  consume-or-expel-window-left
-              }
-              Mod+BracketRight {
-                  consume-or-expel-window-right
-              }
-              Mod+Comma {
-                  consume-window-into-column
-              }
-              Mod+Period {
-                  expel-window-from-column
-              }
-              Mod+R {
-                  switch-preset-column-width
-              }
-              Mod+Shift+R {
-                  switch-preset-window-height
-              }
-              Mod+Ctrl+R {
-                  reset-window-height
-              }
-              Mod+F {
-                  maximize-column
-              }
-              Mod+Shift+F {
-                  fullscreen-window
-              }
-              Mod+Ctrl+F {
-                  expand-column-to-available-width
-              }
-              Mod+C {
-                  center-column
-              }
-              Mod+Ctrl+C {
-                  center-visible-columns
-              }
-
-              Mod+Minus {
-                  set-column-width "-10%"
-              }
-              Mod+Equal {
-                  set-column-width "+10%"
-              }
-              // Finer height adjustments when in column with other windows.
-              Mod+Shift+Minus {
-                  set-window-height "-10%"
-              }
-              Mod+Shift+Equal {
-                  set-window-height "+10%"
-              }
-              // Move the focused window between the floating and the tiling layout.
-              Mod+V {
-                  toggle-window-floating
-              }
-              Mod+Shift+V {
-                  switch-focus-between-floating-and-tiling
-              }
-              Mod+W {
-                  toggle-column-tabbed-display
-              }
-              Mod+Shift+2 {
-                  screenshot
-              }
-              Mod+Shift+3 {
-                  screenshot-screen
-              }
-              Mod+Shift+4 {
-                  screenshot-window
-              }
-              // Applications such as remote-desktop clients and software KVM switches may
-              // request that niri stops processing the keyboard shortcuts defined here
-              // so they may, for example, forward the key presses as-is to a remote machine.
-              // It's a good idea to bind an escape hatch to toggle the inhibitor,
-              // so a buggy application can't hold your session hostage.
-              //
-              // The allow-inhibiting=false property can be applied to other binds as well,
-              // which ensures niri always processes them, even when an inhibitor is active.
-              Mod+Escape allow-inhibiting=false {
-                  toggle-keyboard-shortcuts-inhibit
-              }
-              // The quit action will show a confirmation dialog to avoid accidental exits.
-              Mod+Shift+E {
-                  quit
-              }
-              Ctrl+Alt+Delete {
-                  quit
-              }
-              // Powers off the monitors. To turn them back on, do any input like
-              // moving the mouse or pressing any other key.
-              Mod+Shift+P {
-                  power-off-monitors
-              }
-          }
-          workspace "Main" {
-              open-on-output "DP-1"
-          }
-          workspace "Code" {
-              open-on-output "HDMI-A-2"
-          }
-          workspace "Messaging" {
-              open-on-output "HDMI-A-2"
-          }
-          workspace "Music" {
-              open-on-output "HDMI-A-2"
-          }
-          spawn-sh-at-startup "streamdeck -n"
-          spawn-sh-at-startup "dms run"
-          spawn-sh-at-startup "syncthing"
-          spawn-at-startup "ghostty"
-          spawn-at-startup "spotify"
-          spawn-at-startup "obsidian"
-          spawn-at-startup "discord"
-          spawn-at-startup "signal-desktop"
-          spawn-at-startup "slack"
-          spawn-sh-at-startup "vicinae server"
-          window-rule {
-              match title="Ghostty"
-              open-maximized true
-          }
-          window-rule {
-              match at-startup=true title="Ghostty"
-              open-on-workspace "Code"
-          }
-          window-rule {
-              match at-startup=true title="Spotify"
-              open-maximized true
-              open-on-workspace "Music"
-          }
-          window-rule {
-              match at-startup=true title="Obsidian"
-              open-on-workspace "Main"
-              default-column-width {
-                  proportion 0.33333
-              }
-          }
-          window-rule {
-              match at-startup=true title="Zen Twilight"
-              open-on-workspace "Main"
-              default-column-width {
-                  proportion 0.66667
-              }
-          }
-          window-rule {
-              match at-startup=true title="Slack"
-              open-on-workspace "Messaging"
-          }
-          window-rule {
-              match at-startup=true title="Discord"
-              open-on-workspace "Messaging"
-          }
-          window-rule {
-              match at-startup=true title="Signal"
-              open-on-workspace "Messaging"
-          }
-          window-rule {
-              match title="Friends List"
-              default-column-width {
-                  proportion 0.33333
-              }
-          }
-          window-rule {
-              match title="Soulframe"
-              open-fullscreen true
-          }
-          window-rule {
-              match is-focused=false
-              opacity 0.85
-          }
-        '';
         programs.dank-material-shell = {
           enable = true;
-
           niri.enableSpawn = true;
           niri.includes = {
             enable = true; # Enable config includes hack. Enabled by default.
@@ -521,6 +35,7 @@
             originalFileName = "hm"; # A new name (without extension) for the config file generated by niri-flake.
             filesToInclude = [
               # Files under `$XDG_CONFIG_HOME/niri/dms` to be included into the new config
+              "blur"
               "alttab" # Please note that niri will throw an error if any of these files are missing.
               "binds"
               "colors"
@@ -530,9 +45,7 @@
             ];
           };
         };
-        services.vicinae = {
-          enable = true;
-        };
+
         home.file = {
           ".config/nvim/after/" = {
             source = ../../dots/nvim/after;
@@ -540,15 +53,9 @@
           ".config/zellij/" = {
             source = ../../dots/zellij;
           };
-          # ".config/ghostty/" = {
-          #   source = ../../dots/ghostty;
-          # };
           ".config/fzf/" = {
             source = ../../dots/fzf;
           };
-          # ".config/niri/" = {
-          #   source = ../../dots/niri;
-          # };
           ".config/waybar/" = {
             source = ../../dots/waybar;
           };
@@ -556,97 +63,6 @@
             source = ../../dots/swww;
           };
         };
-        home.packages = with pkgs; [
-          (python313.withPackages (
-            p: with p; [
-              pandas
-              requests
-            ]
-          ))
-          sqlite
-          _1password-cli
-          go
-          curl
-          less
-          nh
-          ffmpeg_7-full
-          poppler
-          prettyping
-          redis
-          tailscale
-          gh
-          tree
-          delta
-          magic-wormhole
-          #ice-bar
-          yazi-unwrapped
-          gimp2-with-plugins
-          ripgrep-all
-          tableplus
-          imagemagick
-          pup
-          gum
-          font-awesome
-          slack
-          discord
-          spotify
-          lnav
-          _1password-gui
-          sqlite
-          playerctl
-          obsidian
-          signal-desktop
-          zellij
-          magnetic-catppuccin-gtk
-          distrobox
-          cliphist
-          ueberzugpp
-          resvg
-          imagemagick
-          file
-          cava
-          libnotify
-          smartmontools
-          fluent-gtk-theme
-          fluent-icon-theme
-          nautilus
-          claude-code
-          audacious
-          rustdesk-flutter
-          inkscape-with-extensions
-          scribus
-          sushi
-          cheese
-          swaynotificationcenter
-          pavucontrol
-          cmus
-          qobuz-player
-          dconf
-          streamdeck-ui
-          libsecret
-          pulseaudio
-          wezterm
-          chromium
-          ghostty
-          termusic
-          wf-recorder
-          openrgb-with-all-plugins
-          wget
-          wlogout
-          postman
-          syncthing
-          realvnc-vnc-viewer
-          unzip
-          alacritty
-          fuzzel
-          xwayland-satellite
-          vial
-          via
-          supersonic-wayland
-          kdePackages.kcachegrind
-          ollama-vulkan
-          papirus-icon-theme
-        ];
 
         dconf = {
           enable = true;
@@ -656,6 +72,7 @@
             };
           };
         };
+
         gtk = {
           enable = true;
           font = {
@@ -667,15 +84,11 @@
             package = pkgs.fluent-gtk-theme;
           };
           iconTheme = {
-            name = "PaiPirus";
-            package = pkgs.papirus-icon-theme;
+            name = "Fluent-Dark";
+            package = pkgs.fluent-icon-theme;
           };
         };
-        # programs.walker = {
-        #   enable = true;
-        #   runAsService = true;
-        # };
-        #programs.waybar.enable = true;
+
         programs.zen-browser = {
           enable = true;
           policies = {
@@ -684,16 +97,16 @@
             # find more options here: https://mozilla.github.io/policy-templates/
           };
         };
+
         home.sessionVariables = {
-          # GTK_THEME = "Fluent-Dark";
+          GTK_THEME = "Fluent-Dark";
           GTK_USE_PORTAL = "1";
           QT_QPA_PLATFORM = "wayland";
           ELECTRON_OZONE_PLATFORM_HINT = "auto";
-          DISPLAY = ":0";
+          #DISPLAY = ":0";
           XDG_CURRENT_DESKTOP = "niri";
           XDG_SESSION_TYPE = "wayland";
           XDG_SESSION_DESKTOP = "niri";
-          #HYPRSHOT_DIR = "/home/ryanm/Pictures/Screenshots";
           GOPATH = "/home/ryanm/go";
           PHP_CS_FIXER_IGNORE_ENV = 1;
           EDITOR = "nvim";
@@ -715,6 +128,7 @@
           HISTSIZE = "100000";
           SAVEHIST = "100000";
         };
+
         programs = {
           zoxide.enable = true;
           ripgrep.enable = true;
@@ -749,6 +163,7 @@
               vscode-langservers-extracted
               tailwindcss-language-server
               nixd
+              rust-analyzer
               nixfmt
               marksman
               prettierd
@@ -800,6 +215,7 @@
                 # telescope-nvim
                 fzf-lua
                 transparent-nvim
+                nvim-treesitter-parsers.blade
                 (nvim-treesitter.withPlugins (p: [
                   p.javascript
                   p.php
@@ -1073,6 +489,7 @@
             };
           };
         };
+
       };
     extraSpecialArgs = {
       inherit inputs;
