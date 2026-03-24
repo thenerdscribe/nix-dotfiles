@@ -11,6 +11,7 @@
       imports = [
         self.nixosModules.nixosHardware
         self.nixosModules.niri
+        self.nixosModules.neovim
       ];
 
       nix.settings.download-buffer-size = 524288000;
@@ -129,7 +130,6 @@
         ];
         shell = pkgs.zsh;
         packages = with pkgs; [
-          kdePackages.kate
           sbctl
           ghostty
           os-prober
@@ -138,9 +138,9 @@
           gh
           inputs.matugen.packages.${system}.default
           inputs.quickshell.packages.${system}.default
-          # (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
-          # (import ../../scripts/create-dev-environment.nix { inherit pkgs; })
-          # (import ../../scripts/switch-audio.nix { inherit pkgs; })
+          (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
+          (import ../../scripts/create-dev-environment.nix { inherit pkgs; })
+          (import ../../scripts/switch-audio.nix { inherit pkgs; })
         ];
       };
       programs.steam = {
