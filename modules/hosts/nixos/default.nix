@@ -10,7 +10,6 @@
       };
     };
     modules = [
-      inputs.home-manager.nixosModules.home-manager
       self.nixosModules.nixosConfig
       self.nixosModules.niri
       self.nixosModules.neovim
