@@ -132,7 +132,7 @@
   flake.nixosModules.neovim =
     { pkgs, lib, ... }:
     {
-      neovim = {
+      programs.neovim = {
         enable = true;
         package = self.packages.${pkgs.stdenv.hostPlatform.system}.configuredNeovim;
       };
