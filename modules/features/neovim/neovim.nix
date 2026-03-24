@@ -126,7 +126,7 @@
           v.base16-nvim
         ];
       config.specs.initLua = {
-        data = builtins.readFile ../../dots/nvim/init.lua;
+        data = builtins.readFile ./init.lua;
       };
     };
   flake.nixosModules.neovim =
