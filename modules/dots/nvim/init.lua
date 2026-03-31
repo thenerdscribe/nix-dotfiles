@@ -287,7 +287,16 @@ vim.lsp.config("phpactor", {
 	on_attach = on_attach,
 })
 
-vim.lsp.enable("phpactor")
+-- vim.lsp.enable("phpactor")
+
+vim.lsp.config["phpantom"] = {
+	cmd = { "/home/ryanm/Developer/test-phpantom/result/bin/phpantom_lsp" },
+	filetypes = { "php" },
+	root_markers = { "composer.json", ".git" },
+	capabilities = capabilities,
+	on_attach = on_attach,
+}
+vim.lsp.enable("phpantom")
 
 local intelephense_capabilities = capabilities
 
@@ -296,7 +305,7 @@ vim.lsp.config("intelephense", {
 	on_attach = on_attach,
 })
 
-vim.lsp.enable("intelephense")
+-- vim.lsp.enable("intelephense")
 
 require("notify").setup({
 	animate = false,

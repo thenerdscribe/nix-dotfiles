@@ -442,6 +442,7 @@
     spawn-at-startup "signal-desktop"
     spawn-at-startup "slack"
     spawn-sh-at-startup "vicinae server"
+    spawn-sh-at-startup "/home/ryanm/Applications/pcpaneld/target/debug/pcpaneld daemon"
     window-rule {
         match title="Ghostty"
         open-maximized true
