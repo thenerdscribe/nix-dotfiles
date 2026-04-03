@@ -79,11 +79,11 @@
             name = "FiraCode Nerd Font Light";
             size = 10;
           };
-          theme = {
+          gtk4.theme = {
             name = "Fluent-Dark";
             package = pkgs.fluent-gtk-theme;
           };
-          iconTheme = {
+          gtk4.iconTheme = {
             name = "Fluent-Dark";
             package = pkgs.fluent-icon-theme;
           };

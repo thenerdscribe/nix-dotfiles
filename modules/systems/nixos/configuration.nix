@@ -16,7 +16,7 @@
   ];
 
   nixpkgs.overlays = [
-    inputs.niri.overlays.default
+    # inputs.niri.overlays.default
   ];
 
   nix.settings.download-buffer-size = 524288000;
