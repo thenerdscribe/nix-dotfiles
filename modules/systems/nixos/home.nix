@@ -24,6 +24,7 @@
           ./niri.nix
           ./packages.nix
         ];
+        programs.niri.package = pkgs.niri;
 
         programs.dank-material-shell = {
           enable = true;

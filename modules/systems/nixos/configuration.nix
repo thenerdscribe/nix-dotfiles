@@ -16,8 +16,9 @@
   ];
 
   nixpkgs.overlays = [
-    # inputs.niri.overlays.default
+    inputs.niri.overlays.default
   ];
+  programs.niri.package = pkgs.niri;
 
   nix.settings.download-buffer-size = 524288000;
   hardware.bluetooth = {

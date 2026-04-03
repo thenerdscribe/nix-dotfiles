@@ -89,5 +89,6 @@
     supersonic-wayland
     ollama-vulkan
     inotify-tools
+    protonup-qt
   ];
 }
