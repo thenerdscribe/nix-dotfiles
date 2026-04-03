@@ -21,7 +21,6 @@
           inputs.dms.homeModules.dank-material-shell
           inputs.dms.homeModules.niri
           inputs.zen-browser.homeModules.twilight
-          inputs.walker.homeManagerModules.default
           ./niri.nix
           ./packages.nix
         ];
