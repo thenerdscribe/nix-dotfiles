@@ -28,6 +28,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelModules = [
+    "ntsync"
+  ];
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -169,8 +172,6 @@
     wl-clipboard
     docker-compose
     xwayland-satellite
-    swww
-    inputs.awww.packages.${pkgs.system}.awww
   ];
 
   programs.nix-ld.enable = true;
