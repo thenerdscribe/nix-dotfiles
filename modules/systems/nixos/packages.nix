@@ -90,5 +90,6 @@
     ollama-vulkan
     inotify-tools
     protonup-qt
+    r2modman
   ];
 }
