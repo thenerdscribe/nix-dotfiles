@@ -185,7 +185,7 @@
                 mini-nvim
                 leap-nvim
                 ReplaceWithRegister
-                # render-markdown-nvim
+                render-markdown-nvim
                 bufferline-nvim
                 blamer-nvim
                 neorg
@@ -210,9 +210,6 @@
                 friendly-snippets
                 nvim-notify
                 nvim-web-devicons
-                # plenary-nvim
-                # telescope-fzf-native-nvim
-                # telescope-nvim
                 fzf-lua
                 transparent-nvim
                 nvim-treesitter-parsers.blade
