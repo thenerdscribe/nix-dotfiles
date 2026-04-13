@@ -80,12 +80,12 @@
             size = 10;
           };
           gtk4.theme = {
-            name = "Fluent-Dark";
-            package = pkgs.fluent-gtk-theme;
+            name = "WhiteSur-Dark";
+            package = pkgs.whitesur-gtk-theme;
           };
           gtk4.iconTheme = {
-            name = "Fluent-Dark";
-            package = pkgs.fluent-icon-theme;
+            name = "WhiteSur";
+            package = pkgs.whitesur-icon-theme;
           };
         };
 
