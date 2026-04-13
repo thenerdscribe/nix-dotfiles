@@ -75,10 +75,10 @@
 
         gtk = {
           enable = true;
-          font = {
-            name = "FiraCode Nerd Font Light";
-            size = 10;
-          };
+          # font = {
+          #   name = "FiraCode Nerd Font Light";
+          #   size = 10;
+          # };
           gtk4.theme = {
             name = "WhiteSur-Dark";
             package = pkgs.whitesur-gtk-theme;
@@ -97,6 +97,7 @@
             # find more options here: https://mozilla.github.io/policy-templates/
           };
         };
+        services.kdeconnect.enable = true;
 
         home.sessionVariables = {
           GTK_THEME = "Fluent-Dark";

@@ -59,6 +59,16 @@
     54.149.169.134  commerce-1-admin.walts.com
   '';
 
+  networking.firewall = rec {
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+    allowedUDPPortRanges = allowedTCPPortRanges;
+  };
+
   services.tailscale.enable = true;
   services.mysql = {
     enable = true;
@@ -190,6 +200,9 @@
   programs.appimage.binfmt = true;
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
   ];
   hardware.keyboard.qmk.enable = true;
 
