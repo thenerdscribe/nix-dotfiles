@@ -72,6 +72,9 @@
             };
           };
         };
+        xdg.portal.config.niri = {
+          "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
+        };
 
         gtk = {
           enable = true;
@@ -100,7 +103,7 @@
         services.kdeconnect.enable = true;
 
         home.sessionVariables = {
-          GTK_THEME = "Fluent-Dark";
+          GTK_THEME = "WhiteSur-Dark";
           GTK_USE_PORTAL = "1";
           QT_QPA_PLATFORM = "wayland";
           ELECTRON_OZONE_PLATFORM_HINT = "auto";
