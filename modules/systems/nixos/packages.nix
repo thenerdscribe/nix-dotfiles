@@ -83,7 +83,6 @@
     unzip
     alacritty
     fuzzel
-    xwayland-satellite
     vial
     via
     supersonic-wayland

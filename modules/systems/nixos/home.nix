@@ -72,23 +72,16 @@
             };
           };
         };
-        xdg.portal.config.niri = {
-          "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
-        };
 
         gtk = {
           enable = true;
-          # font = {
-          #   name = "FiraCode Nerd Font Light";
-          #   size = 10;
-          # };
           gtk4.theme = {
-            name = "WhiteSur-Dark";
-            package = pkgs.whitesur-gtk-theme;
+            name = "Fluent-Dark";
+            package = pkgs.fluent-gtk-theme;
           };
           gtk4.iconTheme = {
-            name = "WhiteSur";
-            package = pkgs.whitesur-icon-theme;
+            name = "Fluent-Dark";
+            package = pkgs.fluent-icon-theme;
           };
         };
 
@@ -103,14 +96,13 @@
         services.kdeconnect.enable = true;
 
         home.sessionVariables = {
-          GTK_THEME = "WhiteSur-Dark";
-          GTK_USE_PORTAL = "1";
+          XDG_CURRENT_DESKTOP = "niri-session";
+          XDG_SESSION_TYPE = "wayland";
+          XDG_SESSION_DESKTOP = "niri-session";
           QT_QPA_PLATFORM = "wayland";
           ELECTRON_OZONE_PLATFORM_HINT = "auto";
-          #DISPLAY = ":0";
-          XDG_CURRENT_DESKTOP = "niri";
-          XDG_SESSION_TYPE = "wayland";
-          XDG_SESSION_DESKTOP = "niri";
+          QT_QPA_PLATFORMTHEME = "gtk3";
+          QT_QPA_PLATFORMTHEME_QT6 = "gtk3";
           GOPATH = "/home/ryanm/go";
           PHP_CS_FIXER_IGNORE_ENV = 1;
           EDITOR = "nvim";
