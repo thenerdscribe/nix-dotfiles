@@ -75,6 +75,10 @@
 
         gtk = {
           enable = true;
+          gtk3.theme = {
+            name = "Fluent-Dark";
+            package = pkgs.fluent-gtk-theme;
+          };
           gtk4.theme = {
             name = "Fluent-Dark";
             package = pkgs.fluent-gtk-theme;
@@ -96,6 +100,7 @@
         services.kdeconnect.enable = true;
 
         home.sessionVariables = {
+          GTK_THEME = "Fluent-Dark";
           XDG_CURRENT_DESKTOP = "niri-session";
           XDG_SESSION_TYPE = "wayland";
           XDG_SESSION_DESKTOP = "niri-session";
