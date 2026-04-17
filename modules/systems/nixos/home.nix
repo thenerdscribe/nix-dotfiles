@@ -156,6 +156,9 @@
           };
           neovim = {
             enable = true;
+            withPython3 = false;
+            withRuby = false;
+            withNodeJs = false;
             extraPackages = with pkgs; [
               lua-language-server
               phpactor
@@ -305,6 +308,7 @@
                 {
                   plugin = pkgs.vimPlugins.sqlite-lua;
                   config = "let g:sqlite_clib_path = '${pkgs.sqlite.out}/lib/libsqlite3.so'";
+                  type = "viml";
                 }
                 {
                   plugin = nvim-neoclip-lua;

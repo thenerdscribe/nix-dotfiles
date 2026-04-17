@@ -14,7 +14,7 @@
     curl
     less
     nh
-    ffmpeg_7-full
+    ffmpeg_8-full
     poppler
     prettyping
     redis
