@@ -19,6 +19,11 @@
     inputs.niri.overlays.default
   ];
   programs.niri.package = pkgs.niri;
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+  };
+  programs.partition-manager.enable = true;
 
   nix.settings.download-buffer-size = 524288000;
   hardware.bluetooth = {
