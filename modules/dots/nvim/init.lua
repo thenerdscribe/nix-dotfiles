@@ -289,6 +289,15 @@ vim.lsp.config("phpactor", {
 
 -- vim.lsp.enable("phpactor")
 
+vim.lsp.config["laravel-ls"] = {
+	cmd = { "/home/ryanm/Developer/laravel-ls-v0.1.0-linux-amd64" },
+	filetypes = { "php" },
+	root_markers = { "composer.json", ".git" },
+	capabilities = capabilities,
+	on_attach = on_attach,
+}
+vim.lsp.enable("laravel-ls")
+
 vim.lsp.config["phpantom"] = {
 	cmd = { "/home/ryanm/Developer/test-phpantom/result/bin/phpantom_lsp" },
 	filetypes = { "php" },
