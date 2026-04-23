@@ -8,7 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "uas" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -24,16 +24,19 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  fileSystems."/var/lib/docker/overlay2/966c2954fcaf0a71a21513c8ceef4d08de960c7a8515b1c0ac7f3ff2e871811f/merged" =
+    { device = "overlay";
+      fsType = "overlay";
+    };
+
+  fileSystems."/mnt/games" =
+    { device = "/dev/disk/by-uuid/eb8f5aff-46ac-4fd3-ab29-d72b6b47aad1";
+      fsType = "ext4";
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/df4b0452-bc11-43d9-84a5-31b5f40d1ca1"; }
     ];
-
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp6s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
