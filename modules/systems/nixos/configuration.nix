@@ -208,6 +208,7 @@
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
+    adwaita-fonts
   ];
   hardware.keyboard.qmk.enable = true;
 

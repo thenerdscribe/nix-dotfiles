@@ -26,7 +26,7 @@
     yazi-unwrapped
     pcmanfm
     xarchiver
-    gimp2-with-plugins
+    # gimp2-with-plugins
     ripgrep-all
     tableplus
     imagemagick
