@@ -18,12 +18,11 @@
 
         xdg.portal = {
           enable = true;
-          xdgOpenUsePortal = true;
           extraPortals = with pkgs; [
             xdg-desktop-portal-gnome
             xdg-desktop-portal-gtk
           ];
-          config.common.default = "gnome;gtk";
+          config.common.default = "gnome";
         };
 
         imports = [
