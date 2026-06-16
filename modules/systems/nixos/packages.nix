@@ -1,4 +1,7 @@
 { pkgs, inputs, ... }:
+let
+  kenku = pkgs.callPackage ./kenku-fm.nix { inherit pkgs; };
+in
 {
   home.packages = with pkgs; [
     (python313.withPackages (
@@ -7,6 +10,7 @@
         requests
       ]
     ))
+    kenku
     sqlite
     _1password-cli
     vicinae
