@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }:
 let
   kenku = pkgs.callPackage ./kenku-fm.nix { inherit pkgs; };
+  zen-notes = pkgs.callPackage ./zen-notes.nix { inherit pkgs; };
 in
 {
   home.packages = with pkgs; [
@@ -11,6 +12,8 @@ in
       ]
     ))
     kenku
+    zen-notes
+    tuxedo
     sqlite
     _1password-cli
     vicinae

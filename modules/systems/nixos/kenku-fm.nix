@@ -1,5 +1,3 @@
-# Claude: "Make me a NixOS derivation for kenku-fm (https://github.com/owlbear-rodeo/kenku-fm)"
-# + Some tweaks so it's not a flake (easier sometimes)
 {
   pkgs ? import <nixpkgs> { },
   lib,
