@@ -9,9 +9,6 @@
     };
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
   };
 
   outputs =
@@ -19,7 +16,6 @@
       nixpkgs,
       darwin,
       home-manager,
-      ghostty,
       ...
     }:
     {
@@ -29,13 +25,14 @@
           system = "aarch64-darwin";
           config = {
             allowUnfree = true;
-            allowUnfreePredicate = _: true;
+            allowUnfreePredicate = true;
           };
         };
         modules = [
           (
             { pkgs, ... }:
             {
+              ids.gids.nixbld = 350;
               users.users.ryanmorton = {
                 uid = 501;
                 name = "ryanmorton";
@@ -57,16 +54,15 @@
                   pkgs.wget
                   pkgs.zellij
                   pkgs.jankyborders
-                  ghostty.packages.x86_64-darwin
                 ];
               };
               nix.extraOptions = ''
                 experimental-features = nix-command flakes
               '';
-              services.nix-daemon.enable = true;
+              # services.nix-daemon.enable = true;
               system.stateVersion = 4;
-              system.defaults.NSGlobalDomain._HIHideMenuBar = false;
-              system.defaults.dock.autohide = true;
+              # system.defaults.NSGlobalDomain._HIHideMenuBar = false;
+              # system.defaults.dock.autohide = true;
             }
           )
           home-manager.darwinModules.home-manager

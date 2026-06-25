@@ -49,6 +49,7 @@
     yazi-unwrapped
     imagemagick
     pup
+    nodejs_26
   ];
   home.sessionVariables = {
     PHP_CS_FIXER_IGNORE_ENV = 1;
@@ -109,7 +110,7 @@
         prettierd
         stylua
         ripgrep
-        nodejs_23
+        #nodejs_23
         sql-formatter
         blade-formatter
         # php84Packages.php-cs-fixer
@@ -321,6 +322,9 @@
           [ -f ~/.config/fzf/fzf-git.sh ] && source ~/.config/fzf/fzf-git.sh
         }
         zvm_after_init_commands+=(my_init)
+        export PATH="/Users/ryanmorton/.local/bin:$PATH"
+        export PATH="$HOME/Library/Application\ Support/ZenNotes/cli:$PATH"
+
       '';
     };
     starship = {
