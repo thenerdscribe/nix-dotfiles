@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    zennotes.url = "github:ZenNotes/zennotes";
+    claude-desktop.url = "github:aaddrick/claude-desktop-debian";
     dms = {
       url = "github:AvengeMedia/DankMaterialShell/blur";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,7 +45,6 @@
       nixpkgs,
       darwin,
       home-manager,
-      zen-browser,
       ...
     }@inputs:
     {

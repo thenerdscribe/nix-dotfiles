@@ -1,4 +1,8 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 let
   kenku = pkgs.callPackage ./kenku-fm.nix { inherit pkgs; };
   zen-notes = pkgs.callPackage ./zen-notes.nix { inherit pkgs; };
@@ -11,8 +15,10 @@ in
         requests
       ]
     ))
+    claude-desktop
+    inputs.zennotes.packages.${pkgs.system}.zennotes-desktop
     kenku
-    zen-notes
+    claude-code
     tuxedo
     sqlite
     _1password-cli

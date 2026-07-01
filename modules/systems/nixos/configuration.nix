@@ -7,6 +7,7 @@
   pkgs,
   lib,
   inputs,
+  claude-desktop,
   ...
 }:
 {
@@ -17,13 +18,24 @@
 
   nixpkgs.overlays = [
     inputs.niri.overlays.default
+    inputs.claude-desktop.overlays.default
   ];
   programs.niri.package = pkgs.niri;
+
   programs.gamemode = {
     enable = true;
     enableRenice = true;
   };
+
   programs.partition-manager.enable = true;
+
+  services.rustdesk-server = {
+    enable = true;
+    openFirewall = true;
+    signal.relayHosts = [ "ryans-mac-mini.tailfc11c.ts.net" ];
+  };
+
+  # environment.sessionVariables.DISPLAY = ":0";
 
   nix.settings.download-buffer-size = 524288000;
   hardware.bluetooth = {
