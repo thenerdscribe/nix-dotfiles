@@ -15,6 +15,8 @@ in
         requests
       ]
     ))
+    # winboat
+    kew
     claude-desktop
     inputs.zennotes.packages.${pkgs.system}.zennotes-desktop
     kenku
@@ -92,7 +94,7 @@ in
     wlogout
     postman
     syncthing
-    realvnc-vnc-viewer
+    gnome-connections
     unzip
     alacritty
     fuzzel

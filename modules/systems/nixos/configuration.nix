@@ -19,7 +19,9 @@
   nixpkgs.overlays = [
     inputs.niri.overlays.default
     inputs.claude-desktop.overlays.default
+    inputs.kew.overlays.default
   ];
+
   programs.niri.package = pkgs.niri;
 
   programs.gamemode = {
