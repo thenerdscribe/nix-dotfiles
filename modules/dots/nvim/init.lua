@@ -94,13 +94,15 @@ vim.opt.fillchars = {
 	vertright = "┣",
 	verthoriz = "╋",
 }
-local current_file_path = vim.fn.stdpath("config") .. "/lua/plugins/dankcolors.lua"
-local dms = dofile(current_file_path)
-if dms[1].config ~= nil then
-	dms[1].config()
-else
-	vim.cmd.colorscheme("catppuccin")
-end
+-- local current_file_path = vim.fn.stdpath("config") .. "/lua/plugins/dankcolors.lua"
+-- local dms = dofile(current_file_path)
+-- if dms[1].config ~= nil then
+-- 	dms[1].config()
+-- else
+-- 	vim.cmd.colorscheme("catppuccin")
+-- end
+
+vim.cmd.colorscheme("catppuccin")
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "blade" },
@@ -444,3 +446,7 @@ end, { desc = "Step Into", noremap = true })
 map("n", "<leader>db", function()
 	require("dapui").toggle()
 end, { desc = "Toggle DAP UI", noremap = true })
+
+map("n", "<leader>gg", function()
+	require("neogit").open()
+end, { desc = "Open Neogit UI" })

@@ -195,6 +195,7 @@
               with pkgs.tree-sitter-grammars;
               with pkgs.vscode-extensions;
               [
+                neogit
                 mini-nvim
                 leap-nvim
                 ReplaceWithRegister
@@ -270,7 +271,7 @@
                 ]))
                 image-nvim
                 lspkind-nvim
-                todo-comments-nvim
+                # todo-comments-nvim
                 trouble-nvim
                 which-key-nvim
                 neotest
