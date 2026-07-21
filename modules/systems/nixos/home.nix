@@ -188,6 +188,7 @@
               blade-formatter
               typos
               typos-lsp
+              phpantom-lsp
             ];
 
             plugins =
