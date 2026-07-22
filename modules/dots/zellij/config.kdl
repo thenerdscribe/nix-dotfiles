@@ -432,5 +432,6 @@ plugins {
         path "compact-bar"
     }
 }
-theme "catppuccin-mocha"
+// theme "catppuccin-mocha"
+theme "everforest-dark"
 

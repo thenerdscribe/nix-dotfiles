@@ -102,7 +102,7 @@ vim.opt.fillchars = {
 -- 	vim.cmd.colorscheme("catppuccin")
 -- end
 
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("everforest")
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "blade" },
@@ -302,7 +302,7 @@ vim.lsp.enable("laravel-ls")
 
 vim.lsp.config["phpantom"] = {
 	-- cmd = { "/home/ryanm/Developer/phpantom_lsp/result/bin/phpantom_lsp" },
-	cmd = { "phpantom_lsp", "--stdid" },
+	cmd = { "phpantom_lsp" },
 	filetypes = { "php" },
 	root_markers = { "composer.json", ".git" },
 	capabilities = capabilities,
