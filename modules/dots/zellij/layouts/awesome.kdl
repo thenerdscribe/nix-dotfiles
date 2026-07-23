@@ -7,7 +7,7 @@ layout {
         children
     }
     tab name="Editor" focus=true cwd="~/Sites/awesome-ecomm" {
-        pane name="Neovim" focus=true command="zsh" {
+        pane name="Neovim" focus=true borderless=true command="zsh" {
             args "-c" "nix develop --command zsh"
         }
     }
