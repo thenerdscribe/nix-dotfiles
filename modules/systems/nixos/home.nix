@@ -260,7 +260,7 @@
                   p.robot
                   p.sql
                   p.ssh_config
-                  p.tmux
+                  # p.tmux
                   p.typescript
                   p.vim
                   p.vimdoc

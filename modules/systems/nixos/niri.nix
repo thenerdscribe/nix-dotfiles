@@ -1,14 +1,12 @@
 { pkgs, inputs, ... }:
 {
   programs.niri.config = ''
-    output "Micro-Star Int'l Co., Ltd. MAG 272Q X24 0x01010101" {
-        mode "1920x1080@60"
+    output "DP-1" {
         variable-refresh-rate
-        position x=0 y=0
-        focus-at-startup
+        mode "2560x1440@239.970"
     }
-    output "HDMI-A-2" {
-        scale 2.0
+    output "DP-2" {
+        variable-refresh-rate
         position x=2560 y=-250
         transform "90"
     }
@@ -418,13 +416,13 @@
         open-on-output "DP-1"
     }
     workspace "Code" {
-        open-on-output "HDMI-A-2"
+        open-on-output "DP-2"
     }
     workspace "Messaging" {
-        open-on-output "HDMI-A-2"
+        open-on-output "DP-2"
     }
     workspace "Music" {
-        open-on-output "HDMI-A-2"
+        open-on-output "DP-2"
     }
     spawn-sh-at-startup "streamdeck -n"
     spawn-sh-at-startup "dms run"
