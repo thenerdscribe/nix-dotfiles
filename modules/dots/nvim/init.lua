@@ -300,15 +300,14 @@ vim.lsp.config["laravel-ls"] = {
 }
 vim.lsp.enable("laravel-ls")
 
-vim.lsp.config["phpantom"] = {
-	-- cmd = { "/home/ryanm/Developer/phpantom_lsp/result/bin/phpantom_lsp" },
-	cmd = { "phpantom_lsp" },
+vim.lsp.config["phpantom-lsp"] = {
+	cmd = { "/home/ryanm/Developer/test-phpantom/result/bin/phpantom_lsp" },
 	filetypes = { "php" },
 	root_markers = { "composer.json", ".git" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 }
-vim.lsp.enable("phpantom")
+vim.lsp.enable("phpantom-lsp")
 
 local intelephense_capabilities = capabilities
 

@@ -1,15 +1,16 @@
 { pkgs, inputs, ... }:
 {
   programs.niri.config = ''
+    output "Micro-Star Int'l Co., Ltd. MAG 272Q X24 0x01010101" {
+        mode "1920x1080@60"
+        variable-refresh-rate
+        position x=0 y=0
+        focus-at-startup
+    }
     output "HDMI-A-2" {
         scale 2.0
         position x=2560 y=-250
         transform "90"
-    }
-    output "DP-1" {
-        variable-refresh-rate on-demand=true
-        position x=0 y=0
-        focus-at-startup
     }
     input {
         focus-follows-mouse max-scroll-amount="0%"
