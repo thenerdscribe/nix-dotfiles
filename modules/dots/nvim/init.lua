@@ -102,7 +102,8 @@ vim.opt.fillchars = {
 -- 	vim.cmd.colorscheme("catppuccin")
 -- end
 
-vim.cmd.colorscheme("everforest")
+vim.cmd.colorscheme("catppuccin")
+-- vim.cmd.colorscheme("everforest")
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "blade" },

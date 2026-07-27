@@ -16,6 +16,7 @@ in
       ]
     ))
     # winboat
+    rmpc
     kew
     claude-desktop
     inputs.zennotes.packages.${pkgs.system}.zennotes-desktop

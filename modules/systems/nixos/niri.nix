@@ -125,10 +125,10 @@
             spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"
         }
         XF86AudioRaiseVolume allow-when-locked=true {
-            spawn-sh "playerctl --player=cmus,kew,qobuz-player,spotify,Supersonic,audacious,firefox volume 0.1+"
+            spawn-sh "playerctl --player=cmus,kew,qobuz-player,spotify,Supersonic,audacious,firefox volume 0.05+"
         }
         XF86AudioLowerVolume allow-when-locked=true {
-            spawn-sh "playerctl --player=cmus,kew,qobuz-player,spotify,Supersonic,audacious,firefox volume 0.1-"
+            spawn-sh "playerctl --player=cmus,kew,qobuz-player,spotify,Supersonic,audacious,firefox volume 0.05-"
         }
         XF86AudioMute allow-when-locked=true {
             spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"

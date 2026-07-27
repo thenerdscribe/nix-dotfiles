@@ -34,6 +34,10 @@
           ./packages.nix
         ];
         programs.niri.package = pkgs.niri;
+        services.mpd = {
+          enable = true;
+          musicDirectory = "~/Music";
+        };
 
         programs.dank-material-shell = {
           enable = true;
