@@ -57,6 +57,7 @@ in
     sqlite
     playerctl
     obsidian
+    mpc
     signal-desktop
     zellij
     magnetic-catppuccin-gtk

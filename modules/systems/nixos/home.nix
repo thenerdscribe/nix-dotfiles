@@ -34,9 +34,20 @@
           ./packages.nix
         ];
         programs.niri.package = pkgs.niri;
+
         services.mpd = {
           enable = true;
           musicDirectory = "~/Music";
+          extraConfig = ''
+            audio_output {
+              type "pulse"
+              name "My Default Output"
+            }
+          '';
+        };
+
+        services.mpd-mpris = {
+          enable = true;
         };
 
         programs.dank-material-shell = {

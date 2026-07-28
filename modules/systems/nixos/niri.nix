@@ -125,10 +125,10 @@
             spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"
         }
         XF86AudioRaiseVolume allow-when-locked=true {
-            spawn-sh "playerctl --player=cmus,kew,qobuz-player,spotify,Supersonic,audacious,firefox volume 0.05+"
+            spawn-sh "playerctl --player=cmus,kew,spotify,mpd,Supersonic,audacious,firefox volume 0.05+"
         }
         XF86AudioLowerVolume allow-when-locked=true {
-            spawn-sh "playerctl --player=cmus,kew,qobuz-player,spotify,Supersonic,audacious,firefox volume 0.05-"
+            spawn-sh "playerctl --player=cmus,kew,spotify,mpd,Supersonic,audacious,firefox volume 0.05-"
         }
         XF86AudioMute allow-when-locked=true {
             spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
@@ -137,16 +137,16 @@
             spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         }
         XF86AudioPlay allow-when-locked=true {
-            spawn-sh "playerctl --player=cmus,kew,qobuz-player,spotify,Supersonic,audacious,firefox play-pause"
+            spawn-sh "playerctl --player=cmus,kew,spotify,mpd,Supersonic,audacious,firefox play-pause"
         }
         XF86AudioStop allow-when-locked=true {
-            spawn-sh "playerctl --player=cmus,kew,qobuz-player,spotify,Supersonic,audacious,firefox stop"
+            spawn-sh "playerctl --player=cmus,kew,spotify,mpd,Supersonic,audacious,firefox stop"
         }
         XF86AudioPrev allow-when-locked=true {
-            spawn-sh "playerctl --player=cmus,kew,qobuz-player,spotify,Supersonic,audacious,firefox previous"
+            spawn-sh "playerctl --player=cmus,kew,spotify,mpd,Supersonic,audacious,firefox previous"
         }
         XF86AudioNext allow-when-locked=true {
-            spawn-sh "playerctl --player=cmus,kew,qobuz-player,spotify,Supersonic,audacious,firefox next"
+            spawn-sh "playerctl --player=cmus,kew,spotify,mpd,Supersonic,audacious,firefox next"
         }
         Mod+O repeat=false {
             toggle-overview
