@@ -41,8 +41,14 @@
           playlistDirectory = "/home/ryanm/Music";
           extraConfig = ''
             audio_output {
-              type "pulse"
-              name "My Default Output"
+                type "pulse"
+                name "My Default Output"
+            }
+            audio_output {
+                type   "fifo"
+                name   "my_fifo"
+                path   "/tmp/mpd.fifo"
+                format "44100:16:2"
             }
           '';
         };
