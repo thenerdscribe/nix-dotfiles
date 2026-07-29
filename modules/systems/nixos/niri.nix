@@ -265,33 +265,23 @@
         Mod+Ctrl+Shift+WheelScrollUp {
             move-column-left
         }
+
         Mod+1 {
-            focus-workspace 1
+           set-window-width "25%"
         }
         Mod+2 {
-            focus-workspace 2
+           set-window-width "33%"
         }
         Mod+3 {
-            focus-workspace 3
+           set-window-width "50%"
         }
         Mod+4 {
-            focus-workspace 4
+           set-window-width "66%"
         }
         Mod+5 {
-            focus-workspace 5
+           set-window-width "75%"
         }
-        Mod+6 {
-            focus-workspace 6
-        }
-        Mod+7 {
-            focus-workspace 7
-        }
-        Mod+8 {
-            focus-workspace 8
-        }
-        Mod+9 {
-            focus-workspace 9
-        }
+
         Mod+Ctrl+1 {
             move-column-to-workspace 1
         }
@@ -362,7 +352,7 @@
         Mod+Equal {
             set-column-width "+10%"
         }
-        Mod+Shift+M {
+        Mod+Shift+M repeat=false hotkey-overlay-title="Open Rusty MPC" {
             spawn "ghostty" "--title='RMPC Music'" "-e" "rmpc"
         }
         // Finer height adjustments when in column with other windows.
