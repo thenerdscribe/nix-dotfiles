@@ -16,6 +16,9 @@ in
       ]
     ))
     # winboat
+    yt-dlp
+    pandoc
+    texliveFull
     rmpc
     kew
     claude-desktop
@@ -57,7 +60,6 @@ in
     sqlite
     playerctl
     obsidian
-    mpc
     signal-desktop
     zellij
     magnetic-catppuccin-gtk

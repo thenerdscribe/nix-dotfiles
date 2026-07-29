@@ -362,6 +362,9 @@
         Mod+Equal {
             set-column-width "+10%"
         }
+        Mod+Shift+M {
+            spawn "ghostty" "--title='RMPC Music'" "-e" "rmpc"
+        }
         // Finer height adjustments when in column with other windows.
         Mod+Shift+Minus {
             set-window-height "-10%"
@@ -488,5 +491,12 @@
         match is-focused=false
         opacity 0.85
     }
+    window-rule {
+            match title="RMPC Music"
+            open-floating true
+            open-focused true
+            default-window-height { proportion 0.75; }
+            default-column-width { proportion 0.75; }
+        }
   '';
 }

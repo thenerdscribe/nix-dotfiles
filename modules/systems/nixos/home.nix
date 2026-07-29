@@ -38,6 +38,7 @@
         services.mpd = {
           enable = true;
           musicDirectory = "~/Music";
+          playlistDirectory = "/home/ryanm/Music";
           extraConfig = ''
             audio_output {
               type "pulse"
