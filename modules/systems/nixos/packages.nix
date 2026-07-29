@@ -109,7 +109,6 @@ in
     protonup-qt
     r2modman
     spotatui
-    spotifyd
     _7zip-zstd-rar
   ];
 }
