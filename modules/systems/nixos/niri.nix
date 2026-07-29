@@ -148,20 +148,16 @@
         XF86AudioNext allow-when-locked=true {
             spawn-sh "playerctl --player=cmus,kew,spotify,mpd,Supersonic,audacious,firefox next"
         }
+
+        Mod+Shift+M repeat=false hotkey-overlay-title="Open Rusty MPC" {
+            spawn-sh "toggle-music"
+        }
+
         Mod+O repeat=false {
             toggle-overview
         }
         Mod+Q repeat=false {
             close-window
-        }
-        Super+Alt+Shift+Ctrl+H {
-            spawn-sh "warpd --hint"
-        }
-        Super+Alt+Shift+Ctrl+N {
-            spawn-sh "warpd --normal"
-        }
-        Super+Alt+Shift+Ctrl+G {
-            spawn-sh "warpd --grid"
         }
         Alt+H {
             focus-column-left
@@ -352,9 +348,7 @@
         Mod+Equal {
             set-column-width "+10%"
         }
-        Mod+Shift+M repeat=false hotkey-overlay-title="Open Rusty MPC" {
-            spawn "ghostty" "--title='RMPC Music'" "-e" "rmpc"
-        }
+
         // Finer height adjustments when in column with other windows.
         Mod+Shift+Minus {
             set-window-height "-10%"

@@ -184,6 +184,7 @@
       (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
       (import ../../scripts/create-dev-environment.nix { inherit pkgs; })
       (import ../../scripts/switch-audio.nix { inherit pkgs; })
+      (import ../../scripts/toggle-music-script.nix { inherit pkgs; })
     ];
   };
   programs.steam = {
