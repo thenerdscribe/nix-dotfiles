@@ -25,7 +25,6 @@ in
     inputs.zennotes.packages.${pkgs.system}.zennotes-desktop
     kenku
     claude-code
-    tuxedo
     sqlite
     _1password-cli
     vicinae
@@ -34,7 +33,7 @@ in
     less
     nh
     ffmpeg_8-full
-    poppler
+    poppler-utils
     prettyping
     redis
     tailscale
@@ -109,5 +108,8 @@ in
     inotify-tools
     protonup-qt
     r2modman
+    spotatui
+    spotifyd
+    _7zip-zstd-rar
   ];
 }

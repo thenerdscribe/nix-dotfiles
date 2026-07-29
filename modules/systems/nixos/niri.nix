@@ -109,8 +109,8 @@
         Mod+Shift+Slash {
             show-hotkey-overlay
         }
-        Mod+E hotkey-overlay-title="Open file manager: pcmanfm" {
-            spawn "pcmanfm"
+        Mod+E hotkey-overlay-title="Open file manager: yazi" {
+            spawn "ghostty" "-e" "yazi" 
         }
         Mod+T hotkey-overlay-title="Open a Terminal: ghostty" {
             spawn "ghostty"
@@ -423,7 +423,8 @@
     spawn-sh-at-startup "vicinae server"
     spawn-sh-at-startup "/home/ryanm/Applications/pcpaneld/target/debug/pcpaneld daemon"
     window-rule {
-        match title="Ghostty"
+        match at-startup=true title="Ghostty"
+        exclude title="Yazi FM"
         open-maximized true
     }
     window-rule {

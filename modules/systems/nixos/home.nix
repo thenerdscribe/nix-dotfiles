@@ -142,7 +142,7 @@
           GOPATH = "/home/ryanm/go";
           PHP_CS_FIXER_IGNORE_ENV = 1;
           EDITOR = "nvim";
-          FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git --reverse --height=10";
+          FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git";
           FZF_CTRL_T_OPTS = ''
             --walker-skip .git,node_modules,target \
             --preview 'bat -n --color=always {}' \
@@ -413,6 +413,7 @@
               cat = "bat";
               ql = "qlmanage -p";
               pu = "pushd";
+              nrs = "sudo nixos-rebuild switch --flake '.#nixos'";
               gcam = "git commit -am";
               gaa = "git add --all";
               gss = "git status -s";
