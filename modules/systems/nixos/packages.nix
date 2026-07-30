@@ -110,5 +110,6 @@ in
     r2modman
     spotatui
     _7zip-zstd-rar
+    fastfetch
   ];
 }
