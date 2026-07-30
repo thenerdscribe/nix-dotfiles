@@ -17,7 +17,7 @@
   ];
 
   nixpkgs.overlays = [
-    inputs.niri.overlays.default
+    # inputs.niri-flake.overlays.default
     inputs.claude-desktop.overlays.default
     inputs.kew.overlays.default
   ];
@@ -179,7 +179,7 @@
       kitty
       rofi
       gh
-      inputs.matugen.packages.${system}.default
+      # inputs.matugen.packages.${system}.default
       inputs.quickshell.packages.${system}.default
       (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
       (import ../../scripts/create-dev-environment.nix { inherit pkgs; })
