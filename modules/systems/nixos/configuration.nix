@@ -79,6 +79,8 @@
   '';
 
   networking.firewall = rec {
+
+    allowedTCPPorts = [ 6969 ];
     allowedTCPPortRanges = [
       {
         from = 1714;
@@ -184,7 +186,7 @@
       (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
       (import ../../scripts/create-dev-environment.nix { inherit pkgs; })
       (import ../../scripts/switch-audio.nix { inherit pkgs; })
-      (import ../../scripts/toggle-music-script.nix { inherit pkgs; })
+      (import ../../scripts/toggle-sonos.nix { inherit pkgs; })
     ];
   };
   programs.steam = {

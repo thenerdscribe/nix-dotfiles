@@ -45,6 +45,14 @@
                 name "My Default Output"
             }
             audio_output {
+                type        "httpd"
+                name        "mp3audio"
+                encoder     "lame"
+                port        "6969"
+                bitrate     "320"
+                format      "44100:16:2"
+            }
+            audio_output {
                 type   "fifo"
                 name   "my_fifo"
                 path   "/tmp/mpd.fifo"
