@@ -6,14 +6,11 @@ pkgs.writeShellScriptBin "toggle-sonos" ''
 
   sonos_input=`echo $outputs | ${pkgs.jq}/bin/jq '.[] | select(.name == "mp3audio") | .id'`;
   default_input=`echo $outputs | ${pkgs.jq}/bin/jq '.[] | select(.name == "My Default Output") | .id'`;
-  fifo_input=`echo $outputs | ${pkgs.jq}/bin/jq '.[] | select(.name == "my_fifo") | .id'`;
 
   if [[ $sonos_enabled == 'true' ]]; then
-      ${pkgs.rmpc}/bin/rmpc enableoutput $fifo_input;
       ${pkgs.rmpc}/bin/rmpc enableoutput $default_input;
       ${pkgs.rmpc}/bin/rmpc disableoutput $sonos_input;
   else
-      ${pkgs.rmpc}/bin/rmpc disableoutput $fifo_input;
       ${pkgs.rmpc}/bin/rmpc disableoutput $default_input;
       ${pkgs.rmpc}/bin/rmpc enableoutput $sonos_input;
   fi
