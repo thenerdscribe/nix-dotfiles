@@ -475,6 +475,7 @@
                 truncation_length = 3;
                 truncation_symbol = "…/";
                 substitutions = {
+                  Desktop = "󰇅";
                   Documents = "󰈙 ";
                   Downloads = " ";
                   Music = " ";
