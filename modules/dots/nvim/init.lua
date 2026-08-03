@@ -299,7 +299,17 @@ vim.lsp.config["laravel-ls"] = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 }
-vim.lsp.enable("laravel-ls")
+-- vim.lsp.enable("laravel-ls")
+
+vim.lsp.config("laravel_lsp", {
+	cmd = { "/home/ryanm/Developer/laravel-lsp/laravel-lsp" },
+	filetypes = { "php", "blade" },
+	root_markers = { "artisan", "composer.json", ".git" },
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+vim.lsp.enable("laravel_lsp")
 
 vim.lsp.config["phpantom-lsp"] = {
 	cmd = { "/home/ryanm/Developer/test-phpantom/result/bin/phpantom_lsp" },

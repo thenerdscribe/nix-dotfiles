@@ -112,6 +112,13 @@
         Mod+E hotkey-overlay-title="Open file manager: yazi" {
             spawn "ghostty" "-e" "yazi" 
         }
+        // The quit action will show a confirmation dialog to avoid accidental exits.
+        Alt+E {
+            quit
+        }
+        Mod+Shift+E hotkey-overlay-title="Open file manager: pcmanfm" {
+            spawn "pcmanfm"
+        }
         Mod+T hotkey-overlay-title="Open a Terminal: ghostty" {
             spawn "ghostty"
         }
@@ -385,10 +392,6 @@
         // which ensures niri always processes them, even when an inhibitor is active.
         Mod+Escape allow-inhibiting=false {
             toggle-keyboard-shortcuts-inhibit
-        }
-        // The quit action will show a confirmation dialog to avoid accidental exits.
-        Mod+Shift+E {
-            quit
         }
         Ctrl+Alt+Delete {
             quit
