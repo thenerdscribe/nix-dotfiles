@@ -418,7 +418,7 @@
     spawn-sh-at-startup "dms run"
     spawn-sh-at-startup "syncthing"
     spawn-at-startup "ghostty"
-    spawn-at-startup "spotify"
+    // spawn-at-startup "spotify"
     spawn-at-startup "obsidian"
     spawn-at-startup "discord"
     spawn-at-startup "signal-desktop"

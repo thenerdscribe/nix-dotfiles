@@ -188,6 +188,7 @@
       (import ../../scripts/switch-audio.nix { inherit pkgs; })
       (import ../../scripts/toggle-sonos.nix { inherit pkgs; })
       (import ../../scripts/toggle-music-script.nix { inherit pkgs; })
+      (import ../../scripts/create-multi-mon-sink.nix { inherit pkgs; })
     ];
   };
   programs.steam = {
