@@ -416,6 +416,7 @@
     }
     spawn-sh-at-startup "streamdeck -n"
     spawn-sh-at-startup "dms run"
+    spawn-sh-at-startup "dcal run -d --hidden"
     spawn-sh-at-startup "syncthing"
     spawn-at-startup "ghostty"
     // spawn-at-startup "spotify"
@@ -426,6 +427,7 @@
     spawn-sh-at-startup "niri msg output DP-1 mode '2560x1440@239.970'"
     spawn-sh-at-startup "vicinae server"
     spawn-sh-at-startup "/home/ryanm/Applications/pcpaneld/target/debug/pcpaneld daemon"
+    spawn-sh-at-startup "multimon-target"
     window-rule {
         match at-startup=true title="Ghostty"
         exclude title="Yazi FM"

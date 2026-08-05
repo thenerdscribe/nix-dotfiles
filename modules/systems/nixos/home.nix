@@ -28,6 +28,7 @@
         imports = [
           inputs.niri-flake.homeModules.niri
           inputs.dms.homeModules.dank-material-shell
+          inputs.dankcalendar.homeModules.dank-calendar
           inputs.dms.homeModules.niri
           inputs.zen-browser.homeModules.twilight
           ./niri.nix
@@ -64,6 +65,8 @@
         services.mpd-mpris = {
           enable = true;
         };
+
+        programs.dank-calendar.enable = true;
 
         programs.dank-material-shell = {
           enable = true;

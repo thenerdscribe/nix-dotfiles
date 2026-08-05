@@ -199,6 +199,7 @@
 
   security.polkit.enable = true; # polkit
   programs.niri.enable = true;
+  programs.dsearch.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;

@@ -9,6 +9,10 @@
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dankcalendar = {
+      url = "github:AvengeMedia/dankcalendar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     niri-flake = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
