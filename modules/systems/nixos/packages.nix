@@ -61,7 +61,6 @@ in
     obsidian
     signal-desktop
     zellij
-    magnetic-catppuccin-gtk
     distrobox
     cliphist
     ueberzugpp
@@ -103,7 +102,6 @@ in
     fuzzel
     vial
     via
-    supersonic-wayland
     ollama-vulkan
     inotify-tools
     protonup-qt
