@@ -138,6 +138,7 @@
             DisableTelemetry = true;
             # find more options here: https://mozilla.github.io/policy-templates/
           };
+          nativeMessagingHosts = [ pkgs.firefoxpwa ];
         };
         services.kdeconnect.enable = true;
 

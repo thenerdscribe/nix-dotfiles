@@ -111,5 +111,6 @@ in
     spotatui
     _7zip-zstd-rar
     fastfetch
+    firefoxpwa
   ];
 }
