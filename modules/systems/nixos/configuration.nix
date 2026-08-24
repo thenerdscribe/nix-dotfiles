@@ -21,6 +21,8 @@
     inputs.claude-desktop.overlays.default
     inputs.kew.overlays.default
   ];
+  programs.localsend.enable = true;
+  programs.localsend.openFirewall = true;
 
   programs.niri.package = pkgs.niri;
 
