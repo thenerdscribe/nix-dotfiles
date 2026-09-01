@@ -1,4 +1,7 @@
 { pkgs, inputs, ... }:
+let
+  sweet = pkgs.callPackage ./sweet.nix { inherit pkgs; };
+in
 {
   home-manager = {
     useGlobalPkgs = true;
@@ -118,16 +121,16 @@
         gtk = {
           enable = true;
           gtk3.theme = {
-            name = "Fluent-Dark";
-            package = pkgs.fluent-gtk-theme;
+            name = "Sweet-Dark";
+            package = sweet;
           };
           gtk4.theme = {
-            name = "Fluent-Dark";
-            package = pkgs.fluent-gtk-theme;
+            name = "Sweet-Dark";
+            package = sweet;
           };
           gtk4.iconTheme = {
-            name = "Adawaita";
-            package = pkgs.adwaita-icon-theme;
+            name = "Candy";
+            package = pkgs.candy-icons;
           };
         };
 
@@ -436,6 +439,9 @@
               wbc = "wl-copy";
             };
             initContent = ''
+                function ns () {
+                    nix-shell -p $1 --command zsh
+                }
               function za () {
                   local sessions="$(zellij list-sessions --no-formatting --short)"
                   if [ -z $sessions ]

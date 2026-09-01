@@ -5,7 +5,6 @@
 }:
 let
   kenku = pkgs.callPackage ./kenku-fm.nix { inherit pkgs; };
-  zen-notes = pkgs.callPackage ./zen-notes.nix { inherit pkgs; };
 in
 {
   home.packages = with pkgs; [
@@ -72,6 +71,7 @@ in
     smartmontools
     fluent-gtk-theme
     fluent-icon-theme
+    candy-icons
     audacious
     rustdesk-flutter
     inkscape-with-extensions
@@ -114,5 +114,6 @@ in
     fastfetch
     firefoxpwa
     rembg
+    nautilus
   ];
 }

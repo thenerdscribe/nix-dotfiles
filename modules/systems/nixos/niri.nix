@@ -116,8 +116,8 @@
         Alt+E {
             quit
         }
-        Mod+Shift+E hotkey-overlay-title="Open file manager: pcmanfm" {
-            spawn "pcmanfm"
+        Mod+Shift+E hotkey-overlay-title="Open file manager: nautilus" {
+            spawn "nautilus"
         }
         Mod+T hotkey-overlay-title="Open a Terminal: ghostty" {
             spawn "ghostty"
