@@ -105,10 +105,14 @@ in
     ollama-vulkan
     inotify-tools
     protonup-qt
+    proton-vpn
+    dig
+    openssl
     r2modman
     spotatui
     _7zip-zstd-rar
     fastfetch
     firefoxpwa
+    rembg
   ];
 }

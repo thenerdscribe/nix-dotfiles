@@ -14,6 +14,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    inputs.tether.nixosModules.default
   ];
 
   nixpkgs.overlays = [
@@ -23,6 +24,22 @@
   ];
   programs.localsend.enable = true;
   programs.localsend.openFirewall = true;
+
+  programs.tether = {
+    enable = true;
+
+    wifi = {
+      enable = true;
+      openFirewall = true;
+    };
+
+    bluetooth = {
+      enable = true;
+      adapters = [ "hci0" ];
+    };
+  };
+
+  virtualisation.virtualbox.host.enable = true;
 
   programs.niri.package = pkgs.niri;
 

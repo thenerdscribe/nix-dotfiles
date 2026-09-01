@@ -423,7 +423,7 @@
     spawn-at-startup "obsidian"
     spawn-at-startup "discord"
     spawn-at-startup "signal-desktop"
-    spawn-at-startup "slack"
+    spawn-at-startup "tether-gtk"
     spawn-sh-at-startup "niri msg output DP-1 mode '2560x1440@239.970'"
     spawn-sh-at-startup "vicinae server"
     spawn-sh-at-startup "/home/ryanm/Applications/pcpaneld/target/debug/pcpaneld daemon"
@@ -457,7 +457,7 @@
         }
     }
     window-rule {
-        match at-startup=true title="Slack"
+        match at-startup=true title="Tether"
         open-on-workspace "Messaging"
     }
     window-rule {
