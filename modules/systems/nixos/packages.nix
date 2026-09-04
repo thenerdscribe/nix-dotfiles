@@ -115,5 +115,7 @@ in
     firefoxpwa
     rembg
     nautilus
+    yubioath-flutter
+    nodejs
   ];
 }

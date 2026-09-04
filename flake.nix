@@ -28,10 +28,6 @@
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # niri = {
-    #   url = "github:niri-wm/niri";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,14 +35,6 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     awww.url = "git+https://codeberg.org/LGFae/awww";
-    # matugen = {
-    #   url = "github:/InioX/Matugen";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =

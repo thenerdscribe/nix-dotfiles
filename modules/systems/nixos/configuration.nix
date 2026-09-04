@@ -7,18 +7,15 @@
   pkgs,
   lib,
   inputs,
-  claude-desktop,
   ...
 }:
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.tether.nixosModules.default
   ];
 
   nixpkgs.overlays = [
-    # inputs.niri-flake.overlays.default
     inputs.claude-desktop.overlays.default
     inputs.kew.overlays.default
   ];
@@ -40,6 +37,7 @@
   };
 
   virtualisation.virtualbox.host.enable = true;
+  services.pcscd.enable = true;
 
   programs.niri.package = pkgs.niri;
 
@@ -55,8 +53,6 @@
     openFirewall = true;
     signal.relayHosts = [ "ryans-mac-mini.tailfc11c.ts.net" ];
   };
-
-  # environment.sessionVariables.DISPLAY = ":0";
 
   nix.settings.download-buffer-size = 524288000;
   hardware.bluetooth = {
@@ -200,8 +196,6 @@
       kitty
       rofi
       gh
-      # inputs.matugen.packages.${system}.default
-      inputs.quickshell.packages.${system}.default
       (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
       (import ../../scripts/create-dev-environment.nix { inherit pkgs; })
       (import ../../scripts/destroy-dev-environment.nix { inherit pkgs; })

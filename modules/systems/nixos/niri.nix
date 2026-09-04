@@ -489,5 +489,8 @@
             default-window-height { proportion 0.75; }
             default-column-width { proportion 0.75; }
         }
+    clipboard {
+          disable-primary
+    }
   '';
 }
