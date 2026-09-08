@@ -117,5 +117,6 @@ in
     nautilus
     yubioath-flutter
     nodejs
+    devenv
   ];
 }
