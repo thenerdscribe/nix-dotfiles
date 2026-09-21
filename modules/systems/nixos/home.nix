@@ -403,6 +403,7 @@ in
               }
             ];
             shellAliases = {
+              nfu = "nix flake update";
               ssh = "TERM='xterm' ssh";
               vim = "nvim";
               pbc = "pbcopy";

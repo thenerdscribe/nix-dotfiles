@@ -19,7 +19,6 @@ in
     pandoc
     texliveFull
     rmpc
-    kew
     claude-desktop
     inputs.zennotes.packages.${pkgs.system}.zennotes-desktop
     kenku
