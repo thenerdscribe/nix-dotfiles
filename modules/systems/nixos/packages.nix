@@ -117,5 +117,6 @@ in
     yubioath-flutter
     nodejs
     devenv
+    taskwarrior3
   ];
 }

@@ -281,6 +281,26 @@
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="a3c5", TAG+="uaccess"
   '';
 
+  systemd.timers."taskwarrior-sync" = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "2m";
+      OnUnitActiveSec = "2m";
+      Unit = "taskwarrior-sync.service";
+    };
+  };
+
+  systemd.services."taskwarrior-sync" = {
+    script = ''
+      set -eu
+      ${pkgs.taskwarrior3}/bin/task sync
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = "ryanm";
+    };
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
