@@ -118,5 +118,6 @@ in
     nodejs
     devenv
     taskwarrior3
+    taskwarrior-tui
   ];
 }
