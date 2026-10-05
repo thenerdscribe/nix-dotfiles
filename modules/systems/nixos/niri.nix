@@ -160,6 +160,10 @@
             spawn-sh "toggle-music"
         }
 
+        Mod+Shift+T repeat=false hotkey-overlay-title="Open Rusty MPC" {
+            spawn-sh "toggle-taskwarrior"
+        }
+
         Mod+O repeat=false {
             toggle-overview
         }
@@ -482,6 +486,13 @@
         match is-focused=false
         opacity 0.85
     }
+    window-rule {
+            match title="Taskwarrior TUI"
+            open-floating true
+            open-focused true
+            default-window-height { proportion 0.75; }
+            default-column-width { proportion 0.75; }
+        }
     window-rule {
             match title="RMPC Music"
             open-floating true

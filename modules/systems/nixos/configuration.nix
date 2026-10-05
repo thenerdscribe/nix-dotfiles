@@ -199,6 +199,7 @@
       (import ../../scripts/toggle-sonos.nix { inherit pkgs; })
       (import ../../scripts/toggle-music-script.nix { inherit pkgs; })
       (import ../../scripts/create-multi-mon-sink.nix { inherit pkgs; })
+      (import ../../scripts/toggle-taskwarrior-tui.nix { inherit pkgs; })
     ];
   };
   programs.steam = {
