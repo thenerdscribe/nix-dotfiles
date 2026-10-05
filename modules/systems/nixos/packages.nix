@@ -119,5 +119,6 @@ in
     devenv
     taskwarrior3
     taskwarrior-tui
+    tasksh
   ];
 }
