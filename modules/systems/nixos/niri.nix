@@ -16,25 +16,10 @@
             numlock
         }
         touchpad {
-            // off
-            tap
-            // dwt
-            // dwtp
-            // drag false
-            // drag-lock
-            natural-scroll
-              // accel-speed 0.2
-            // accel-profile "flat"
-            // scroll-method "two-finger"
-            // disabled-on-external-mouse
+            off
         }
         mouse {
-            // off
-            // natural-scroll
-            // accel-speed 0.2
-            // accel-profile "flat"
-            // scroll-method "no-scroll"
-
+            scroll-factor vertical=1.0 horizontal=-2.0
         }
     }
     layout {
