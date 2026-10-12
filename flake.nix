@@ -23,6 +23,7 @@
     };
     # flake.nix
     mangowm = {
+      # url = "github:mangowm/mango/wl-only";
       url = "github:mangowm/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
