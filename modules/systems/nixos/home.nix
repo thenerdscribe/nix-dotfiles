@@ -73,7 +73,12 @@ in
         wayland.windowManager.mango = {
           enable = true;
           settings = {
-            env = "WLR_RENDERER,vulkan";
+            env = [
+              "WLR_RENDERER,vulkan"
+              "QT_QPA_PLATFORM,wayland"
+              "ELECTRON_OZONE_PLATFORM_HINT,auto"
+              "QT_QPA_PLATFORMTHEME,gtk3"
+            ];
             blur = "1";
             blur_optimized = "0";
             blur_layer = "1";
@@ -86,8 +91,8 @@ in
               "0.25,0.33,0.5,0.66,0.75,1"
             ];
             monitor_rule = [
-              "name:^DP-1$,vrr:1,hdr:1,width:2560,height:1440,refresh:240,hdr_force:1"
-              "name:^DP-2$,vrr:1,x:2561,y:0,rr:1,width:2560,height:1440,refresh:144"
+              "name:^DP-1$,vrr:1,hdr:1,x:0,y:0,width:2560,height:1440,refresh:240,hdr_force:1"
+              "name:^DP-2$,vrr:1,x:2560,y:-505,rr:1,width:2560,height:1440,refresh:144"
             ];
             scroller_default_proportion = "0.5";
             sync_obj_enable = true;
@@ -99,8 +104,9 @@ in
               "tags:2,monitor:^DP-2$,app_id:signal"
             ];
             tag_rule = [
-              "monitor_name:^DP-1$,layout_name=scroller"
-              "monitor_name:^DP-2$,layout_name=vertical_scroller"
+              "id:1,monitor_name:^DP-1$,layout_name=scroller"
+              "id:1,monitor_name:^DP-2$,layout_name=vertical_scroller"
+              "id:2,monitor_name:^DP-2$,layout_name=vertical_scroller"
             ];
             binds = [
               "SUPER,q,killclient"
@@ -130,8 +136,12 @@ in
             key_mode.tags.bind = [
               "SUPER,1,tag,1"
               "SUPER,2,tag,2"
+              "SUPER,3,tag,3"
+              "SUPER,4,tag,4"
               "NONE,1,view,1"
               "NONE,2,view,2"
+              "NONE,3,view,3"
+              "NONE,4,view,4"
               "NONE,ESCAPE,setkeymode,default"
               "SUPER+CTRL,t,setkeymode,default"
             ];
