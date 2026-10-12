@@ -120,5 +120,6 @@ in
     taskwarrior3
     taskwarrior-tui
     tasksh
+    gradia
   ];
 }
