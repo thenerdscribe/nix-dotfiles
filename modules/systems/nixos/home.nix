@@ -73,16 +73,67 @@ in
         wayland.windowManager.mango = {
           enable = true;
           settings = {
-            blur = 1;
-            blur_optimized = 1;
+            env = "WLR_RENDERER,vulkan";
+            blur = "1";
+            blur_optimized = "0";
+            blur_layer = "1";
+            unfocused_opacity = "0.75";
             border_radius = 8;
+            exec_once = [
+              "vicinae server"
+            ];
+            scroller_proportion_preset = [
+              "0.25,0.33,0.5,0.66,0.75,1"
+            ];
+            monitor_rule = [
+              "name:^DP-1$,vrr:1,hdr:1,width:2560,height:1440,refresh:240,hdr_force:1"
+              "name:^DP-2$,vrr:1,x:2561,y:0,rr:1,width:2560,height:1440,refresh:144"
+            ];
+            scroller_default_proportion = "0.5";
+            sync_obj_enable = true;
+            disable_middle_paste = true;
+            window_rule = [
+              "tags:2,monitor:^DP-2$,app_id:discord"
+              "tags:2,monitor:^DP-2$,app_id:slack"
+              "tags:2,monitor:^DP-2$,app_id:tether-gtk"
+              "tags:2,monitor:^DP-2$,app_id:signal"
+            ];
+            tag_rule = [
+              "monitor_name:^DP-1$,layout_name=scroller"
+              "monitor_name:^DP-2$,layout_name=vertical_scroller"
+            ];
             binds = [
+              "SUPER,q,killclient"
+              "SUPER+CTRL,h,exchange_client,left"
+              "SUPER+CTRL,j,exchange_client,down"
+              "SUPER+CTRL,k,exchange_client,up"
+              "SUPER+CTRL,l,exchange_client,right"
+              "SUPER,r,switch_proportion_preset"
+              "SUPER+SHIFT,f,togglefullscreen"
+              "SUPER,y,switch_layout"
               "SUPER,t,spawn,ghostty"
               "SUPER,space,spawn,vicinae toggle"
+              "SUPER+SHIFT,space,spawn,dms ipc call spotlight toggle"
+              "SUPER+SHIFT,l,focusmon,right"
+              "SUPER+SHIFT,h,focusmon,left"
               "ALT,h,focusdir,left"
               "ALT,j,focusdir,down"
               "ALT,k,focusdir,up"
               "ALT,l,focusdir,right"
+              "SUPER,1,set_proportion,0.25"
+              "SUPER,2,set_proportion,0.5"
+              "SUPER,3,set_proportion,0.75"
+              "SUPER,f,togglemaximizescreen"
+              "SUPER,c,centerwin"
+              "SUPER+CTRL,t,setkeymode,tags"
+            ];
+            key_mode.tags.bind = [
+              "SUPER,1,tag,1"
+              "SUPER,2,tag,2"
+              "NONE,1,view,1"
+              "NONE,2,view,2"
+              "NONE,ESCAPE,setkeymode,default"
+              "SUPER+CTRL,t,setkeymode,default"
             ];
           };
         };

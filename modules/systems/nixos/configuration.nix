@@ -22,6 +22,8 @@
   programs.localsend.enable = true;
   programs.localsend.openFirewall = true;
 
+  programs.mango.enable = true;
+
   programs.tether = {
     enable = true;
 
