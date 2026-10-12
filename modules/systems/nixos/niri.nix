@@ -114,7 +114,7 @@
             spawn "dms" "ipc" "call" "spotlight" "toggle"
         }
         Super+Alt+Shift+Ctrl+C hotkey-overlay-title="Clipboard history" {
-            spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"
+            spawn "vicinae" "vicinae://launch/clipboard/history"
         }
         XF86AudioRaiseVolume allow-when-locked=true {
             spawn-sh "playerctl --player=cmus,spotify,mpd,audacious,firefox volume 0.05+"

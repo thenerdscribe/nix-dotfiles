@@ -13,6 +13,7 @@
   imports = [
     ./hardware-configuration.nix
     inputs.tether.nixosModules.default
+    inputs.mangowm.nixosModules.mango
   ];
 
   nixpkgs.overlays = [

@@ -34,6 +34,7 @@ in
           inputs.dankcalendar.homeModules.dank-calendar
           inputs.dms.homeModules.niri
           inputs.zen-browser.homeModules.twilight
+          inputs.mangowm.hmModules.mango
           ./niri.nix
           ./packages.nix
         ];
@@ -69,10 +70,28 @@ in
           enable = true;
         };
 
+        wayland.windowManager.mango = {
+          enable = true;
+          settings = {
+            blur = 1;
+            blur_optimized = 1;
+            border_radius = 8;
+            binds = [
+              "SUPER,t,spawn,ghostty"
+              "SUPER,space,spawn,vicinae toggle"
+              "ALT,h,focusdir,left"
+              "ALT,j,focusdir,down"
+              "ALT,k,focusdir,up"
+              "ALT,l,focusdir,right"
+            ];
+          };
+        };
+
         programs.dank-calendar.enable = true;
 
         programs.dank-material-shell = {
           enable = true;
+
           niri.enableSpawn = true;
           niri.includes = {
             enable = true; # Enable config includes hack. Enabled by default.
