@@ -403,12 +403,13 @@ vim.g.matchup_transmute_enabled = true
 vim.keymap.set("n", "<leader>XX", "<cmd>Trouble diagnostics toggle<cr>")
 vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>")
 
-require("zellij-nav").setup()
+-- Turning off for the time being
+-- require("zellij-nav").setup()
 local map = vim.keymap.set
-map("n", "<c-h>", "<cmd>ZellijNavigateLeftTab<cr>", { desc = "navigate left or tab" })
-map("n", "<c-j>", "<cmd>ZellijNavigateDown<cr>", { desc = "navigate down" })
-map("n", "<c-k>", "<cmd>ZellijNavigateUp<cr>", { desc = "navigate up" })
-map("n", "<c-l>", "<cmd>ZellijNavigateRightTab<cr>", { desc = "navigate right or tab", noremap = true })
+-- map("n", "<c-h>", "<cmd>ZellijNavigateLeftTab<cr>", { desc = "navigate left or tab" })
+-- map("n", "<c-j>", "<cmd>ZellijNavigateDown<cr>", { desc = "navigate down" })
+-- map("n", "<c-k>", "<cmd>ZellijNavigateUp<cr>", { desc = "navigate up" })
+-- map("n", "<c-l>", "<cmd>ZellijNavigateRightTab<cr>", { desc = "navigate right or tab", noremap = true })
 
 vim.cmd("nnoremap <silent> <leader>w :update<CR>")
 

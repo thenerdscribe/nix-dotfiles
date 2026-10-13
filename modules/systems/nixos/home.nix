@@ -119,6 +119,8 @@ in
               "tags:2,monitor:^DP-2$,app_id:tether-gtk"
               "tags:2,monitor:^DP-2$,app_id:signal"
               "tags:3,monitor:^DP-1,app_id:steam"
+              "app_id:ghostty,title:RMPC,is_floating:1,is_overlay:1,width:0.75,height:0.75"
+              "app_id:ghostty,title:TTUI,is_floating:1,is_overlay:1,width:0.75,height:0.75"
             ];
             tag_rule = [
               "id:*,monitor_name:^DP-1$,layout_name:scroller"
@@ -149,6 +151,8 @@ in
               "SUPER,2,set_proportion,0.5"
               "SUPER,3,set_proportion,0.75"
               "SUPER,f,togglemaximizescreen"
+              "SUPER+SHIFT,m,spawn, ghostty --title='RMPC' -e 'rmpc'"
+              "SUPER+SHIFT,t,spawn, ghostty --title='TTUI' -e 'taskwarrior-tui'"
               "SUPER,c,centerwin"
               "SUPER+CTRL,t,setkeymode,tags"
               "SUPER+CTRL,r,setkeymode,resize"
