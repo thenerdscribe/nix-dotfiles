@@ -12,6 +12,7 @@ in
       p: with p; [
         pandas
         requests
+        matplotlib
       ]
     ))
     # winboat
@@ -121,5 +122,6 @@ in
     taskwarrior-tui
     tasksh
     gradia
+    qmk
   ];
 }
