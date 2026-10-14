@@ -110,6 +110,7 @@ in
             ];
             scroller_default_proportion = "0.5";
             scroller_default_proportion_single = "1.0";
+            scroller_ignore_proportion_single = "0";
             edge_scroller_pointer_focus = "0";
             sync_obj_enable = true;
             disable_middle_paste = true;
@@ -148,9 +149,13 @@ in
               "ALT,u,viewtoleft"
               "ALT,i,viewtoright"
               "SUPER,1,set_proportion,0.25"
-              "SUPER,2,set_proportion,0.5"
-              "SUPER,3,set_proportion,0.75"
+              "SUPER,2,set_proportion,0.33"
+              "SUPER,3,set_proportion,0.5"
+              "SUPER,4,set_proportion,0.66"
+              "SUPER,5,set_proportion,0.75"
               "SUPER,f,togglemaximizescreen"
+              "SUPER+SHIFT,j,scroller_stack,left"
+              "SUPER+SHIFT,k,scroller_stack,right"
               "SUPER+SHIFT,m,spawn, ghostty --title='RMPC' -e 'rmpc'"
               "SUPER+SHIFT,t,spawn, ghostty --title='TTUI' -e 'taskwarrior-tui'"
               "SUPER,c,centerwin"
