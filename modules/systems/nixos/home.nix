@@ -27,10 +27,12 @@ in
             xdg-desktop-portal-gtk
           ];
           config.common.default = "gnome";
-          config.mango.default = [
-            "wlr"
-            "gtk"
-          ];
+          config.mango = {
+            default = [
+              "wlr"
+              "gtk"
+            ];
+          };
         };
 
         imports = [
