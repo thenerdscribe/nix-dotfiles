@@ -123,5 +123,9 @@ in
     tasksh
     gradia
     qmk
+    grim
+    slurp
+    satty
+    wayfreeze
   ];
 }

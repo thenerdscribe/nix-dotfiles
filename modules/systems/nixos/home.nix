@@ -141,14 +141,24 @@ in
               "SUPER,space,spawn,vicinae toggle"
               "SUPER,m,spawn,dms ipc call processlist toggle"
               "SUPER+SHIFT,space,spawn,dms ipc call spotlight toggle"
-              "SUPER+SHIFT,l,focusmon,right"
-              "SUPER+SHIFT,h,focusmon,left"
+
+              # Screenshots
+              "CTRL+ALT+SUPER+SHIFT,1,spawn_shell,capture-script fullscreen"
+              "CTRL+ALT+SUPER+SHIFT,2,spawn_shell,capture-script region"
+              "CTRL+ALT+SUPER+SHIFT,3,spawn_shell,capture-script window"
+              "CTRL+ALT+SUPER+SHIFT,4,spawn_shell,capture-script annotate"
+
               "ALT,h,focusdir,left"
               "ALT,j,focusdir,down"
               "ALT,k,focusdir,up"
               "ALT,l,focusdir,right"
+
               "ALT,u,viewtoleft"
               "ALT,i,viewtoright"
+
+              "SUPER+SHIFT,l,focusmon,right"
+              "SUPER+SHIFT,h,focusmon,left"
+
               "SUPER,1,set_proportion,0.25"
               "SUPER,2,set_proportion,0.33"
               "SUPER,3,set_proportion,0.5"
