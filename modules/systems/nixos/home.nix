@@ -143,10 +143,10 @@ in
               "SUPER+SHIFT,space,spawn,dms ipc call spotlight toggle"
 
               # Screenshots
-              "CTRL+ALT+SUPER+SHIFT,1,spawn_shell,capture-script fullscreen"
-              "CTRL+ALT+SUPER+SHIFT,2,spawn_shell,capture-script region"
-              "CTRL+ALT+SUPER+SHIFT,3,spawn_shell,capture-script window"
-              "CTRL+ALT+SUPER+SHIFT,4,spawn_shell,capture-script annotate"
+              "ALT,1,spawn,capture-script fullscreen"
+              "ALT,2,spawn,capture-script region"
+              "ALT,3,spawn,capture-script window"
+              "ALT,4,spawn,capture-script annotate"
 
               "ALT,h,focusdir,left"
               "ALT,j,focusdir,down"

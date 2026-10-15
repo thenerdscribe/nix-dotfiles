@@ -205,7 +205,6 @@
       (import ../../scripts/toggle-music-script.nix { inherit pkgs; })
       (import ../../scripts/create-multi-mon-sink.nix { inherit pkgs; })
       (import ../../scripts/toggle-taskwarrior-tui.nix { inherit pkgs; })
-      (import ../../scripts/capture-full-screen.nix { inherit pkgs; })
       (import ../../scripts/capture-script.nix { inherit pkgs; })
     ];
   };
