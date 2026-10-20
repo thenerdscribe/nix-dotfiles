@@ -143,6 +143,7 @@ in
               "SUPER+CTRL,l,exchange_client,right"
               "SUPER,r,switch_proportion_preset"
               "SUPER+SHIFT,f,togglefullscreen"
+              "SUPER+SHIFT,p,spawn,~/Scripts/sleep_monitors.sh"
               "SUPER,y,switch_layout"
               "SUPER,t,spawn,ghostty"
               "SUPER,space,spawn,vicinae toggle"
