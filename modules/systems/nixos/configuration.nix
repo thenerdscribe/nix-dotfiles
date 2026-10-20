@@ -14,6 +14,7 @@
     ./hardware-configuration.nix
     inputs.tether.nixosModules.default
     inputs.mangowm.nixosModules.mango
+    ../../features/control-lights.nix
   ];
 
   nixpkgs.overlays = [
