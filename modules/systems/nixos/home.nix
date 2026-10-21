@@ -216,6 +216,9 @@ in
               "NONE,ESCAPE,setkeymode,default"
               "SUPER+CTRL,t,setkeymode,default"
             ];
+            source = [
+              "./dms/layout.conf"
+            ];
           };
         };
 
