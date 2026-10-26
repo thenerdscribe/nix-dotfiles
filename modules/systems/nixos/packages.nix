@@ -113,6 +113,7 @@ in
     fastfetch
     firefoxpwa
     # rembg
+    baobab
     nautilus
     yubioath-flutter
     nodejs
