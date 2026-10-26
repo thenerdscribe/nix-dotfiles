@@ -6,7 +6,11 @@
     zennotes.url = "github:ZenNotes/zennotes";
     claude-desktop.url = "github:aaddrick/claude-desktop-debian";
     dms = {
-      url = "github:AvengeMedia/DankMaterialShell";
+      url = "github:duxlabs-dev/dux-shell/stable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    dfiles = {
+      url = "github:duxlabs-dev/dux-files";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dankcalendar = {

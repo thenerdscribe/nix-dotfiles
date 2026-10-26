@@ -42,10 +42,28 @@ in
           inputs.dms.homeModules.niri
           inputs.zen-browser.homeModules.twilight
           inputs.mangowm.hmModules.mango
+          inputs.dfiles.homeModules.dux-files
           ./niri.nix
           ./packages.nix
         ];
         programs.niri.package = pkgs.niri;
+        programs.dux-files = {
+          enable = true;
+          # Keep a resident instance so windows open fast and the portal answers at once
+          systemd = {
+            enable = true;
+            target = "graphical-session.target";
+            restartIfChanged = true;
+          };
+
+          # Serve other apps' open and save dialogs
+          portal = {
+            enable = true; # register the dfiles backend with xdg-desktop-portal
+            preferred = true; # prefer it for org.freedesktop.impl.portal.FileChooser
+            desktop = "mango"; # which xdg.portal.config entry gets the preference, "common" by default
+          };
+
+        };
 
         services.mpd = {
           enable = true;
@@ -178,7 +196,7 @@ in
               "SUPER+SHIFT,j,scroller_stack,left"
               "SUPER+SHIFT,k,scroller_stack,right"
               "SUPER,e,spawn,ghostty --title='Yazi' -e 'yazi'"
-              "SUPER+SHIFT,e,spawn,nautilus"
+              "SUPER+SHIFT,e,spawn,dfiles"
               "SUPER+SHIFT,m,spawn,ghostty --title='RMPC' -e 'rmpc'"
               "SUPER+SHIFT,t,spawn,ghostty --title='TTUI' -e 'taskwarrior-tui'"
               "SUPER+SHIFT+CTRL+ALT,c,spawn,vicinae 'vicinae://launch/clipboard/history'"
