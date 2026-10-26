@@ -91,7 +91,6 @@ in
     ghostty
     termusic
     wf-recorder
-    openrgb-with-all-plugins
     wget
     wlogout
     postman
@@ -113,7 +112,7 @@ in
     _7zip-zstd-rar
     fastfetch
     firefoxpwa
-    rembg
+    # rembg
     nautilus
     yubioath-flutter
     nodejs

@@ -166,6 +166,8 @@ in
 
               "SUPER+SHIFT,l,focusmon,right"
               "SUPER+SHIFT,h,focusmon,left"
+              "SUPER+SHIFT+CTRL,l,tagmon,right"
+              "SUPER+SHIFT+CTRL,h,tagmon,left"
 
               "SUPER,1,set_proportion,0.25"
               "SUPER,2,set_proportion,0.33"

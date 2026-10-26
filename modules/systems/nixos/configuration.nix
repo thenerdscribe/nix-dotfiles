@@ -40,7 +40,7 @@
     };
   };
 
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enable = false;
   services.pcscd.enable = true;
 
   programs.niri.package = pkgs.niri;
@@ -329,7 +329,12 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.hardware.openrgb.enable = true;
+  services.hardware.openrgb = {
+    enable = true;
+    package = pkgs.openrgb-with-all-plugins;
+    motherboard = "amd";
+    startupProfile = "pink";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
