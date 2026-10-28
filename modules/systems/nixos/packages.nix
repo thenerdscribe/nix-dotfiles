@@ -25,7 +25,6 @@ in
     kenku
     claude-code
     sqlite
-    _1password-cli
     vicinae
     go
     curl
@@ -54,7 +53,6 @@ in
     discord
     spotify
     lnav
-    _1password-gui
     sqlite
     playerctl
     obsidian
