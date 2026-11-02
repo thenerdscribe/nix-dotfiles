@@ -132,6 +132,7 @@ in
             monitor_rule = [
               "name:^DP-1$,vrr:1,hdr:1,x:0,y:0,width:2560,height:1440,refresh:239.99"
               "name:^DP-2$,vrr:1,x:2560,y:-505,rr:1,width:2560,height:1440,refresh:144"
+              "name:^HDMI-A-1$,vrr:1,width:3840,height:2160,refresh:120.00"
             ];
             scroller_default_proportion = "0.5";
             scroller_default_proportion_single = "1.0";

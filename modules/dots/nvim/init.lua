@@ -302,7 +302,7 @@ vim.lsp.config["laravel-ls"] = {
 -- vim.lsp.enable("laravel-ls")
 
 vim.lsp.config("laravel_lsp", {
-	cmd = { "/home/ryanm/Developer/laravel-lsp/laravel-lsp" },
+	cmd = { "/home/ryanm/Developer/laravel-lsp/laravel-lsp lsp" },
 	filetypes = { "php", "blade" },
 	root_markers = { "artisan", "composer.json", ".git" },
 	capabilities = capabilities,
@@ -332,7 +332,7 @@ vim.lsp.config("intelephense", {
 require("notify").setup({
 	animate = false,
 	stages = "static",
-	max_width = 40,
+	max_width = 80,
 	timeout = 2000,
 })
 require("noice").setup({})
