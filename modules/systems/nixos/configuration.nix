@@ -88,7 +88,7 @@
     127.0.0.1 neo-tools.dev.walts.com awesome-ecomm.dev.walts.com inventory-api.dev.walts.com api-ospos.dev.walts.com gaming-schedule.test ordermanager.dev.walts.com forma-planner.test neo-pos1.dev.walts.com
     35.90.134.222 ae-staging.walts.com
     54.200.214.235 test-ims.walts.com test-retail-ims.walts.com
-    44.247.93.57 test-neo-wpos2.walts.com
+    184.35.70.114 test-neo-wpos2.walts.com
   '';
 
   networking.firewall = rec {
@@ -213,7 +213,7 @@
 
   security.polkit.enable = true; # polkit
   programs.niri.enable = true;
-  programs.dsearch.enable = true;
+  programs.dux-search.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;

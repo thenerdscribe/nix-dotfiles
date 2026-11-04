@@ -103,9 +103,11 @@ in
               "QT_QPA_PLATFORM,wayland"
               "ELECTRON_OZONE_PLATFORM_HINT,auto"
               "QT_QPA_PLATFORMTHEME,gtk3"
+              "WLR_DRM_NO_ATOMIC,1"
             ];
             blur = "1";
             hdr_depth = "2";
+            allow_tearing = "1";
             blur_params_radius = "7";
             blur_params_num_passes = "3";
             blur_optimized = "0";
