@@ -13,8 +13,8 @@
       url = "github:duxlabs-dev/dux-files";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dankcalendar = {
-      url = "github:AvengeMedia/dankcalendar";
+    dcalendar = {
+      url = "github:duxlabs-dev/dux-calendar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     tether = {
