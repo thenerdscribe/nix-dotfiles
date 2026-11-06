@@ -28,6 +28,4 @@
     experimental-features = nix-command flakes
   '';
   system.stateVersion = 4;
-  system.defaults.NSGlobalDomain._HIHideMenuBar = false;
-  system.defaults.dock.autohide = true;
 }

@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs_darwin_2026.url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
     zennotes.url = "github:ZenNotes/zennotes";
     claude-desktop.url = "github:aaddrick/claude-desktop-debian";
     dms = {
@@ -41,16 +42,22 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    darwin.url = "github:lnl7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    darwin-home-manager = {
+      url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs_darwin_2026";
+    };
+    darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
+    darwin.inputs.nixpkgs.follows = "nixpkgs_darwin_2026";
     awww.url = "git+https://codeberg.org/LGFae/awww";
   };
 
   outputs =
     {
       nixpkgs,
+      nixpkgs_darwin_2026,
       darwin,
       home-manager,
+      darwin-home-manager,
       ...
     }@inputs:
     {
@@ -95,8 +102,6 @@
               '';
               services.nix-daemon.enable = true;
               system.stateVersion = 4;
-              system.defaults.NSGlobalDomain._HIHideMenuBar = false;
-              system.defaults.dock.autohide = true;
             }
           )
           home-manager.darwinModules.home-manager
@@ -114,7 +119,9 @@
 
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+        };
         pkgs = import nixpkgs {
           system = "x86_64-linux";
           config = {
@@ -132,8 +139,10 @@
 
       darwinConfigurations.Ryans-Mac-Mini = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
-        specialArgs = { inherit inputs; };
-        pkgs = import nixpkgs {
+        specialArgs = {
+          inherit inputs;
+        };
+        pkgs = import nixpkgs_darwin_2026 {
           system = "x86_64-darwin";
           config = {
             allowUnfree = true;
@@ -142,7 +151,7 @@
           };
         };
         modules = [
-          home-manager.darwinModules.home-manager
+          darwin-home-manager.darwinModules.home-manager
           ./modules/systems/mini/configuration.nix
           ./modules/systems/mini/home.nix
         ];

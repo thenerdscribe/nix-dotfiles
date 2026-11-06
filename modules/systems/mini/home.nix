@@ -9,7 +9,10 @@
       imports = [
         ../../applications/neovim
         ../../applications/shell
-        ../../applications/zen
+        # ../../applications/zen
+      ];
+      home.packages = with pkgs; [
+        delta
       ];
     };
   };

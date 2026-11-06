@@ -155,7 +155,7 @@
       settings = {
         add_newline = true;
         format = ''
-          $username $directory $git_branch$git_status $nix_shell
+          $username $directory $git_branch$git_status $nix_shell $hostname
           $character 
         '';
         directory = {
@@ -170,6 +170,10 @@
             Music = " ";
             Pictures = " ";
           };
+        };
+        hostname = {
+          ssh_only = true;
+          format = "[$ssh_symbol$hostname]($style)";
         };
         username = {
           show_always = true;
