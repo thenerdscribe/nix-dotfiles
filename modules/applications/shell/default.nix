@@ -82,6 +82,7 @@
       ];
       shellAliases = {
         nfu = "nix flake update";
+        mrs = "sudo nix run nix-darwin -- switch --flake ~/.config/nix";
         ssh = "TERM='xterm' ssh";
         vim = "nvim";
         pbc = "pbcopy";

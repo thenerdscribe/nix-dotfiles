@@ -10,6 +10,7 @@
         ../../applications/neovim
         ../../applications/shell
         # ../../applications/zen
+        ../shared/shared_packages.nix
       ];
       home.packages = with pkgs; [
         delta
