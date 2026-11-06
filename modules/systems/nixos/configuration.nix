@@ -1,0 +1,349 @@
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+{
+  imports = [
+    ./hardware-configuration.nix
+    inputs.tether.nixosModules.default
+    inputs.mangowm.nixosModules.mango
+    ../../features/control-lights.nix
+  ];
+
+  nixpkgs.overlays = [
+    inputs.claude-desktop.overlays.default
+  ];
+  programs.localsend.enable = true;
+  programs.localsend.openFirewall = true;
+  programs.mango.enable = true;
+  services.playerctld.enable = true;
+
+  programs.tether = {
+    enable = true;
+
+    wifi = {
+      enable = true;
+      openFirewall = true;
+    };
+
+    bluetooth = {
+      enable = true;
+      adapters = [ "hci0" ];
+    };
+  };
+
+  virtualisation.virtualbox.host.enable = false;
+  services.pcscd.enable = true;
+
+  programs.niri.package = pkgs.niri;
+
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+  };
+
+  programs.partition-manager.enable = true;
+
+  services.rustdesk-server = {
+    enable = true;
+    openFirewall = true;
+    signal.relayHosts = [ "ryans-mac-mini.tailfc11c.ts.net" ];
+  };
+
+  nix.settings.download-buffer-size = 524288000;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelModules = [
+    "ntsync"
+  ];
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  networking.hostName = "nixos"; # Define your hostname.
+  networking.networkmanager = {
+    enable = true;
+    wifi = {
+      scanRandMacAddress = false;
+      powersave = false;
+    };
+  };
+  networking.extraHosts = ''
+    34.216.26.245  ims.walts.com retail-ims.walts.com
+    127.0.0.1 neo-tools.dev.walts.com awesome-ecomm.dev.walts.com inventory-api.dev.walts.com api-ospos.dev.walts.com gaming-schedule.test ordermanager.dev.walts.com forma-planner.test neo-pos1.dev.walts.com
+    35.90.134.222 ae-staging.walts.com
+    54.200.214.235 test-ims.walts.com test-retail-ims.walts.com
+    184.35.70.114 test-neo-wpos2.walts.com
+  '';
+
+  networking.firewall = rec {
+
+    allowedTCPPorts = [ 6969 ];
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+    allowedUDPPortRanges = allowedTCPPortRanges;
+  };
+
+  services.tailscale.enable = true;
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
+
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        ids = [ "*" ];
+        extraConfig = ''
+           # Make Apple keyboards work the same way on KDE as they do on MacOS
+          [main]
+          # Bind both "Cmd" keys to trigger the 'meta_mac' layer
+          leftmeta = layer(meta_mac)
+          rightmeta = layer(meta_mac)
+        '';
+      };
+    };
+  };
+
+  virtualisation.docker = {
+    enable = true;
+  };
+
+  # Set your time zone.
+  time.timeZone = "America/Phoenix";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+  users.defaultUserShell = pkgs.zsh;
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
+
+  services.xserver.enable = false;
+  services.displayManager.sddm.wayland.enable = true;
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+  programs.xwayland.enable = true;
+  services.blueman.enable = true;
+
+  # Enable sound with pipewire.
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
+  programs.zsh.enable = true;
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.ryanm = {
+    isNormalUser = true;
+    description = "Ryan Morton";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
+    shell = pkgs.zsh;
+    packages = with pkgs; [
+      kdePackages.kate
+      sbctl
+      ghostty
+      os-prober
+      kitty
+      rofi
+      gh
+      (import ../../scripts/create-product-issues-script.nix { inherit pkgs; })
+      (import ../../scripts/create-dev-environment.nix { inherit pkgs; })
+      (import ../../scripts/destroy-dev-environment.nix { inherit pkgs; })
+      (import ../../scripts/switch-audio.nix { inherit pkgs; })
+      (import ../../scripts/toggle-sonos.nix { inherit pkgs; })
+      (import ../../scripts/toggle-music-script.nix { inherit pkgs; })
+      (import ../../scripts/create-multi-mon-sink.nix { inherit pkgs; })
+      (import ../../scripts/toggle-taskwarrior-tui.nix { inherit pkgs; })
+      (import ../../scripts/capture-script.nix { inherit pkgs; })
+    ];
+  };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
+
+  security.polkit.enable = true; # polkit
+  programs.niri.enable = true;
+  programs.dux-search.enable = true;
+
+  # Install firefox.
+  programs.firefox.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+    docker-compose
+    xwayland-satellite
+  ];
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    zlib
+    libuv
+    openssl
+    http-parser
+    icu
+    bash
+    sqlite
+  ];
+
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+    adwaita-fonts
+  ];
+  hardware.keyboard.qmk.enable = true;
+
+  services.caddy = {
+    enable = true;
+    virtualHosts."http://awesome-ecomm.dev.walts.com".extraConfig = ''
+      reverse_proxy 127.0.0.1:8889 
+    '';
+    virtualHosts."http://neo-tools.dev.walts.com".extraConfig = ''
+      reverse_proxy 127.0.0.1:8888
+    '';
+    virtualHosts."http://inventory-api.dev.walts.com".extraConfig = ''
+      reverse_proxy 127.0.0.1:8890
+    '';
+    virtualHosts."http://api-ospos.dev.walts.com".extraConfig = ''
+      reverse_proxy 127.0.0.1:8891 
+    '';
+    virtualHosts."http://gaming-schedule.test".extraConfig = ''
+      reverse_proxy 127.0.0.1:8892 
+    '';
+    virtualHosts."http://ordermanager.dev.walts.com".extraConfig = ''
+      reverse_proxy 127.0.0.1:8893 
+    '';
+    virtualHosts."http://forma-planner.test".extraConfig = ''
+      reverse_proxy 127.0.0.1:8894
+    '';
+    virtualHosts."http://neo-pos1.dev.walts.com".extraConfig = ''
+      reverse_proxy 127.0.0.1:8895
+    '';
+  };
+
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ "ryanm" ];
+  };
+
+  services.gnome.gnome-keyring = {
+    enable = true;
+  };
+  services.displayManager.ly.enable = true;
+
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="04D8", ATTRS{idProduct}=="eb52", TAG+="uaccess"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="a3c4", TAG+="uaccess"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="a3c5", TAG+="uaccess"
+  '';
+
+  systemd.timers."taskwarrior-sync" = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "2m";
+      OnUnitActiveSec = "2m";
+      Unit = "taskwarrior-sync.service";
+    };
+  };
+
+  systemd.services."taskwarrior-sync" = {
+    script = ''
+      set -eu
+      ${pkgs.taskwarrior3}/bin/task sync
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = "ryanm";
+    };
+  };
+
+  systemd.user.services.xdg-desktop-portal-wlr = {
+    path = [
+      pkgs.rofi # or wofi, fuzzel, etc.
+    ];
+  };
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+  services.hardware.openrgb = {
+    enable = true;
+    package = pkgs.openrgb-with-all-plugins;
+    motherboard = "amd";
+    startupProfile = "pink";
+  };
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "25.05"; # Did you read the comment?
+
+}

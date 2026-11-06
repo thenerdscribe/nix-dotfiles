@@ -1,0 +1,220 @@
+{ pkgs, ... }:
+{
+  home = {
+    file = {
+      ".config/nvim/after/" = {
+        source = ../../dots/nvim/after;
+      };
+      ".config/zellij/" = {
+        source = ../../dots/zellij;
+      };
+      ".config/fzf/" = {
+        source = ../../dots/fzf;
+      };
+    };
+    sessionVariables = {
+      GTK_THEME = "Fluent-Dark";
+      XDG_CURRENT_DESKTOP = "niri";
+      XDG_SESSION_TYPE = "wayland";
+      XDG_SESSION_DESKTOP = "niri";
+      QT_QPA_PLATFORM = "wayland";
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      QT_QPA_PLATFORMTHEME = "gtk3";
+      QT_QPA_PLATFORMTHEME_QT6 = "gtk3";
+      GOPATH = "/home/ryanm/go";
+      PHP_CS_FIXER_IGNORE_ENV = 1;
+      EDITOR = "nvim";
+      FZF_DEFAULT_COMMAND = "fd --hidden --strip-cwd-prefix --exclude .git";
+      FZF_CTRL_T_OPTS = ''
+        --walker-skip .git,node_modules,target \
+        --preview 'bat -n --color=always {}' \
+        --bind 'ctrl-/:change-preview-window(down|hidden|)' '';
+      FZF_CTRL_R_OPTS = ''
+        --preview 'echo {}' --preview-window up:3:hidden:wrap \
+                    --bind 'ctrl-/:toggle-preview' \
+                    --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' \
+                    --color header:italic \
+                    --header 'Press CTRL-Y to copy command into clipboard' '';
+      FZF_ALT_C_OPTS = ''
+        --walker-skip .git,node_modules,target \
+        --preview 'tree -C {}' '';
+      HISTFILE = "~/.zsh_history";
+      HISTSIZE = "100000";
+      SAVEHIST = "100000";
+    };
+  };
+
+  programs = {
+    zoxide.enable = true;
+    ripgrep.enable = true;
+    fd.enable = true;
+    btop.enable = true;
+    jq.enable = true;
+    lazygit.enable = true;
+    bat = {
+      enable = true;
+      config = {
+        theme = "Catppuccin Mocha"; # Fix this for bat
+      };
+    };
+    eza = {
+      enable = true;
+    };
+    git = {
+      enable = true;
+    };
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      autocd = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      plugins = [
+        {
+          name = "vi-mode";
+          src = pkgs.zsh-vi-mode;
+          file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+        }
+      ];
+      shellAliases = {
+        nfu = "nix flake update";
+        mrs = "sudo nix run nix-darwin -- switch --flake ~/.config/nix";
+        ssh = "TERM='xterm' ssh";
+        vim = "nvim";
+        pbc = "pbcopy";
+        pbp = "pbpaste";
+        c = "clear";
+        zwl = "zellij -l welcome";
+        zkl = "zellij kill-all-sessions -y; zellij delete-all-sessions -y";
+        ls = "eza --icons --color=always";
+        la = "ls -a";
+        ll = "ls -al";
+        cat = "bat";
+        ql = "qlmanage -p";
+        pu = "pushd";
+        nrs = "sudo nixos-rebuild switch --flake '.#nixos'";
+        gcam = "git commit -am";
+        gaa = "git add --all";
+        gss = "git status -s";
+        gd = "git diff";
+        gp = "git push";
+        gl = "git pull";
+        gco = "git checkout";
+        gsta = "git stash";
+        gstaa = "git stash apply";
+        gcm = "git checkout master";
+        grb = "git rebase";
+        gb = "git branch";
+        # composer = "valet composer";
+        # php = "valet php";
+        art = "php artisan";
+        stress = "./vendor/bin/pest stress";
+        zlss = "zellij list-sessions --no-formatting --short";
+        zls = "zellij list-sessions";
+        wbp = "wl-paste";
+        wbc = "wl-copy";
+      };
+      initContent = ''
+          function ns () {
+              nix-shell -p $1 --command zsh
+          }
+        function za () {
+            local sessions="$(zellij list-sessions --no-formatting --short)"
+            if [ -z $sessions ]
+            then
+                return;
+            fi
+            if [ -z $1 ]; then
+                local session="$(echo $sessions | fzf)";
+            else 
+                local session="$(echo $sessions | fzf --select-1 -q $1)";
+            fi
+            zellij attach $session
+        };
+        setopt autopushd
+        function my_init() {
+          bindkey '^ ' autosuggest-accept
+          [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+          export KEYTIMEOUT=2
+          bindkey -r '^R'
+          bindkey -r '^G'
+          source "$(fzf-share)/key-bindings.zsh"
+          source "$(fzf-share)/completion.zsh"
+          [ -f ~/.config/fzf/fzf-git.sh ] && source ~/.config/fzf/fzf-git.sh
+        }
+        zvm_after_init_commands+=(my_init)
+        eval "$(devenv hook zsh)"
+      '';
+    };
+    starship = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {
+        add_newline = true;
+        format = ''
+          $username $directory $git_branch$git_status $nix_shell $hostname
+          $character 
+        '';
+        directory = {
+          style = "fg:#8bd5ca";
+          format = "[$path]($style)";
+          truncation_length = 3;
+          truncation_symbol = "…/";
+          substitutions = {
+            Desktop = "󰇅";
+            Documents = "󰈙 ";
+            Downloads = " ";
+            Music = " ";
+            Pictures = " ";
+          };
+        };
+        hostname = {
+          ssh_only = true;
+          format = "[$ssh_symbol$hostname]($style)";
+        };
+        username = {
+          show_always = true;
+          style_user = "fg:#8aadf4";
+          format = "[󰿘 ]($style)";
+        };
+        git_branch = {
+          symbol = "";
+          style = "fg:#f0c6c6";
+          format = "[$symbol $branch]($style)";
+        };
+        git_status = {
+          style = "fg:#ed8796";
+          format = "[$all_status$ahead_behind]($style)";
+        };
+        character = {
+          format = "[$symbol](bg: #45475a)";
+          vimcmd_symbol = "[ ](fg:#eed49f)";
+          success_symbol = "[ ](fg:#a6da95)";
+          error_symbol = "[ ](fg:#ed8796)";
+          vimcmd_replace_symbol = "[R](fg:#dbbc7f)";
+          vimcmd_replace_one_symbol = "[RO](fg:#dbbc7f)";
+          vimcmd_visual_symbol = "[V](fg:#dbbc7f)";
+        };
+        nix_shell = {
+          symbol = " ";
+          format = "[$symbol]($style)";
+          style = "fg:#eed49f";
+          impure_msg = "(I)";
+          pure_msg = "(P)";
+          unknown_msg = "";
+          heuristic = false;
+        };
+        time = {
+          disabled = true;
+          time_format = "%r"; # Hour:Minute Format
+          style = "bg:#74c7ec";
+          format = "[ ♥ $time ]($style)";
+        };
+      };
+    };
+  };
+}

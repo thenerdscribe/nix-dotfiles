@@ -1,0 +1,25 @@
+layout {
+    cwd "~/Sites/neo-pos1"
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+    }
+    tab name="Editor" focus=true cwd="~/Sites/neo-pos1" {
+        pane name="Neovim" focus=true command="zsh" {
+            args "-c" "nix develop --command zsh"
+        }
+    }
+    tab name="Commands" cwd="~/Sites/neo-pos1" {
+        pane name="Commands" command="zsh" {
+            args "-c" "nix develop --command zsh"
+        }
+    }
+    tab name="Watchers" cwd="~/Sites/neo-pos1/public" {
+        pane name="Server" command="zsh" {
+            args "-c" "nix develop --command 'php' '-S' '127.0.0.1:8895'"
+        }
+    }
+}
+

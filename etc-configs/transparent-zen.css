@@ -1,0 +1,14 @@
+:root {
+  --zen-main-browser-background: rgba(0, 0, 0, 0) !important;
+  --toolbox-bgcolor: rgba(0, 0, 0, 0) !important;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+#browser {
+  background-color: transparent !important;
+}
+app.zen_browser.zen {
+  background-color: transparent !important;
+}

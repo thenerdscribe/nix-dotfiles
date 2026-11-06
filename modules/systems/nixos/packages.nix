@@ -1,0 +1,125 @@
+{
+  pkgs,
+  inputs,
+  ...
+}:
+let
+  kenku = pkgs.callPackage ./kenku-fm.nix { inherit pkgs; };
+in
+{
+  home.packages = with pkgs; [
+    _7zip-zstd-rar
+    #alacritty
+    audacious
+    baobab
+    candy-icons
+    cava
+    cheese
+    chromium
+    claude-code
+    claude-desktop
+    cliphist
+    cmus
+    curl
+    dconf
+    #delta
+    #devenv
+    #dig
+    discord
+    #distrobox
+    #fastfetch
+    ffmpeg_8-full
+    file
+    firefoxpwa
+    fluent-gtk-theme
+    fluent-icon-theme
+    font-awesome
+    fuzzel
+    #gh
+    ghostty
+    # gimp2-with-plugins
+    gnome-connections
+    go
+    gradia
+    grim
+    gum
+    #imagemagick
+    inkscape-with-extensions
+    inotify-tools
+    inputs.zennotes.packages.${pkgs.system}.zennotes-desktop
+    kenku
+    less
+    libnotify
+    libsecret
+    lnav
+    magic-wormhole
+    nautilus
+    nodejs
+    obsidian
+    ollama-vulkan
+    openssl
+    #pandoc
+    pavucontrol
+    pcmanfm
+    playerctl
+    poppler-utils
+    postman
+    prettyping
+    protonup-qt
+    proton-vpn
+    pulseaudio
+    pup
+    (python313.withPackages (
+      p: with p; [
+        pandas
+        requests
+        matplotlib
+      ]
+    ))
+    qmk
+    #qobuz-player
+    r2modman
+    redis
+    # rembg
+    resvg
+    #ripgrep-all
+    rmpc
+    rustdesk-flutter
+    satty
+    scribus
+    signal-desktop
+    slack
+    slurp
+    smartmontools
+    #spotatui
+    spotify
+    sqlite
+    streamdeck-ui
+    sushi
+    #swaynotificationcenter
+    syncthing
+    tableplus
+    tailscale
+    # tasksh
+    # taskwarrior3
+    # taskwarrior-tui
+    termusic
+    texliveFull
+    tree
+    ueberzugpp
+    #unzip
+    #via
+    #vial
+    vicinae
+    wayfreeze
+    wezterm
+    wf-recorder
+    # wget
+    wlogout
+    xarchiver
+    #yazi-unwrapped
+    #yt-dlp
+    yubioath-flutter
+    zellij
+  ];
+}

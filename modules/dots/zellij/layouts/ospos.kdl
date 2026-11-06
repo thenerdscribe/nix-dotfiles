@@ -1,0 +1,31 @@
+layout {
+    cwd "~/Sites/ospos-web"
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+    }
+    tab name="web" focus=true cwd="~/Sites/ospos-web" {
+        pane focus=true name="Editor" command="nvim" {
+
+        }
+    }
+    tab name="api" cwd="~/Sites/api-ospos" {
+        pane name="Editor" command="nvim" {
+
+        }
+    }
+    tab name="watchers" {
+        pane name="React Server" command="zsh" cwd="~/Sites/ospos-web" {
+            args "-c" "nix develop --command 'npm' 'run' 'start'"
+        }
+        pane name="Server" command="zsh" cwd="~/Sites/api-ospos" {
+            args "-c" "nix develop --command 'php' 'artisan' 'serve' '--port=8891'"
+        }
+    }
+    tab name="scratch" cwd="/Users/ryanmorton/" {
+        pane
+    }
+}
+
