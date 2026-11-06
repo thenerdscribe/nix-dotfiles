@@ -41,6 +41,7 @@ in
           inputs.zen-browser.homeModules.twilight
           inputs.mangowm.hmModules.mango
           inputs.dfiles.homeModules.dux-files
+          ../shared/shared_packages.nix
           ./packages.nix
           ../../applications/mango
           ../../applications/neovim

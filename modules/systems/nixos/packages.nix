@@ -8,6 +8,67 @@ let
 in
 {
   home.packages = with pkgs; [
+    _7zip-zstd-rar
+    #alacritty
+    audacious
+    baobab
+    candy-icons
+    cava
+    cheese
+    chromium
+    claude-code
+    claude-desktop
+    cliphist
+    cmus
+    curl
+    dconf
+    #delta
+    #devenv
+    #dig
+    discord
+    #distrobox
+    #fastfetch
+    ffmpeg_8-full
+    file
+    firefoxpwa
+    fluent-gtk-theme
+    fluent-icon-theme
+    font-awesome
+    fuzzel
+    #gh
+    ghostty
+    # gimp2-with-plugins
+    gnome-connections
+    go
+    gradia
+    grim
+    gum
+    #imagemagick
+    inkscape-with-extensions
+    inotify-tools
+    inputs.zennotes.packages.${pkgs.system}.zennotes-desktop
+    kenku
+    less
+    libnotify
+    libsecret
+    lnav
+    magic-wormhole
+    nautilus
+    nodejs
+    obsidian
+    ollama-vulkan
+    openssl
+    #pandoc
+    pavucontrol
+    pcmanfm
+    playerctl
+    poppler-utils
+    postman
+    prettyping
+    protonup-qt
+    proton-vpn
+    pulseaudio
+    pup
     (python313.withPackages (
       p: with p; [
         pandas
@@ -15,115 +76,50 @@ in
         matplotlib
       ]
     ))
-    # winboat
-    yt-dlp
-    pandoc
-    texliveFull
-    rmpc
-    claude-desktop
-    inputs.zennotes.packages.${pkgs.system}.zennotes-desktop
-    kenku
-    claude-code
-    sqlite
-    vicinae
-    go
-    curl
-    less
-    nh
-    ffmpeg_8-full
-    poppler-utils
-    prettyping
-    redis
-    tailscale
-    gh
-    tree
-    delta
-    magic-wormhole
-    yazi-unwrapped
-    pcmanfm
-    xarchiver
-    # gimp2-with-plugins
-    ripgrep-all
-    tableplus
-    imagemagick
-    pup
-    gum
-    font-awesome
-    slack
-    discord
-    spotify
-    lnav
-    sqlite
-    playerctl
-    obsidian
-    signal-desktop
-    zellij
-    distrobox
-    cliphist
-    ueberzugpp
-    resvg
-    imagemagick
-    file
-    cava
-    libnotify
-    smartmontools
-    fluent-gtk-theme
-    fluent-icon-theme
-    candy-icons
-    audacious
-    rustdesk-flutter
-    inkscape-with-extensions
-    scribus
-    sushi
-    cheese
-    swaynotificationcenter
-    pavucontrol
-    cmus
-    qobuz-player
-    dconf
-    streamdeck-ui
-    libsecret
-    pulseaudio
-    wezterm
-    chromium
-    ghostty
-    termusic
-    wf-recorder
-    wget
-    wlogout
-    postman
-    syncthing
-    gnome-connections
-    unzip
-    alacritty
-    fuzzel
-    vial
-    via
-    ollama-vulkan
-    inotify-tools
-    protonup-qt
-    proton-vpn
-    dig
-    openssl
-    r2modman
-    spotatui
-    _7zip-zstd-rar
-    fastfetch
-    firefoxpwa
-    # rembg
-    baobab
-    nautilus
-    yubioath-flutter
-    nodejs
-    devenv
-    taskwarrior3
-    taskwarrior-tui
-    tasksh
-    gradia
     qmk
-    grim
-    slurp
+    #qobuz-player
+    r2modman
+    redis
+    # rembg
+    resvg
+    #ripgrep-all
+    rmpc
+    rustdesk-flutter
     satty
+    scribus
+    signal-desktop
+    slack
+    slurp
+    smartmontools
+    #spotatui
+    spotify
+    sqlite
+    streamdeck-ui
+    sushi
+    #swaynotificationcenter
+    syncthing
+    tableplus
+    tailscale
+    # tasksh
+    # taskwarrior3
+    # taskwarrior-tui
+    termusic
+    texliveFull
+    tree
+    ueberzugpp
+    #unzip
+    #via
+    #vial
+    vicinae
     wayfreeze
+    wezterm
+    wf-recorder
+    # wget
+    wlogout
+    xarchiver
+    #yazi-unwrapped
+    #yt-dlp
+    yubioath-flutter
+    zellij
   ];
 }
