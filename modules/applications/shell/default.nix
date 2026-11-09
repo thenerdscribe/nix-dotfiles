@@ -147,7 +147,6 @@
           [ -f ~/.config/fzf/fzf-git.sh ] && source ~/.config/fzf/fzf-git.sh
         }
         zvm_after_init_commands+=(my_init)
-        eval "$(devenv hook zsh)"
       '';
     };
     starship = {
