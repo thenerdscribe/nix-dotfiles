@@ -11,16 +11,16 @@ layout {
 
         }
     }
-    tab name="api" cwd="~/Sites/api-ospos" {
+    tab name="api" cwd="~/Sites/neo-ospos" {
         pane name="Editor" command="nvim" {
 
         }
     }
     tab name="watchers" {
         pane name="React Server" command="zsh" cwd="~/Sites/ospos-web" {
-            args "-c" "nix develop --command 'npm' 'run' 'start'"
+            args "-c" "NODE_OPTIONS=--openssl-legacy-provider nix develop --command 'yarn' 'start'"
         }
-        pane name="Server" command="zsh" cwd="~/Sites/api-ospos" {
+        pane name="Server" command="zsh" cwd="~/Sites/neo-ospos" {
             args "-c" "nix develop --command 'php' 'artisan' 'serve' '--port=8891'"
         }
     }

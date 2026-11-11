@@ -23,6 +23,9 @@ layout {
         pane name="Server" command="zsh" {
             args "-c" "nix develop --command 'php' 'artisan' 'serve' '--port=8889'"
         }
+        pane name="Horizon" command="zsh" {
+            args "-c" "nix develop --command 'php' 'artisan' 'horizon:watch'"
+        }
     }
 }
 

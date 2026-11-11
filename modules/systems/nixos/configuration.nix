@@ -85,7 +85,7 @@
   };
   networking.extraHosts = ''
     34.216.26.245  ims.walts.com retail-ims.walts.com
-    127.0.0.1 neo-tools.dev.walts.com awesome-ecomm.dev.walts.com inventory-api.dev.walts.com api-ospos.dev.walts.com gaming-schedule.test ordermanager.dev.walts.com forma-planner.test neo-pos1.dev.walts.com
+    127.0.0.1 neo-tools.dev.walts.com awesome-ecomm.dev.walts.com inventory-api.dev.walts.com api-ospos.dev.walts.com gaming-schedule.test ordermanager.dev.walts.com forma-planner.test neo-pos1.dev.walts.com mailpit.local syncthing.local
     35.90.134.222 ae-staging.walts.com
     54.200.214.235 test-ims.walts.com test-retail-ims.walts.com
     184.35.70.114 test-neo-wpos2.walts.com
@@ -271,6 +271,12 @@
     '';
     virtualHosts."http://neo-pos1.dev.walts.com".extraConfig = ''
       reverse_proxy 127.0.0.1:8895
+    '';
+    virtualHosts."http://mailpit.local".extraConfig = ''
+      reverse_proxy 127.0.0.1:8025
+    '';
+    virtualHosts."http://syncthing.local".extraConfig = ''
+      reverse_proxy 127.0.0.1:8384
     '';
   };
 
