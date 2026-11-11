@@ -59,7 +59,16 @@
       tag_rule = [
         "id:*,monitor_name:^DP-1$,layout_name:scroller"
         "id:*,monitor_name:^DP-2$,layout_name:vertical_scroller"
-        "id:*,monitor_name:^DP-2$,scroller_default_proportion:0.3333"
+      ];
+      axisbinds = [
+        "SUPER,LEFT,viewtoleft_have_client"
+        "SUPER,RIGHT,viewtoright_have_client"
+        "SUPER,UP,viewtoleft_have_client"
+        "SUPER,DOWN,viewtoright_have_client"
+        "ALT,LEFT,focusdir,left"
+        "ALT,RIGHT,focusdir,right"
+        "ALT,UP,focusdir,up"
+        "ALT,DOWN,focusdir,down"
       ];
       binds = [
         "SUPER,q,killclient"
