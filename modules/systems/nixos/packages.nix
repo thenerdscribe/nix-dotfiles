@@ -103,7 +103,6 @@ in
     # tasksh
     # taskwarrior3
     # taskwarrior-tui
-    termusic
     texliveFull
     tree
     ueberzugpp

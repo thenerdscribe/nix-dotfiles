@@ -1,6 +1,6 @@
 font-family = "FiraCode Nerd Font Light"
 font-size = 10
-background-opacity = 0.95
+background-opacity = 0.75
 background-blur = true
 theme = catppuccin-macchiato
 adjust-cell-height = 85%
