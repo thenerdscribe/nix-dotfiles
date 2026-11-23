@@ -13,6 +13,7 @@
     imagemagick
     pandoc
     prettyping
+    pre-commit
     (python313.withPackages (
       p: with p; [
         pandas
