@@ -28,6 +28,7 @@
         "streamdeck -n"
       ];
       focus_color = "0x82ffd6ff";
+      maximized_screen_color = "0x7e0aff";
       cursor_theme = "Sweet-dark";
       cursor_size = "18";
       cursor_hide_timeout = "3";
