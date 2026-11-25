@@ -312,7 +312,7 @@ vim.lsp.config("laravel_lsp", {
 vim.lsp.enable("laravel_lsp")
 
 vim.lsp.config["phpantom-lsp"] = {
-	cmd = { "/home/ryanm/Developer/test-phpantom/result/bin/phpantom_lsp" },
+	cmd = { "/home/ryanm/Developer/2026-11-25-phphantom/phpantom_lsp" },
 	filetypes = { "php" },
 	root_markers = { "composer.json", ".git" },
 	capabilities = capabilities,
